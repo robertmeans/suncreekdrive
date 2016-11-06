@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  font-family: Calibri;
+  color: #757575;
+  line-height: 1.2em;
+}
+em {
+  font-weight: bold;
+  color: #333;
+}
+p.underline {
+    text-decoration: underline;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+p.pad {
+  margin-bottom: 10px;
+}
+.hide {
+  display: none;
+}
+hr.owner-tenant-divider {
+  // width: 96%;
+  margin: 10px auto 15px auto;
+  color: green;
+}
+i.fa {
+  color: #757575;
+  width: 15px;
+}
+i.fa-mobile {
+  // color: red;
+  margin-left: 4px;
+  width: 10px;
+}
+a {
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
+}
+a.email-links {
+  display: block;
+  width: 96%;
+  max-width: 260px;
+  margin: 5px auto;
+  padding: 15px;
+  text-align: center;
+  background-color: blue;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 1px solid blue;
+  transition: background-color .3s ease;
+  &:hover {
+    color: blue;
+    text-decoration: none;
+    background-color: white;
+  }
+}
+a.tel-link {
+  color: inherit;
+  text-decoration: none; 
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+p.main-address {
+  display: block;
+  padding: 10px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #333b3d;
+  color: white;
+  border-radius: 5px 5px 0px 0px;
+}
+#contact-block {
+  display: block;
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 0px 0px 5px 5px;
+  border-right: 1px solid #8f8f8f;
+  border-bottom: 1px solid #8f8f8f;
+  border-left: 1px solid #8f8f8f;
+}
+#card {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 5px;
+  box-shadow: -6px 6px 6px -2px rgba(0,0,0,0.39); 
+}
+
+footer {
+  width: 100%;
+  height: 200px;
+  background-color: #333333;
+  color: white;
+  text-align: center;
+  padding-top: 60px;
+  margin-top: 50px;
+  .footer-link {
+    color: inherit;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
