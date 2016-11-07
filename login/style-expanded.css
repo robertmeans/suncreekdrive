@@ -73,9 +73,9 @@ table {
 
 body {
   font-size: 16px;
-  font-family: Calibri;
+  font-family: 'Lato', sans-serif;
   color: #757575;
-  line-height: 1.2em;
+  line-height: 1.5em;
 }
 
 em {
@@ -144,6 +144,7 @@ a.tel-link {
 }
 a.tel-link:hover {
   text-decoration: none;
+  cursor: default;
 }
 
 #wrapper {
@@ -165,7 +166,7 @@ a.tel-link:hover {
   display: block;
   width: 100%;
   margin: 0;
-  padding: 20px 20px 20px 20px;
+  padding: 20px 20px 30px 20px;
 }
 
 p.main-address {
@@ -180,6 +181,10 @@ p.main-address {
 }
 
 @media screen and (min-width: 865px) {
+  body {
+    line-height: 1.2em;
+  }
+
   #wrapper {
     width: 90%;
     display: -ms-flexbox;

@@ -13,6 +13,7 @@
 	<!-- <link rel="icon" type="image/ico" href="_images/favicon.ico"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 	<link rel="stylesheet" href="style.css?<?php echo time(); ?>" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
@@ -26,7 +27,7 @@
 		?>
 
 <div class="contact">
-<?php echo "<p class=\"main-address\">" . $contact_info["sun_creek_street_number"] . " Sun Creek Drive</p>"; ?>
+<?php echo 	"<p class=\"main-address\">" . $contact_info["sun_creek_street_number"] . " Sun Creek Drive</p>"; ?>
 <div class="card">
 	<?php
 		// ############################### Owner Information #################################
@@ -124,7 +125,7 @@
 		// ########################### Owner alternate home address ###########################
 		// Owner alternate home address
 		if ($contact_info["owner_alt_street1"] !== "x") {
-			echo "<p class=\"underline\">Owner Alternate Mailing Address</p>";
+			echo "<p class=\"underline\">Owner Mailing Address</p>";
 			echo $contact_info["owner_alt_street1"] . "<br />";
 		}
 		if ($contact_info["owner_alt_street2"] !== "x") {

@@ -4,9 +4,9 @@
 
 body {
   font-size: 16px;
-  font-family: Calibri;
+  font-family: 'Lato', sans-serif;
   color: #757575;
-  line-height: 1.2em;
+  line-height: 1.5em;
 }
 em {
   font-weight: bold;
@@ -67,9 +67,9 @@ a.tel-link {
   text-decoration: none; 
   &:hover {
     text-decoration: none;
+    cursor: default;
   }
 }
-
 #wrapper {
   width: 90%;
   margin: 0 auto;
@@ -87,7 +87,7 @@ a.tel-link {
   display: block;
   width: 100%;
   margin: 0;
-  padding: 20px 20px 20px 20px;
+  padding: 20px 20px 30px 20px;
   
 }
 p.main-address {
@@ -103,6 +103,9 @@ p.main-address {
 
 
 @media screen and (min-width: 865px) {
+  body {
+    line-height: 1.2em;
+  }
   #wrapper {
     width: 90%;
     display: flex;
