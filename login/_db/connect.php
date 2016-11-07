@@ -15,6 +15,5 @@ $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 // Test if connection occured
 if(mysqli_connect_errno()) {
 	die("Datebase connection failed: " . mysqli_connect_error() . " (" . mysqli_connect_errno() . ")" ); }
-
  ?>
  
