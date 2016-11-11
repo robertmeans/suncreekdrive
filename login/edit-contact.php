@@ -1,9 +1,9 @@
+<?php require_once '_includes/session.php'; ?>
 <?php require '_db/connect.php'; ?>
 <?php require_once '_includes/functions.php'; ?>
-<?php include '_includes/header.php'; ?>
+<?php include '_includes/validation-functions.php'; ?>
 
-
-<?php 
+<?php // $_GET["unit"]
 
 	if (isset($_GET["unit"])) {
 		$current_contact_to_edit = $_GET["unit"];
@@ -13,14 +13,133 @@
 	}
  ?>
 
+<?php 
+
+// ----------------------------------------------------------------------------- Don't know if any of this is correct...
+if (isset($_POST['submit'])) {
+	// Process the form
+
+	// validations
+	// $required_fields = array("field_name1", "field_name2", "field_name3", "etc");
+	// validate_presences($required_fields);
+
+	$fields_with_max_lengths = array("owner1_first_name" => 25, "owner1_last_name" => 25);
+	validate_max_lengths($fields_with_max_lengths);
+
+	if (empty($errors)) {
+		// Perform Update 
+
+		$street_address = $current_contact_to_edit;
+		$owner1_first_name = mysql_prep($_POST['owner1_first_name']);
+		$owner1_last_name = mysql_prep($_POST['owner1_last_name']);
+		$owner1_cell = mysql_prep($_POST['owner1_cell']);
+		$owner1_email = mysql_prep($_POST['owner1_email']);
+
+		$owner2_first_name = mysql_prep($_POST['owner2_first_name']);
+		$owner2_last_name = mysql_prep($_POST['owner2_last_name']);
+		$owner2_cell = mysql_prep($_POST['owner2_cell']);
+		$owner2_email = mysql_prep($_POST['owner2_email']);
+
+		$owner_home_phone = mysql_prep($_POST['owner_home_phone']);
+
+		$owner_alt_street1 = mysql_prep($_POST['owner_alt_street1']);
+		$owner_alt_street2 = mysql_prep($_POST['owner_alt_street2']);
+		$owner_alt_city = mysql_prep($_POST['owner_alt_city']);
+		$owner_alt_state = mysql_prep($_POST['owner_alt_state']);
+		$owner_alt_zip = mysql_prep($_POST['owner_alt_zip']);
+
+		$tenant1_first_name = mysql_prep($_POST['tenant1_first_name']);
+		$tenant1_last_name = mysql_prep($_POST['tenant1_last_name']);
+		$tenant1_cell = mysql_prep($_POST['tenant1_cell']);
+		$tenant1_email = mysql_prep($_POST['tenant1_email']);
+
+		$tenant2_first_name = mysql_prep($_POST['tenant2_first_name']);
+		$tenant2_last_name = mysql_prep($_POST['tenant2_last_name']);
+		$tenant2_cell = mysql_prep($_POST['tenant2_cell']);
+		$tenant2_email = mysql_prep($_POST['tenant2_email']);
+
+		$tenant_home_phone = mysql_prep($_POST['tenant_home_phone']);
+
+		$notes = mysql_prep($_POST['notes']);
+
+		// $escaped_string = mysqli_real_escape_string($connection, $string);
+		// return $escaped_string;
+
+		$query  = "UPDATE neighbors SET ";
+		$query .= "owner1_first_name = '{$owner1_first_name}', ";
+		$query .= "owner1_last_name = '{$owner1_last_name}', ";
+		$query .= "owner1_cell = '{$owner1_cell}', ";
+		$query .= "owner1_email = '{$owner1_email}', ";
+
+		$query .= "owner2_first_name = '{$owner2_first_name}', ";
+		$query .= "owner2_last_name = '{$owner2_last_name}', ";
+		$query .= "owner2_cell = '{$owner2_cell}', ";
+		$query .= "owner2_email = '{$owner2_email}', ";
+
+		$query .= "owner_home_phone = '{$owner_home_phone}', ";
+
+		$query .= "owner_alt_street1 = '{$owner_alt_street1}', ";
+		$query .= "owner_alt_street2 = '{$owner_alt_street2}', ";
+		$query .= "owner_alt_city = '{$owner_alt_city}', ";
+		$query .= "owner_alt_state = '{$owner_alt_state}', ";
+		$query .= "owner_alt_zip = '{$owner_alt_zip}', ";
+
+		$query .= "tenant1_first_name = '{$tenant1_first_name}', ";
+		$query .= "tenant1_last_name = '{$tenant1_last_name}', ";
+		$query .= "tenant1_cell = '{$tenant1_cell}', ";
+		$query .= "tenant1_email = '{$tenant1_email}', ";
+
+		$query .= "tenant2_first_name = '{$tenant2_first_name}', ";
+		$query .= "tenant2_last_name = '{$tenant2_last_name}', ";
+		$query .= "tenant2_cell = '{$tenant2_cell}', ";
+		$query .= "tenant2_email = '{$tenant2_email}', ";
+
+		$query .= "tenant_home_phone = '{$tenant_home_phone}', ";
+
+		$query .= "notes = '{$notes}' ";
+
+		$query .= "WHERE sun_creek_street_number = '{$street_address}' ";
+		$query .= "LIMIT 1";
+
+		$result = mysqli_query($connection, $query);
+			redirect_to("manage-contacts.php");
+
+		// ^^ Above used to read like below but had to get rid of the if statement b/c it
+		// would not allow for no changes to be submitted to DB.
+		// 
+		// if ($result && mysqli_affected_rows($connection) == 1) {
+		// 	// Success
+		// 	$_SESSION["message"] = "Contact Updated.";
+			//redirect_to("manage-contacts.php");
+		// } else {
+			// Update Failed
+		// 	$message = "Update did not process. Likely Internet hiccup. Try again.";	
+		// }	
+	}
+
+} else {
+	// This is probably a GET request
+} // end: if (isset($_POST['submit']))
+
+ ?>
+
+<?php include '_includes/admin-header.php'; ?>
+
 
 <div id="flex-wrapper-update">
 <div class="contact-update">
 <div class="address-header">
-	<?php echo 	"<p class=\"main-address\">" . $current_contact_to_edit . " Sun Creek Drive</p>"; ?>
+	<?php echo 	"<p class=\"main-address\">Edit > " . $current_contact_to_edit . " Sun Creek Drive</p>"; ?>
 </div><!-- .address-header -->
 <div class="card-update">
 
+	<?php 
+		if (!empty($message)) {
+			echo "<div class=\"message\">" . $message . "</div>";
+		}
+
+	 ?>
+	<?php echo form_errors($errors); ?>
 <?php  	
 // This has to stay here b/c it echos an error 
 // onto the card if bogus address is entered into url
@@ -28,8 +147,41 @@ $this_info = find_contact_by_address($current_contact_to_edit);
 include '_includes/edit-contact-variables.php';
 ?>
 
-<form action="update-contact.php" method="post">
+<form action="edit-contact.php?unit=<?php echo $current_contact_to_edit ?>" method="post">
+
 <p>Owner 1 First Name: <input type="text" name="owner1_first_name" value="<?php echo $o1fn; ?>" /></p>
+<p>Owner 1 Last Name: <input type="text" name="owner1_last_name" value="<?php echo $o1ln; ?>" /></p>
+<p>Owner 1 Cell: <input type="text" name="owner1_cell" value="<?php echo $o1c; ?>" /></p>
+<p>Owner 1 Email: <input type="text" name="owner1_email" value="<?php echo $o1em; ?>" /></p>
+<br />
+<p>Owner 2 First Name: <input type="text" name="owner2_first_name" value="<?php echo $o2fn; ?>" /></p>
+<p>Owner 2 Last Name: <input type="text" name="owner2_last_name" value="<?php echo $o2ln; ?>" /></p>
+<p>Owner 2 Cell: <input type="text" name="owner2_cell" value="<?php echo $o2c; ?>" /></p>
+<p>Owner 2 Email: <input type="text" name="owner2_email" value="<?php echo $o2em; ?>" /></p>
+<br />
+<p>Owner Home Phone: <input type="text" name="owner_home_phone" value="<?php echo $ohp; ?>" /></p>
+<br />
+<p>Owner Alt Street 1: <input type="text" name="owner_alt_street1" value="<?php echo $oas1; ?>" /></p>
+<p>Owner Alt Street 2: <input type="text" name="owner_alt_street2" value="<?php echo $oas2; ?>" /></p>
+<p>Owner Alt City: <input type="text" name="owner_alt_city" value="<?php echo $oac; ?>" /></p>
+<p>Owner Alt State: <input type="text" name="owner_alt_state" value="<?php echo $oas; ?>" /></p>
+<p>Owner Alt Zip: <input type="text" name="owner_alt_zip" value="<?php echo $oaz; ?>" /></p>
+<br />
+
+<p>Tenant 1 First Name: <input type="text" name="tenant1_first_name" value="<?php echo $t1fn; ?>" /></p>
+<p>Tenant 1 Last Name: <input type="text" name="tenant1_last_name" value="<?php echo $t1ln; ?>" /></p>
+<p>Tenant 1 Cell: <input type="text" name="tenant1_cell" value="<?php echo $t1c; ?>" /></p>
+<p>Tenant 1 Email: <input type="text" name="tenant1_email" value="<?php echo $t1em; ?>" /></p>
+<br />
+<p>Tenant 2 First Name: <input type="text" name="tenant2_first_name" value="<?php echo $t2fn; ?>" /></p>
+<p>Tenant 2 Last Name: <input type="text" name="tenant2_last_name" value="<?php echo $t2ln; ?>" /></p>
+<p>Tenant 2 Cell: <input type="text" name="tenant2_cell" value="<?php echo $t2c; ?>" /></p>
+<p>Tenant 2 Email: <input type="text" name="tenant2_email" value="<?php echo $t2em; ?>" /></p>
+<br />
+<p>Tenant Home Phone: <input type="text" name="tenant_home_phone" value="<?php echo $thp; ?>" /></p>
+<br />
+<p>Notes:<br /><textarea rows="3" cols="40" name="notes"><?php echo $notes; ?></textarea></p>
+
 
 
 <?php 
@@ -40,7 +192,7 @@ include '_includes/edit-contact-variables.php';
 <br />
 <input type="submit" name="submit" value="Update" /><br />
 <br />
-<a href="index.php">cancel</a>
+<a href="manage-contacts.php">cancel</a>
 
 </form>
 

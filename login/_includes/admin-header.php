@@ -16,5 +16,5 @@
 </head>
 <body>
 <header>
-	 <a class="header-link" href="manage-contacts.php">Admin</a>
+	<a class="header-link" href="index.php">Home</a>
 </header>

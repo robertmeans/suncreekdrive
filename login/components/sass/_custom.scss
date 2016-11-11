@@ -57,6 +57,11 @@ hr.owner-tenant-divider {
   margin: 10px auto 15px auto;
   color: green;
 }
+.fa {
+  // prevents icon from floating
+  // above all other content.
+  transform: none;
+}
 i.fa-home {
   color: #6d7580;
   width: 15px;
@@ -148,11 +153,26 @@ a.tel-link {
   display: block;
   padding-top: 20px;
 }
-
+div.error {
+  padding: 10px 10px 10px 15px;
+  margin-bottom: 1em;
+  border: 1px solid #911b1b;
+  // border-radius: 3px;
+  color: #fff;
+  background-color: #911b1b;
+}
+div.message {
+  padding: 10px 10px 10px 15px;
+  margin-bottom: 1em;
+  border: 1px solid #333;
+  // border-radius: 3px;
+  color: #fff;
+  background-color: #666d75;
+}
 
 @media screen and (min-width: 865px) {
   body {
-    line-height: 1.2em;
+    line-height: 1.3em;
   }
   #flex-wrapper {
     width: 90%;

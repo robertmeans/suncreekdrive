@@ -5,11 +5,36 @@
 		exit;
 	}
 
+	function mysql_prep($string) {
+		global $connection;
+		
+		$escaped_string = mysqli_real_escape_string($connection, $string);
+		return $escaped_string;
+	}
+
 	function confirm_query($result) {
 		if (!$result) {
-			die("Database query failed.");
+			// die("Database query failed.");
+			die("Nope. Try again.");
 		}
 	}
+
+
+	function form_errors($errors=array()) {
+	$output = "";
+	if (!empty($errors)) {
+	  $output .= "<div class=\"error\">";
+	  $output .= "Please fix the following errors:";
+	  $output .= "<ul>";
+	  foreach ($errors as $key => $error) {
+	    $output .= "<li>{$error}</li>";
+	  }
+	  $output .= "</ul>";
+	  $output .= "</div>";
+	}
+	return $output;
+}
+
 
 	function return_all_content() {
 		global $connection;

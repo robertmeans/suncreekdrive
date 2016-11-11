@@ -32,4 +32,6 @@ $thp = $this_info["tenant_home_phone"];
 $t1c = $this_info["tenant1_cell"];
 $t2c = $this_info["tenant2_cell"];
 
+$notes = $this_info["notes"];
+
  ?>

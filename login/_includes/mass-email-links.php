@@ -10,10 +10,10 @@
 	$o1em = $contact_info["owner1_email"];
 	$o2em = $contact_info["owner2_email"];
 
-		if 	($o1em !== "x") {
+		if 	($o1em !== "") {
 			echo $o1em . "; ";
 		}
-		if 	($o2em !== "x") {
+		if 	($o2em !== "") {
 			echo $o2em . "; ";
 		}
 	}
@@ -27,10 +27,10 @@
 	$t1em = $contact_info["tenant1_email"];
 	$t2em = $contact_info["tenant2_email"];
 
-		if ($t1em !== "x") {
+		if ($t1em !== "") {
 			echo $t1em . "; ";
 		}
-		if ($t2em !== "x") {
+		if ($t2em !== "") {
 			echo $t2em . "; ";
 		}
 	}
@@ -46,16 +46,16 @@
 	$t1em = $contact_info["tenant1_email"];
 	$t2em = $contact_info["tenant2_email"];
 
-		if (($o1em !== "x") && ($t1em === "x"))  {
+		if (($o1em !== "") && ($t1em === ""))  {
 			echo $o1em . "; ";
 		}
-		if (($o2em !== "x") && ($t1em === "x")) {
+		if (($o2em !== "") && ($t1em === "")) {
 			echo $o2em . "; ";
 		}
-		if ($t1em !== "x") {
+		if ($t1em !== "") {
 			echo $t1em . "; ";
 		}
-		if ($t2em !== "x") {
+		if ($t2em !== "") {
 			echo $t2em . "; ";
 		}
 	}
@@ -71,16 +71,16 @@
 	$t1em = $contact_info["tenant1_email"];
 	$t2em = $contact_info["tenant2_email"];
 
-		if ($o1em !== "x") {
+		if ($o1em !== "") {
 			echo $o1em . "; ";
 		}
-		if ($o2em !== "x") {
+		if ($o2em !== "") {
 			echo $o2em . "; ";
 		}
-		if ($t1em !== "x") {
+		if ($t1em !== "") {
 			echo $t1em . "; ";
 		}
-		if ($t2em !== "x") {
+		if ($t2em !== "") {
 			echo $t2em . "; ";
 		}
 	}

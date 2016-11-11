@@ -8,8 +8,7 @@ a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
+dl, dt, dd, fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
@@ -31,10 +30,6 @@ footer, header, hgroup, menu, nav, section {
 
 body {
   line-height: 1;
-}
-
-ol, ul {
-  list-style: none;
 }
 
 blockquote, q {
@@ -87,6 +82,9 @@ header a.header-link {
 header a.header-link:hover {
   background-color: #b7ac80;
   color: #fff;
+}
+header a.home-link {
+  margin-right: 0;
 }
 
 #flex-wrapper-update {
@@ -203,6 +201,10 @@ hr.owner-tenant-divider {
   color: green;
 }
 
+.fa {
+  transform: none;
+}
+
 i.fa-home {
   color: #6d7580;
   width: 15px;
@@ -303,9 +305,25 @@ a.tel-link:hover {
   padding-top: 20px;
 }
 
+div.error {
+  padding: 10px 10px 10px 15px;
+  margin-bottom: 1em;
+  border: 1px solid #911b1b;
+  color: #fff;
+  background-color: #911b1b;
+}
+
+div.message {
+  padding: 10px 10px 10px 15px;
+  margin-bottom: 1em;
+  border: 1px solid #333;
+  color: #fff;
+  background-color: #666d75;
+}
+
 @media screen and (min-width: 865px) {
   body {
-    line-height: 1.2em;
+    line-height: 1.3em;
   }
 
   #flex-wrapper {

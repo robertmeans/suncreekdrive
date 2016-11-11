@@ -67,13 +67,13 @@ owner2_last_name (20)
 owner2_cell (15)
 owner2_email (40)
 
+owner_home_phone (15)
+
 owner_alt_street1 (40)
 owner_alt_street2 (40)
 owner_alt_city (40)
 owner_alt_state (2)
 owner_alt_zip (10)
-
-owner_home_phone (15)
 
 tenant1_first_name (20)
 tenant1_last_name (20)
