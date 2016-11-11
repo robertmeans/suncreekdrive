@@ -2,20 +2,25 @@
 <?php require_once '_includes/functions.php'; ?>
 <?php include '_includes/header.php'; ?>
 
-<!-- Email buttons at top of page -->
-<?php include '_includes/mass-email-links.php' ?>
-
-<div id="flex-wrapper">
+<div id="flex-wrapper-update">
 <?php 
-	mysqli_data_seek($result,0);
+	$result = return_all_content();
 	while($contact_info = mysqli_fetch_assoc($result)) {
 		?>
 <?php include '_includes/mass-email-variables.php' ?>
-<div class="contact">
+<div class="contact-update">
+
 <div class="address-header">
-	<?php echo 	"<p class=\"main-address\">" . $contact_info["sun_creek_street_number"] . " Sun Creek Drive</p>"; ?>
+<?php 	echo 	"<p class=\"main-address\">" . $contact_info["sun_creek_street_number"]
+		 		. " Sun Creek Drive</p><a class=\"edit-link\" 
+		 		href=\"edit-contact.php?unit=" . $contact_info["sun_creek_street_number"] . 
+		 		"\" title=\"Edit\">
+				<i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i>
+		 		</a>"; 
+	?>
 </div><!-- .address-header -->
-<div class="card">
+
+<div class="card-update">
 	<?php
 		// ############################### Owner Information #################################
 		//
