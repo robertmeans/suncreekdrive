@@ -60,7 +60,7 @@ div.buttons {
 		font-size: 100%;
 		display: inline-block;
 		padding: 40px;
-		background-color: #5fba7d;
+		background-color: #008D00;
 		color: #fff;
 		border: 1px solid #fff;
 		cursor: pointer;
@@ -69,7 +69,7 @@ div.buttons {
 		margin: 0 10px;
 		transition: background-color .2s ease;
 		&:hover {
-			background-color: #336c46;
+			background-color: #00CC00;
 			text-decoration: none;
 		}
 	}
@@ -77,7 +77,7 @@ div.buttons {
 		text-align: right;
 		display: inline-block;
 		padding: 40px;
-		background-color: #a92121;
+		background-color: #E50000;
 		color: #fff;
 		border: 1px solid #fff;
 		text-decoration: none;
@@ -85,7 +85,7 @@ div.buttons {
 		margin: 0 10px;
 		transition: background-color .2s ease;
 		&:hover {
-			background-color: #661010;
+			background-color: #7F0000;
 			text-decoration: none;
 		}
 	}	
