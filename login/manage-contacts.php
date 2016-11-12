@@ -1,7 +1,8 @@
 <?php require_once '_includes/session.php'; ?>
 <?php require '_db/connect.php'; ?>
 <?php require_once '_includes/functions.php'; ?>
-<?php include '_includes/admin-header.php'; ?>
+<?php $layout_context = "admin"; ?>
+<?php include '_includes/header.php'; ?>
 
 <div id="flex-wrapper-update">
 <?php 
@@ -12,12 +13,10 @@
 <div class="contact-update">
 
 <div class="address-header">
-<?php 	echo 	"<p class=\"main-address\">" . $contact_info["sun_creek_street_number"]
-		 		. " Sun Creek Drive</p><a class=\"edit-link\" 
-		 		href=\"edit-contact.php?unit=" . $contact_info["sun_creek_street_number"] . 
-		 		"\" title=\"Edit\">
-				<i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i>
-		 		</a>"; 
+<?php 	echo 	"<p class=\"main-address\">" . htmlentities($contact_info["sun_creek_street_number"])
+		 		. " Sun Creek Drive</p><a class=\"edit-link\" href=\"edit-contact.php?unit=" 
+		 		. htmlentities($contact_info["sun_creek_street_number"]) 
+		 		. "\" title=\"Edit\"> <i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i></a>"; 
 	?>
 </div><!-- .address-header -->
 

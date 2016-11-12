@@ -1,5 +1,6 @@
 <?php require '_db/connect.php'; ?>
 <?php require_once '_includes/functions.php'; ?>
+<?php $layout_context = "public"; ?>
 <?php include '_includes/header.php'; ?>
 
 <!-- Email buttons at top of page -->
@@ -13,7 +14,7 @@
 <?php include '_includes/mass-email-variables.php' ?>
 <div class="contact">
 <div class="address-header">
-	<?php echo 	"<p class=\"main-address\">" . $contact_info["sun_creek_street_number"] . " Sun Creek Drive</p>"; ?>
+	<?php echo 	"<p class=\"main-address\">" . htmlentities($contact_info["sun_creek_street_number"]) . " Sun Creek Drive</p>"; ?>
 </div><!-- .address-header -->
 <div class="card">
 	<?php

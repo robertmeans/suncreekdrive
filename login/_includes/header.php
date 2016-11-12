@@ -14,9 +14,15 @@
 	<link rel="stylesheet" href="style.css?<?php echo time(); ?>" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
-<body>
-<header>
-	 <div class="header-nav">
-	 	<a class="header-link" href="manage-contacts.php">Admin</a>
-	 </div>
+<body<?php if ($layout_context == "admin") { echo " class=\"edit-page\""; } ?>>
+<header<?php if ($layout_context == "admin") { echo " class=\"edit-page\""; } ?>>
+	<div class="header-nav">
+		<<?php echo "a class=\"header-link\" ";  
+			if ($layout_context == "admin") { 
+				echo "href=\"index.php\">Home</a>"; 
+			} else { 
+				echo "href=\"manage-contacts.php\">Admin</a>"; 
+			} 
+		?>            
+	</div>
 </header>

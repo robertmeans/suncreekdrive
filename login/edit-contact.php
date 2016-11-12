@@ -122,14 +122,14 @@ if (isset($_POST['submit'])) {
 } // end: if (isset($_POST['submit']))
 
  ?>
-
-<?php include '_includes/admin-header.php'; ?>
+<?php $layout_context = "admin"; ?>
+<?php include '_includes/header.php'; ?>
 
 
 <div id="flex-wrapper-update">
 <div class="contact-update">
 <div class="address-header">
-	<?php echo 	"<p class=\"main-address\">Edit > " . $current_contact_to_edit . " Sun Creek Drive</p>"; ?>
+	<?php echo 	"<p class=\"main-address\">Edit > " . htmlentities($current_contact_to_edit) . " Sun Creek Drive</p>"; ?>
 </div><!-- .address-header -->
 <div class="card-update">
 
