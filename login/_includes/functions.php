@@ -27,7 +27,9 @@
 	  $output .= "Please fix the following errors:";
 	  $output .= "<ul>";
 	  foreach ($errors as $key => $error) {
-	    $output .= "<li>{$error}</li>";
+	    $output .= "<li>";
+	    $output .= htmlentities($error);
+	    $output .= "</li>";
 	  }
 	  $output .= "</ul>";
 	  $output .= "</div>";

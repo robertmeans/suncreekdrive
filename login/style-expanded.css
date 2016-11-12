@@ -80,7 +80,7 @@ header .header-nav {
 header a.header-link {
   display: inline-block;
   text-decoration: none;
-  color: inherit;
+  color: #303570;
   padding: 10px 15px;
   margin-right: 40px;
   transition: background-color .3s ease;
@@ -91,6 +91,73 @@ header a.header-link:hover {
 }
 header a.home-link {
   margin-right: 0;
+}
+
+body.edit-page header.edit-page {
+  background-color: #e9af00;
+  color: #fff;
+}
+body.edit-page header.edit-page a.header-link {
+  transition: background-color .8s ease;
+}
+body.edit-page header.edit-page a.header-link:hover {
+  background-color: #1a32c4;
+}
+
+#flex-wrapper-update > div:nth-child(1) > div.address-header {
+  background-color: red;
+}
+
+#flex-wrapper-update > div:nth-child(2) > div.address-header {
+  background-color: green;
+}
+
+#flex-wrapper-update > div:nth-child(3) > div.address-header {
+  background-color: blue;
+}
+
+#flex-wrapper-update > div:nth-child(4) > div.address-header {
+  background-color: yellow;
+}
+
+#flex-wrapper-update > div:nth-child(4) > div.address-header > p {
+  color: #333;
+}
+
+#flex-wrapper-update > div:nth-child(4) > div.address-header > a > i {
+  color: #333;
+}
+
+#flex-wrapper-update > div:nth-child(5) > div.address-header {
+  background-color: MediumVioletRed;
+}
+
+#flex-wrapper-update > div:nth-child(6) > div.address-header {
+  background-color: OrangeRed;
+}
+
+#flex-wrapper-update > div:nth-child(7) > div.address-header {
+  background-color: blue;
+}
+
+#flex-wrapper-update > div:nth-child(8) > div.address-header {
+  background-color: Indigo;
+}
+
+#flex-wrapper-update > div:nth-child(9) > div.address-header {
+  background-color: crimson;
+}
+
+#flex-wrapper-update > div:nth-child(10) > div.address-header {
+  background-color: LemonChiffon;
+}
+
+#flex-wrapper-update > div:nth-child(10) > div.address-header > p {
+  color: #333;
+}
+
+#flex-wrapper-update > div:nth-child(10) > div.address-header > a > i {
+  color: #333;
 }
 
 #flex-wrapper-update {
@@ -469,9 +536,9 @@ div.error {
 div.message {
   padding: 10px 10px 10px 15px;
   margin-bottom: 1em;
-  border: 1px solid #333;
+  border: 1px solid #bdf21c;
   color: #fff;
-  background-color: #666d75;
+  background-color: #a81717;
 }
 
 @media screen and (min-width: 865px) {
@@ -553,6 +620,12 @@ footer p.copyright a:hover {
   text-decoration: underline;
 }
 
+@media screen and (max-width: 445px) {
+  footer p.copyright {
+    width: 100%;
+    text-align: center;
+  }
+}
 ul.admin {
   color: #fff;
 }

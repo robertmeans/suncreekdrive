@@ -102,19 +102,19 @@ if (isset($_POST['submit'])) {
 		$query .= "LIMIT 1";
 
 		$result = mysqli_query($connection, $query);
-			redirect_to("manage-contacts.php");
+			// redirect_to("manage-contacts.php");
 
 		// ^^ Above used to read like below but had to get rid of the if statement b/c it
 		// would not allow for no changes to be submitted to DB.
 		// 
-		// if ($result && mysqli_affected_rows($connection) == 1) {
-		// 	// Success
-		// 	$_SESSION["message"] = "Contact Updated.";
-			//redirect_to("manage-contacts.php");
-		// } else {
+		if ($result && mysqli_affected_rows($connection) >= 0) {
+			// Success
+			$_SESSION["message"] = "Contact Updated.";
+			redirect_to("manage-contacts.php");
+		} else {
 			// Update Failed
-		// 	$message = "Update did not process. Likely Internet hiccup. Try again.";	
-		// }	
+			$message = "Update did not process. Likely Internet hiccup. Try again.";	
+		}	
 	}
 
 } else {
@@ -135,7 +135,7 @@ if (isset($_POST['submit'])) {
 
 	<?php 
 		if (!empty($message)) {
-			echo "<div class=\"message\">" . $message . "</div>";
+			echo "<div class=\"message\">" . htmlentities($message) . "</div>";
 		}
 
 	 ?>
@@ -147,42 +147,42 @@ $this_info = find_contact_by_address($current_contact_to_edit);
 include '_includes/edit-contact-variables.php';
 ?>
 
-<form id="contact-update-form" action="edit-contact.php?unit=<?php echo $current_contact_to_edit ?>" method="post">
+<form id="contact-update-form" action="edit-contact.php?unit=<?php echo urlencode($current_contact_to_edit) ?>" method="post">
 
 <div class="contact-edit-section">
-	<div class="ef"><div class="el">Owner 1 First Name:</div><div class="ei"><input type="text" name="owner1_first_name" value="<?php echo $o1fn; ?>" /></div></div>
-	<div class="ef"><div class="el">Owner 1 Last Name:</div><div class="ei"><input type="text" name="owner1_last_name" value="<?php echo $o1ln; ?>" /></div></div>
-	<div class="ef"><div class="el">Owner 1 Cell:</div><div class="ei"><input type="text" name="owner1_cell" value="<?php echo $o1c; ?>" /></div></div>
-	<div class="ef"><div class="el">Owner 1 Email:</div><div class="ei"><input type="text" name="owner1_email" value="<?php echo $o1em; ?>" /></div></div>
+	<div class="ef"><div class="el">Owner 1 First Name:</div><div class="ei"><input type="text" name="owner1_first_name" value="<?php echo htmlentities($o1fn); ?>" /></div></div>
+	<div class="ef"><div class="el">Owner 1 Last Name:</div><div class="ei"><input type="text" name="owner1_last_name" value="<?php echo htmlentities($o1ln); ?>" /></div></div>
+	<div class="ef"><div class="el">Owner 1 Cell:</div><div class="ei"><input type="text" name="owner1_cell" value="<?php echo htmlentities($o1c); ?>" /></div></div>
+	<div class="ef"><div class="el">Owner 1 Email:</div><div class="ei"><input type="text" name="owner1_email" value="<?php echo htmlentities($o1em); ?>" /></div></div>
 	<hr class="hr-edit1" />
-	<div class="ef"><div class="el">Owner 2 First Name:</div><div class="ei"><input type="text" name="owner2_first_name" value="<?php echo $o2fn; ?>" /></div></div>
-	<div class="ef"><div class="el">Owner 2 Last Name:</div><div class="ei"><input type="text" name="owner2_last_name" value="<?php echo $o2ln; ?>" /></div></div>
-	<div class="ef"><div class="el">Owner 2 Cell:</div><div class="ei"><input type="text" name="owner2_cell" value="<?php echo $o2c; ?>" /></div></div>
-	<div class="ef"><div class="el">Owner 2 Email:</div><div class="ei"><input type="text" name="owner2_email" value="<?php echo $o2em; ?>" /></div></div>
+	<div class="ef"><div class="el">Owner 2 First Name:</div><div class="ei"><input type="text" name="owner2_first_name" value="<?php echo htmlentities($o2fn); ?>" /></div></div>
+	<div class="ef"><div class="el">Owner 2 Last Name:</div><div class="ei"><input type="text" name="owner2_last_name" value="<?php echo htmlentities($o2ln); ?>" /></div></div>
+	<div class="ef"><div class="el">Owner 2 Cell:</div><div class="ei"><input type="text" name="owner2_cell" value="<?php echo htmlentities($o2c); ?>" /></div></div>
+	<div class="ef"><div class="el">Owner 2 Email:</div><div class="ei"><input type="text" name="owner2_email" value="<?php echo htmlentities($o2em); ?>" /></div></div>
 	<hr class="hr-edit1" />
 	<div class="ef"><div class="el">Owner Home Phone:</div><div class="ei"><input type="text" name="owner_home_phone" value="<?php echo $ohp; ?>" /></div></div>
 	<br />
-	<div class="ef"><div class="el">Owner Alt Street 1:</div><div class="ei"><input type="text" name="owner_alt_street1" value="<?php echo $oas1; ?>" /></div></div>
-	<div class="ef"><div class="el">Owner Alt Street 2:</div><div class="ei"><input type="text" name="owner_alt_street2" value="<?php echo $oas2; ?>" /></div></div>
-	<div class="ef"><div class="el">Owner Alt City:</div><div class="ei"><input type="text" name="owner_alt_city" value="<?php echo $oac; ?>" /></div></div>
-	<div class="ef"><div class="el">Owner Alt State:</div><div class="ei"><input type="text" name="owner_alt_state" value="<?php echo $oas; ?>" /></div></div>
-	<div class="ef"><div class="el">Owner Alt Zip:</div><div class="ei"><input type="text" name="owner_alt_zip" value="<?php echo $oaz; ?>" /></div></div>
+	<div class="ef"><div class="el">Owner Alt Street 1:</div><div class="ei"><input type="text" name="owner_alt_street1" value="<?php echo htmlentities($oas1); ?>" /></div></div>
+	<div class="ef"><div class="el">Owner Alt Street 2:</div><div class="ei"><input type="text" name="owner_alt_street2" value="<?php echo htmlentities($oas2); ?>" /></div></div>
+	<div class="ef"><div class="el">Owner Alt City:</div><div class="ei"><input type="text" name="owner_alt_city" value="<?php echo htmlentities($oac); ?>" /></div></div>
+	<div class="ef"><div class="el">Owner Alt State:</div><div class="ei"><input type="text" name="owner_alt_state" value="<?php echo htmlentities($oas); ?>" /></div></div>
+	<div class="ef"><div class="el">Owner Alt Zip:</div><div class="ei"><input type="text" name="owner_alt_zip" value="<?php echo htmlentities($oaz); ?>" /></div></div>
 </div>
 
 <div class="contact-edit-section">
-	<div class="ef"><div class="el">Tenant 1 First Name:</div><div class="ei"><input type="text" name="tenant1_first_name" value="<?php echo $t1fn; ?>" /></div></div>
-	<div class="ef"><div class="el">Tenant 1 Last Name:</div><div class="ei"><input type="text" name="tenant1_last_name" value="<?php echo $t1ln; ?>" /></div></div>
-	<div class="ef"><div class="el">Tenant 1 Cell:</div><div class="ei"><input type="text" name="tenant1_cell" value="<?php echo $t1c; ?>" /></div></div>
-	<div class="ef"><div class="el">Tenant 1 Email:</div><div class="ei"><input type="text" name="tenant1_email" value="<?php echo $t1em; ?>" /></div></div>
+	<div class="ef"><div class="el">Tenant 1 First Name:</div><div class="ei"><input type="text" name="tenant1_first_name" value="<?php echo htmlentities($t1fn); ?>" /></div></div>
+	<div class="ef"><div class="el">Tenant 1 Last Name:</div><div class="ei"><input type="text" name="tenant1_last_name" value="<?php echo htmlentities($t1ln); ?>" /></div></div>
+	<div class="ef"><div class="el">Tenant 1 Cell:</div><div class="ei"><input type="text" name="tenant1_cell" value="<?php echo htmlentities($t1c); ?>" /></div></div>
+	<div class="ef"><div class="el">Tenant 1 Email:</div><div class="ei"><input type="text" name="tenant1_email" value="<?php echo htmlentities($t1em); ?>" /></div></div>
 	<hr class="hr-edit2" />
-	<div class="ef"><div class="el">Tenant 2 First Name:</div><div class="ei"><input type="text" name="tenant2_first_name" value="<?php echo $t2fn; ?>" /></div></div>
-	<div class="ef"><div class="el">Tenant 2 Last Name:</div><div class="ei"><input type="text" name="tenant2_last_name" value="<?php echo $t2ln; ?>" /></div></div>
-	<div class="ef"><div class="el">Tenant 2 Cell:</div><div class="ei"><input type="text" name="tenant2_cell" value="<?php echo $t2c; ?>" /></div></div>
-	<div class="ef"><div class="el">Tenant 2 Email:</div><div class="ei"><input type="text" name="tenant2_email" value="<?php echo $t2em; ?>" /></div></div>
+	<div class="ef"><div class="el">Tenant 2 First Name:</div><div class="ei"><input type="text" name="tenant2_first_name" value="<?php echo htmlentities($t2fn); ?>" /></div></div>
+	<div class="ef"><div class="el">Tenant 2 Last Name:</div><div class="ei"><input type="text" name="tenant2_last_name" value="<?php echo htmlentities($t2ln); ?>" /></div></div>
+	<div class="ef"><div class="el">Tenant 2 Cell:</div><div class="ei"><input type="text" name="tenant2_cell" value="<?php echo htmlentities($t2c); ?>" /></div></div>
+	<div class="ef"><div class="el">Tenant 2 Email:</div><div class="ei"><input type="text" name="tenant2_email" value="<?php echo htmlentities($t2em); ?>" /></div></div>
 	<br />
-	<div class="ef"><div class="el">Tenant Home Phone:</div><div class="ei"><input type="text" name="tenant_home_phone" value="<?php echo $thp; ?>" /></div></div>
+	<div class="ef"><div class="el">Tenant Home Phone:</div><div class="ei"><input type="text" name="tenant_home_phone" value="<?php echo htmlentities($thp); ?>" /></div></div>
 </div>
-<div class="note-area"><span class="note-label">Notes:</span><textarea name="notes"><?php echo $notes; ?></textarea></div>
+<div class="note-area"><span class="note-label">Notes:</span><textarea name="notes"><?php echo htmlentities($notes); ?></textarea></div>
 
 <br />
 

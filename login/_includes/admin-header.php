@@ -14,8 +14,8 @@
 	<link rel="stylesheet" href="style.css?<?php echo time(); ?>" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
-<body>
-<header>
+<body class="edit-page">
+<header class="edit-page">
 	<div class="header-nav">	
 	<a class="header-link" href="index.php">Home</a>
 	</div>

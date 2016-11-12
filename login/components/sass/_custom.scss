@@ -172,10 +172,10 @@ div.error {
 div.message {
   padding: 10px 10px 10px 15px;
   margin-bottom: 1em;
-  border: 1px solid #333;
+  border: 1px solid #bdf21c;
   // border-radius: 3px;
   color: #fff;
-  background-color: #666d75;
+  background-color: #a81717;
 }
 
 @media screen and (min-width: 865px) {
@@ -249,7 +249,12 @@ footer {
     }
   }
 }
-
+@media screen and (max-width: 445px) {
+  footer p.copyright {
+    width: 100%;
+    text-align: center;
+  }
+}
 
 ul.admin {
   color: #fff;
