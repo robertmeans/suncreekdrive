@@ -16,5 +16,7 @@
 </head>
 <body>
 <header>
+	<div class="header-nav">	
 	<a class="header-link" href="index.php">Home</a>
+	</div>
 </header>

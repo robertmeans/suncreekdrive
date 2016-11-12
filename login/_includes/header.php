@@ -16,5 +16,7 @@
 </head>
 <body>
 <header>
-	 <a class="header-link" href="manage-contacts.php">Admin</a>
+	 <div class="header-nav">
+	 	<a class="header-link" href="manage-contacts.php">Admin</a>
+	 </div>
 </header>

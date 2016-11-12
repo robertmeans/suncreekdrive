@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
 	// $required_fields = array("field_name1", "field_name2", "field_name3", "etc");
 	// validate_presences($required_fields);
 
-	$fields_with_max_lengths = array("owner1_first_name" => 25, "owner1_last_name" => 25);
+	$fields_with_max_lengths = array("owner1_first_name" => 25, "owner1_last_name" => 25, "owner1_cell" => 10, "owner1_email" => 40, "owner2_first_name" => 25, "owner2_last_name" => 25, "owner2_cell" => 10, "owner2_email" => 40, "owner_home_phone" => 10, "owner_alt_street1" => 25, "owner_alt_street2" => 25, "owner_alt_city" => 25, "owner_alt_state" => 2, "owner_alt_zip" => 10, "tenant1_first_name" => 25, "tenant1_last_name" => 25, "tenant1_cell" => 10, "tenant1_email" => 40, "tenant2_first_name" => 25, "tenant2_last_name" => 25, "tenant2_cell" => 10, "tenant2_email" => 40, "tenant_home_phone" => 10, "notes" => 255);
 	validate_max_lengths($fields_with_max_lengths);
 
 	if (empty($errors)) {
@@ -147,52 +147,50 @@ $this_info = find_contact_by_address($current_contact_to_edit);
 include '_includes/edit-contact-variables.php';
 ?>
 
-<form action="edit-contact.php?unit=<?php echo $current_contact_to_edit ?>" method="post">
+<form id="contact-update-form" action="edit-contact.php?unit=<?php echo $current_contact_to_edit ?>" method="post">
 
-<p>Owner 1 First Name: <input type="text" name="owner1_first_name" value="<?php echo $o1fn; ?>" /></p>
-<p>Owner 1 Last Name: <input type="text" name="owner1_last_name" value="<?php echo $o1ln; ?>" /></p>
-<p>Owner 1 Cell: <input type="text" name="owner1_cell" value="<?php echo $o1c; ?>" /></p>
-<p>Owner 1 Email: <input type="text" name="owner1_email" value="<?php echo $o1em; ?>" /></p>
-<br />
-<p>Owner 2 First Name: <input type="text" name="owner2_first_name" value="<?php echo $o2fn; ?>" /></p>
-<p>Owner 2 Last Name: <input type="text" name="owner2_last_name" value="<?php echo $o2ln; ?>" /></p>
-<p>Owner 2 Cell: <input type="text" name="owner2_cell" value="<?php echo $o2c; ?>" /></p>
-<p>Owner 2 Email: <input type="text" name="owner2_email" value="<?php echo $o2em; ?>" /></p>
-<br />
-<p>Owner Home Phone: <input type="text" name="owner_home_phone" value="<?php echo $ohp; ?>" /></p>
-<br />
-<p>Owner Alt Street 1: <input type="text" name="owner_alt_street1" value="<?php echo $oas1; ?>" /></p>
-<p>Owner Alt Street 2: <input type="text" name="owner_alt_street2" value="<?php echo $oas2; ?>" /></p>
-<p>Owner Alt City: <input type="text" name="owner_alt_city" value="<?php echo $oac; ?>" /></p>
-<p>Owner Alt State: <input type="text" name="owner_alt_state" value="<?php echo $oas; ?>" /></p>
-<p>Owner Alt Zip: <input type="text" name="owner_alt_zip" value="<?php echo $oaz; ?>" /></p>
-<br />
+<div class="contact-edit-section">
+	<div class="ef"><div class="el">Owner 1 First Name:</div><div class="ei"><input type="text" name="owner1_first_name" value="<?php echo $o1fn; ?>" /></div></div>
+	<div class="ef"><div class="el">Owner 1 Last Name:</div><div class="ei"><input type="text" name="owner1_last_name" value="<?php echo $o1ln; ?>" /></div></div>
+	<div class="ef"><div class="el">Owner 1 Cell:</div><div class="ei"><input type="text" name="owner1_cell" value="<?php echo $o1c; ?>" /></div></div>
+	<div class="ef"><div class="el">Owner 1 Email:</div><div class="ei"><input type="text" name="owner1_email" value="<?php echo $o1em; ?>" /></div></div>
+	<hr class="hr-edit1" />
+	<div class="ef"><div class="el">Owner 2 First Name:</div><div class="ei"><input type="text" name="owner2_first_name" value="<?php echo $o2fn; ?>" /></div></div>
+	<div class="ef"><div class="el">Owner 2 Last Name:</div><div class="ei"><input type="text" name="owner2_last_name" value="<?php echo $o2ln; ?>" /></div></div>
+	<div class="ef"><div class="el">Owner 2 Cell:</div><div class="ei"><input type="text" name="owner2_cell" value="<?php echo $o2c; ?>" /></div></div>
+	<div class="ef"><div class="el">Owner 2 Email:</div><div class="ei"><input type="text" name="owner2_email" value="<?php echo $o2em; ?>" /></div></div>
+	<hr class="hr-edit1" />
+	<div class="ef"><div class="el">Owner Home Phone:</div><div class="ei"><input type="text" name="owner_home_phone" value="<?php echo $ohp; ?>" /></div></div>
+	<br />
+	<div class="ef"><div class="el">Owner Alt Street 1:</div><div class="ei"><input type="text" name="owner_alt_street1" value="<?php echo $oas1; ?>" /></div></div>
+	<div class="ef"><div class="el">Owner Alt Street 2:</div><div class="ei"><input type="text" name="owner_alt_street2" value="<?php echo $oas2; ?>" /></div></div>
+	<div class="ef"><div class="el">Owner Alt City:</div><div class="ei"><input type="text" name="owner_alt_city" value="<?php echo $oac; ?>" /></div></div>
+	<div class="ef"><div class="el">Owner Alt State:</div><div class="ei"><input type="text" name="owner_alt_state" value="<?php echo $oas; ?>" /></div></div>
+	<div class="ef"><div class="el">Owner Alt Zip:</div><div class="ei"><input type="text" name="owner_alt_zip" value="<?php echo $oaz; ?>" /></div></div>
+</div>
 
-<p>Tenant 1 First Name: <input type="text" name="tenant1_first_name" value="<?php echo $t1fn; ?>" /></p>
-<p>Tenant 1 Last Name: <input type="text" name="tenant1_last_name" value="<?php echo $t1ln; ?>" /></p>
-<p>Tenant 1 Cell: <input type="text" name="tenant1_cell" value="<?php echo $t1c; ?>" /></p>
-<p>Tenant 1 Email: <input type="text" name="tenant1_email" value="<?php echo $t1em; ?>" /></p>
-<br />
-<p>Tenant 2 First Name: <input type="text" name="tenant2_first_name" value="<?php echo $t2fn; ?>" /></p>
-<p>Tenant 2 Last Name: <input type="text" name="tenant2_last_name" value="<?php echo $t2ln; ?>" /></p>
-<p>Tenant 2 Cell: <input type="text" name="tenant2_cell" value="<?php echo $t2c; ?>" /></p>
-<p>Tenant 2 Email: <input type="text" name="tenant2_email" value="<?php echo $t2em; ?>" /></p>
-<br />
-<p>Tenant Home Phone: <input type="text" name="tenant_home_phone" value="<?php echo $thp; ?>" /></p>
-<br />
-<p>Notes:<br /><textarea rows="3" cols="40" name="notes"><?php echo $notes; ?></textarea></p>
-
-
-
-<?php 
-// echo $o1ln; 
-?>
-
+<div class="contact-edit-section">
+	<div class="ef"><div class="el">Tenant 1 First Name:</div><div class="ei"><input type="text" name="tenant1_first_name" value="<?php echo $t1fn; ?>" /></div></div>
+	<div class="ef"><div class="el">Tenant 1 Last Name:</div><div class="ei"><input type="text" name="tenant1_last_name" value="<?php echo $t1ln; ?>" /></div></div>
+	<div class="ef"><div class="el">Tenant 1 Cell:</div><div class="ei"><input type="text" name="tenant1_cell" value="<?php echo $t1c; ?>" /></div></div>
+	<div class="ef"><div class="el">Tenant 1 Email:</div><div class="ei"><input type="text" name="tenant1_email" value="<?php echo $t1em; ?>" /></div></div>
+	<hr class="hr-edit2" />
+	<div class="ef"><div class="el">Tenant 2 First Name:</div><div class="ei"><input type="text" name="tenant2_first_name" value="<?php echo $t2fn; ?>" /></div></div>
+	<div class="ef"><div class="el">Tenant 2 Last Name:</div><div class="ei"><input type="text" name="tenant2_last_name" value="<?php echo $t2ln; ?>" /></div></div>
+	<div class="ef"><div class="el">Tenant 2 Cell:</div><div class="ei"><input type="text" name="tenant2_cell" value="<?php echo $t2c; ?>" /></div></div>
+	<div class="ef"><div class="el">Tenant 2 Email:</div><div class="ei"><input type="text" name="tenant2_email" value="<?php echo $t2em; ?>" /></div></div>
+	<br />
+	<div class="ef"><div class="el">Tenant Home Phone:</div><div class="ei"><input type="text" name="tenant_home_phone" value="<?php echo $thp; ?>" /></div></div>
+</div>
+<div class="note-area"><span class="note-label">Notes:</span><textarea name="notes"><?php echo $notes; ?></textarea></div>
 
 <br />
-<input type="submit" name="submit" value="Update" /><br />
-<br />
-<a href="manage-contacts.php">cancel</a>
+
+<div class="button-footer">
+	<div class="buttons">
+		<input type="submit" name="submit" value="Update" /> <a class="cancel-button" href="manage-contacts.php">Cancel</a><br />
+	</div>
+</div>
 
 </form>
 
