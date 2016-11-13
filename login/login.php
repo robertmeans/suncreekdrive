@@ -47,21 +47,24 @@ if (isset($_POST['submit'])) {
   </div>
   <div id="page">
 
+<div class="login-box">
     <?php echo message(); ?>
     <?php echo form_errors($errors); ?>
     
-    <h2>Login</h2>
+    <h2>Admin Login</h2>
     <form action="login.php" method="post">
-      <p>Username:
+      <div class="login-text">Username:</div>
+      <div class="login-input-fields">
         <input type="text" name="username" value="<?php echo htmlentities($username); ?>" />
-      </p>
-      <p>Password:
+      </div>
+      <div class="login-text">Password:</div>
+      <div class="login-input-fields">
         <input type="password" name="password" value="" />
-      </p>
-      <input type="submit" name="submit" value="Submit" />
+      </div>
+      <div class="login-input"><input type="submit" name="submit" value="Submit" /></div>
     </form>
-    <br />
   </div>
 </div>
+
 
 <?php include("_includes/footer.php"); ?>

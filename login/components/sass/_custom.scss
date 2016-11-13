@@ -11,6 +11,12 @@ p {
   font-size: 1em;
   // margin: 1em 0;
 }
+.u {
+  text-decoration: underline;
+}
+.b {
+  font-weight: bold;
+}
 div.login-container {
   background-image: url(_images/suncreek-unit.jpg);
   background-size: cover;
@@ -197,6 +203,11 @@ a.tel-link {
   border-top: 1px dashed #a92121;
   color: #333;
   border-radius: 0px 0px 5px 5px;
+}
+p.front-door-error {
+  display: inline-block;
+  line-height: 1.2em;
+  color: red;
 }
 div.error {
   padding: 10px 10px 10px 15px;

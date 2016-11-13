@@ -4,7 +4,7 @@
 	if ($layout_context == "admin") { 
 		echo "<a class=\"header-link\" href=\"index.php\">Home</a>"; 
 	} else { 
-		echo "<a class=\"header-link\" href=\"manage-contacts.php\">Admin</a>"; 
+		echo "<a class=\"header-link\" href=\"login.php\">Admin</a>"; 
 	} 
 		?></div>
 </header>
