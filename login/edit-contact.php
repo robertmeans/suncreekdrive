@@ -15,7 +15,7 @@
 
 <?php 
 
-// ----------------------------------------------------------------------------- Don't know if any of this is correct...
+// -------------------------------------- Don't know if any of this is correct...
 if (isset($_POST['submit'])) {
 	// Process the form
 

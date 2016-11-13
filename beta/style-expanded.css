@@ -115,6 +115,7 @@ em {
 
 body {
   background: url(_images/suncreek-unit.jpg) center fixed;
+  background-size: cover;
 }
 
 a {

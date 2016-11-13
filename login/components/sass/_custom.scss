@@ -1,3 +1,48 @@
+body {
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+  color: #757575;
+  line-height: 1.5em;
+  background-color: #666d75;
+}
+p {
+  display: block;
+  line-height: 1.5em;
+  font-size: 1em;
+  // margin: 1em 0;
+}
+div.login-container {
+  background-image: url(_images/suncreek-unit.jpg);
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+div.login {
+  margin: auto;
+  width: 90%;
+  max-width: 300px;
+  padding: 30px;
+  border: 5px solid #414a4d;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: -10px 10px 5px 0px rgba(0,0,0,0.58);
+}
+#login-btn {
+  margin-top: 8px;
+  text-align: right;
+  float: right;
+  margin-right: 20px;
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #f3f3f3 inset !important;
+}
+
 // for php error messages
 table.xdebug-error {
   tr,
@@ -23,14 +68,6 @@ table.xdebug-error {
 
 * {
   box-sizing: border-box;
-}
-
-body {
-  font-size: 16px;
-  font-family: 'Lato', sans-serif;
-  color: #757575;
-  line-height: 1.5em;
-  background-color: #666d75;
 }
 em {
   font-weight: bold;
@@ -174,7 +211,7 @@ div.message {
   margin-bottom: 1em;
   border: 1px solid #bdf21c;
   // border-radius: 3px;
-  color: #fff;
+  color: #000;
   background-color: #a81717;
 }
 

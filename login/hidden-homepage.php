@@ -1,26 +1,19 @@
-<?php require_once '_includes/session.php'; ?>
-<?php require '_db/connect.php'; ?>
-<?php require_once '_includes/functions.php'; ?>
-<?php $layout_context = "admin"; ?>
-<?php include '_includes/header.php'; ?>
 
-<div id="flex-wrapper-update">
+
+<!-- Email buttons at top of page -->
+<?php include '_includes/mass-email-links.php' ?>
+
+<div id="flex-wrapper">
 <?php 
-	$result = return_all_content();
+	mysqli_data_seek($result,0);
 	while($contact_info = mysqli_fetch_assoc($result)) {
 		?>
 <?php include '_includes/mass-email-variables.php' ?>
-<div class="contact-update">
-
+<div class="contact">
 <div class="address-header">
-<?php 	echo 	"<p class=\"main-address\">" . htmlentities($contact_info["sun_creek_street_number"])
-		 		. " Sun Creek Drive</p><a class=\"edit-link\" href=\"edit-contact.php?unit=" 
-		 		. htmlentities($contact_info["sun_creek_street_number"]) 
-		 		. "\" title=\"Edit\"> <i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i></a>"; 
-	?>
+	<?php echo 	"<p class=\"main-address\">" . htmlentities($contact_info["sun_creek_street_number"]) . " Sun Creek Drive</p>"; ?>
 </div><!-- .address-header -->
-
-<div class="card-update">
+<div class="card">
 	<?php
 		// ############################### Owner Information #################################
 		//
