@@ -274,7 +274,7 @@ div.buttons {
   -ms-flex-pack: center;
       justify-content: center;
 }
-div.buttons input[type=submit] {
+div.buttons input[type=submit]#edit-submit {
   text-align: left;
   font-size: 100%;
   display: inline-block;
@@ -283,12 +283,30 @@ div.buttons input[type=submit] {
   color: #fff;
   border: 1px solid #fff;
   cursor: pointer;
-  line-height: 16px;
+  line-height: 1em;
   text-decoration: none;
   margin: 0 10px;
   transition: background-color .2s ease;
 }
-div.buttons input[type=submit]:hover {
+div.buttons input[type=submit]#edit-submit:hover {
+  background-color: #00CC00;
+  text-decoration: none;
+}
+div.buttons a#edit-submit {
+  text-align: left;
+  font-size: 100%;
+  display: inline-block;
+  padding: 40px;
+  background-color: #008D00;
+  color: #fff;
+  border: 1px solid #fff;
+  cursor: pointer;
+  line-height: 1em;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: background-color .2s ease;
+}
+div.buttons a#edit-submit:hover {
   background-color: #00CC00;
   text-decoration: none;
 }
@@ -408,6 +426,33 @@ div.login-box input[type=text],
 div.login-box input[type=password] {
   width: 100%;
   max-width: 150px;
+}
+
+div#manage-admins-main {
+  margin-top: 60px;
+  color: #fff;
+  width: 100%;
+}
+
+div#page {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0px 20px;
+}
+div#page div.message {
+  color: #fff;
+}
+div#page a.admin-link {
+  color: inherit;
+  text-decoration: underline;
+}
+div#page a.admin-link:hover {
+  text-decoration: none;
+}
+
+h2.manage-h2 {
+  margin-bottom: 1.5em;
 }
 
 body {

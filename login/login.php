@@ -41,10 +41,6 @@ if (isset($_POST['submit'])) {
 
 <?php $layout_context = "admin"; ?>
 <?php include("_includes/header.php"); ?>
-<div id="main">
-  <div id="navigation">
-    &nbsp;
-  </div>
   <div id="page">
 
 <div class="login-box">

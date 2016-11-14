@@ -32,33 +32,33 @@ if (isset($_POST['submit'])) {
 		$street_address = $current_contact_to_edit;
 		$owner1_first_name = mysql_prep($_POST['owner1_first_name']);
 		$owner1_last_name = mysql_prep($_POST['owner1_last_name']);
-		$owner1_cell = mysql_prep($_POST['owner1_cell']);
+		$owner_home_phone = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['owner1_cell']));
 		$owner1_email = mysql_prep($_POST['owner1_email']);
 
 		$owner2_first_name = mysql_prep($_POST['owner2_first_name']);
 		$owner2_last_name = mysql_prep($_POST['owner2_last_name']);
-		$owner2_cell = mysql_prep($_POST['owner2_cell']);
+		$owner_home_phone = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['owner2_cell']));
 		$owner2_email = mysql_prep($_POST['owner2_email']);
 
-		$owner_home_phone = mysql_prep($_POST['owner_home_phone']);
+		$owner_home_phone = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['owner_home_phone']));
 
 		$owner_alt_street1 = mysql_prep($_POST['owner_alt_street1']);
 		$owner_alt_street2 = mysql_prep($_POST['owner_alt_street2']);
 		$owner_alt_city = mysql_prep($_POST['owner_alt_city']);
 		$owner_alt_state = mysql_prep($_POST['owner_alt_state']);
-		$owner_alt_zip = mysql_prep($_POST['owner_alt_zip']);
+		$owner_home_phone = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['owner_alt_zip']));
 
 		$tenant1_first_name = mysql_prep($_POST['tenant1_first_name']);
 		$tenant1_last_name = mysql_prep($_POST['tenant1_last_name']);
-		$tenant1_cell = mysql_prep($_POST['tenant1_cell']);
+		$owner_home_phone = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['tenant1_cell']));
 		$tenant1_email = mysql_prep($_POST['tenant1_email']);
 
 		$tenant2_first_name = mysql_prep($_POST['tenant2_first_name']);
 		$tenant2_last_name = mysql_prep($_POST['tenant2_last_name']);
-		$tenant2_cell = mysql_prep($_POST['tenant2_cell']);
+		$owner_home_phone = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['tenant_cell']));
 		$tenant2_email = mysql_prep($_POST['tenant2_email']);
 
-		$tenant_home_phone = mysql_prep($_POST['tenant_home_phone']);
+		$owner_home_phone = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['tenant_home_phone']));
 
 		$notes = mysql_prep($_POST['notes']);
 
@@ -122,7 +122,7 @@ if (isset($_POST['submit'])) {
 } // end: if (isset($_POST['submit']))
 
  ?>
-<?php $layout_context = "admin"; ?>
+<?php $layout_context = "edit-contacts"; ?>
 <?php include '_includes/header.php'; ?>
 
 
@@ -147,7 +147,7 @@ $this_info = find_contact_by_address($current_contact_to_edit);
 include '_includes/edit-contact-variables.php';
 ?>
 
-<form id="contact-update-form" action="edit-contact.php?unit=<?php echo urlencode($current_contact_to_edit) ?>" method="post">
+<form id="contact-update-form" name="edit_form" action="edit-contact.php?unit=<?php echo urlencode($current_contact_to_edit) ?>" method="post">
 
 <div class="contact-edit-section">
 	<div class="ef"><div class="el">Owner 1 First Name:</div><div class="ei"><input type="text" name="owner1_first_name" value="<?php echo $o1fn; ?>" /></div></div>
@@ -188,10 +188,9 @@ include '_includes/edit-contact-variables.php';
 
 <div class="button-footer">
 	<div class="buttons">
-		<input type="submit" name="submit" value="Update" /> <a class="cancel-button" href="manage-contacts.php">Cancel</a><br />
+		<input type="submit" id="edit-submit" name="submit" value="Update" /> <a class="cancel-button" href="manage-contacts.php">Cancel</a><br />
 	</div>
 </div>
-
 </form>
 
 </div><!-- .card -->

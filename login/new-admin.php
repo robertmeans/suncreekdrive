@@ -2,6 +2,7 @@
 <?php require '_db/connect.php'; ?>
 <?php require_once("_includes/functions.php"); ?>
 <?php require_once("_includes/validation-functions.php"); ?>
+<?php confirm_logged_in(); ?>
 
 <?php
 if (isset($_POST['submit'])) {
@@ -45,27 +46,29 @@ if (isset($_POST['submit'])) {
 
 <?php $layout_context = "admin"; ?>
 <?php include("_includes/header.php"); ?>
-<div id="main">
-  <div id="navigation">
-    &nbsp;
-  </div>
+
   <div id="page">
+
+  <div class="login-box">
     <?php echo message(); ?>
     <?php echo form_errors($errors); ?>
     
     <h2>Create Admin</h2>
     <form action="new-admin.php" method="post">
-      <p>Username:
+      <div class="login-text">Username:</div>
+      <div class="login-input-fields">
         <input type="text" name="username" value="" />
-      </p>
-      <p>Password:
+      </div>
+     <div class="login-text">Password:</div>
+     <div class="login-input-fields">
         <input type="password" name="password" value="" />
-      </p>
-      <input type="submit" name="submit" value="Create Admin" />
+      </div>
+       <div class="login-input"><input type="submit" name="submit" value="Create Admin" /></div>
     </form>
     <br />
-    <a href="manage-admins.php">Cancel</a>
+    <a href="/">Cancel</a>
   </div>
+
 </div>
 
 <?php include("_includes/footer.php"); ?>

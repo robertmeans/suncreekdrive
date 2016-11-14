@@ -1,7 +1,7 @@
 <?php require_once("_includes/session.php"); ?>
 <?php require '_db/connect.php'; ?>
 <?php require_once("_includes/functions.php"); ?>
-<?php confirm_logged_in(); ?>
+<?php //confirm_logged_in(); ?>
 
 <?php
   $admin_set = find_all_admins();

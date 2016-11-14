@@ -55,7 +55,7 @@ div.buttons {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	input[type=submit] {
+	input[type=submit]#edit-submit {
 		text-align: left;
 		font-size: 100%;
 		display: inline-block;
@@ -64,7 +64,25 @@ div.buttons {
 		color: #fff;
 		border: 1px solid #fff;
 		cursor: pointer;
-		line-height: 16px;
+		line-height: 1em;
+		text-decoration: none;
+		margin: 0 10px;
+		transition: background-color .2s ease;
+		&:hover {
+			background-color: #00CC00;
+			text-decoration: none;
+		}
+	}
+	a#edit-submit {
+		text-align: left;
+		font-size: 100%;
+		display: inline-block;
+		padding: 40px;
+		background-color: #008D00;
+		color: #fff;
+		border: 1px solid #fff;
+		cursor: pointer;
+		line-height: 1em;
 		text-decoration: none;
 		margin: 0 10px;
 		transition: background-color .2s ease;

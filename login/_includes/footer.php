@@ -1,5 +1,5 @@
 <footer class="cf">
-	<p>report website problems <a class="footer-link" href="mailto:robert@evergreenwebdesign.com?subject=Sun Creek Drive Website Issue">here</a></p>
+	<p>report website problems <a class="footer-link" href="mailto:robert@robertmeans.com?subject=Sun Creek Drive Website Issue">here</a></p>
 	<p class="copyright">&copy;<?php echo date("Y"); ?> Neighborly neighborhood neighbor Bob</p>
 </footer>
 
