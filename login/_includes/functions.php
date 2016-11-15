@@ -185,6 +185,12 @@
 		if (!logged_in()) {
 			redirect_to("login.php");
 		}
-	}	
+	}
+
+	function confirm_logged_in2() {
+		if (!logged_in()) {
+			redirect_to("index.php");
+		}
+	}		
 
  ?>

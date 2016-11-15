@@ -34,7 +34,7 @@ if (isset($_SESSION["session_first_password"]) == "$front_door_password") {
 				}
 
 		echo 	"<form method=\"post\"><p align=\"center\">Enter code &nbsp;&nbsp;";
-		echo 	"<input id=\"pswd-box\" name=\"first_password\" type=\"password\" size=\"15\" maxlength=\"10\"><br />
+		echo 	"<input id=\"pswd-box\" name=\"first_password\" type=\"tel\" size=\"15\" maxlength=\"10\"><br />
 				<input id=\"login-btn\" value=\"Login\" type=\"submit\"></p></form>";
 		echo 	"</div>";
 		echo 	"</div>";

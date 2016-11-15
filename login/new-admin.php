@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
 
 ?>
 
-<?php $layout_context = "admin"; ?>
+<?php $layout_context = "manage-admins"; ?>
 <?php include("_includes/header.php"); ?>
 
   <div id="page">
@@ -66,7 +66,7 @@ if (isset($_POST['submit'])) {
        <div class="login-input"><input type="submit" name="submit" value="Create Admin" /></div>
     </form>
     <br />
-    <a href="/">Cancel</a>
+    <a href="manage-admins.php">Cancel</a>
   </div>
 
 </div>

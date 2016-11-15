@@ -14,30 +14,31 @@
 	<link rel="stylesheet" href="style.css?<?php echo time(); ?>" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
-<body<?php if ($layout_context == "manage-contacts") { echo " class=\"edit-page\""; } ?>>
-<header<?php if ($layout_context == "manage-contacts") { echo " class=\"edit-page\""; } ?>>
-<div class="header-nav"><?php   
-	if ($layout_context == "admin") { 
-		echo "<a class=\"header-link\" href=\"index.php\">Home</a>"; 
-	} elseif ($layout_context == "admin-logged-in") { 
-		echo "<a class=\"header-link\" href=\"homepage.php\">Home</a>";
-		echo "<a class=\"header-link\" href=\"manage-admins.php\">Admin</a>"; 
-		echo "<a class=\"header-link\" href=\"manage-contacts.php\">Edit</a>";
-	} elseif ($layout_context == "manage-admins") { 
-		echo "<a class=\"header-link\" href=\"homepage.php\">Home</a>";
-		echo "<a class=\"header-link\" href=\"manage-contacts.php\">Edit</a>";	
-	} elseif ($layout_context == "homepage") { 
-		echo "<a class=\"header-link\" href=\"manage-admins.php\">Admin</a>"; 
-		echo "<a class=\"header-link\" href=\"manage-contacts.php\">Edit</a>";	
-	} elseif ($layout_context == "manage-contacts") { 
-		echo "<a class=\"header-link\" href=\"homepage.php\">Home</a>";
-		echo "<a class=\"header-link\" href=\"manage-admins.php\">Admin</a>";
-	} elseif ($layout_context == "edit-contacts") { 
-		echo "<a class=\"header-link\" href=\"manage-contacts.php\">Cancel</a>";
-		echo "<a class=\"header-link\" href=\"manage-admins.php\">Admin</a>"; 		 
-	} else {
-		echo "<a class=\"header-link\" href=\"login.php\">Manage Site</a>"; 
+<body 	<?php 		if ($layout_context == "manage-contacts") { echo " class=\"edit-page\""; } ?>>
+<header <?php 		if ($layout_context == "manage-contacts") { echo " class=\"edit-page\""; } ?>>
+<div class="header-nav"><?php 
+
+	switch ($layout_context) {
+		case 'admin' 			:	echo "<a class=\"header-link\" href=\"index.php\">Home</a>"; 			break;
+
+		case 'admin-logged-in' 	:	echo "<a class=\"header-link\" href=\"homepage.php\">Home</a>";
+									echo "<a class=\"header-link\" href=\"manage-admins.php\">Admin</a>"; 
+									echo "<a class=\"header-link\" href=\"manage-contacts.php\">Edit</a>"; 	break;
+
+		case 'manage-admins'	:	echo "<a class=\"header-link\" href=\"homepage.php\">Home</a>";
+									echo "<a class=\"header-link\" href=\"manage-contacts.php\">Edit</a>"; 	break;
+
+		case 'homepage'			:	echo "<a class=\"header-link\" href=\"manage-admins.php\">Admin</a>"; 
+									echo "<a class=\"header-link\" href=\"manage-contacts.php\">Edit</a>"; 	break;
+
+		case 'manage-contacts'	:	echo "<a class=\"header-link\" href=\"homepage.php\">Home</a>";
+									echo "<a class=\"header-link\" href=\"manage-admins.php\">Admin</a>";	break;
+
+		case 'edit-contacts'	: 	echo "<a class=\"header-link\" href=\"manage-contacts.php\">Cancel</a>";
+									echo "<a class=\"header-link\" href=\"manage-admins.php\">Admin</a>";	break;
+
+		default 				:	echo "<a class=\"header-link\" href=\"login.php\">Manage Site</a>"; 	break;
 	}
 	 
-		?></div>
+?></div>
 </header>

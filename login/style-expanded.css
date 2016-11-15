@@ -82,8 +82,10 @@ header a.header-link {
   text-decoration: none;
   color: #303570;
   padding: 10px 15px;
-  margin-right: 40px;
   transition: background-color .3s ease;
+}
+header a.header-link:last-of-type {
+  margin-right: 40px;
 }
 header a.header-link:hover {
   background-color: #b7ac80;
@@ -93,8 +95,16 @@ header a.home-link {
   margin-right: 0;
 }
 
+@media screen and (max-width: 865px) {
+  header {
+    text-align: center;
+  }
+  header a.header-link:last-of-type {
+    margin: 0 10px;
+  }
+}
 body.edit-page header.edit-page {
-  background-color: #e9af00;
+  background-color: aqua;
   color: #fff;
 }
 body.edit-page header.edit-page a.header-link {
@@ -137,7 +147,7 @@ body.edit-page header.edit-page a.header-link:hover {
 }
 
 #flex-wrapper-update > div:nth-child(7) > div.address-header {
-  background-color: blue;
+  background-color: darkgreen;
 }
 
 #flex-wrapper-update > div:nth-child(8) > div.address-header {
@@ -275,10 +285,11 @@ div.buttons {
       justify-content: center;
 }
 div.buttons input[type=submit]#edit-submit {
+  -webkit-appearance: none;
   text-align: left;
   font-size: 100%;
   display: inline-block;
-  padding: 40px;
+  padding: 20px;
   background-color: #008D00;
   color: #fff;
   border: 1px solid #fff;
@@ -313,7 +324,7 @@ div.buttons a#edit-submit:hover {
 div.buttons a.cancel-button {
   text-align: right;
   display: inline-block;
-  padding: 40px;
+  padding: 20px;
   background-color: #E50000;
   color: #fff;
   border: 1px solid #fff;
@@ -342,7 +353,8 @@ div.buttons a.cancel-button:hover {
     box-shadow: 0px -6px 10px -2px rgba(0, 0, 0, 0.39);
   }
 
-  input[type=text] {
+  input[type=text],
+  input[type=tel] {
     width: 100%;
     max-width: 160px;
   }
@@ -412,6 +424,7 @@ div.login-input {
   margin-top: 10px;
 }
 div.login-input input[type=submit] {
+  -webkit-appearance: none;
   padding: 15px;
   background-color: blue;
   color: #fff;
@@ -428,6 +441,21 @@ div.login-box input[type=password] {
   max-width: 150px;
 }
 
+@media screen and (max-width: 420px) {
+  div.login-box input[type=text],
+  div.login-box input[type=password] {
+    width: 90%;
+    max-width: 500px;
+  }
+
+  div.login-text {
+    text-align: left;
+  }
+
+  div.login-input-fields {
+    max-width: 400px;
+  }
+}
 div#manage-admins-main {
   margin-top: 60px;
   color: #fff;
@@ -494,7 +522,6 @@ div.login-container {
 }
 
 div.login {
-  margin: auto;
   width: 90%;
   max-width: 300px;
   padding: 30px;
@@ -504,11 +531,20 @@ div.login {
   box-shadow: -10px 10px 5px 0px rgba(0, 0, 0, 0.58);
 }
 
-#login-btn {
+input[type=submit]#login-btn {
+  -webkit-appearance: none;
   margin-top: 8px;
   text-align: right;
   float: right;
-  margin-right: 20px;
+  margin-right: 5px;
+  padding: 10px 15px;
+  background-color: blue;
+  border: 1px solid blue;
+  color: #fff;
+}
+input[type=submit]#login-btn:hover {
+  background-color: #fff;
+  color: blue;
 }
 
 input:-webkit-autofill {
@@ -704,6 +740,16 @@ div.message {
   background-color: #a81717;
 }
 
+@media screen and (min-width: 566px) {
+  .large-566-gone {
+    display: none;
+  }
+}
+@media screen and (max-width: 565px) {
+  .small-565-gone {
+    display: none;
+  }
+}
 @media screen and (min-width: 865px) {
   body {
     line-height: 1.3em;

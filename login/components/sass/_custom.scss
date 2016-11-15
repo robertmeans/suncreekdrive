@@ -30,7 +30,7 @@ div.login-container {
 }
 
 div.login {
-  margin: auto;
+  // margin: 0 auto;
   width: 90%;
   max-width: 300px;
   padding: 30px;
@@ -39,11 +39,20 @@ div.login {
   background-color: white;
   box-shadow: -10px 10px 5px 0px rgba(0,0,0,0.58);
 }
-#login-btn {
+input[type=submit]#login-btn {
+  -webkit-appearance: none;
   margin-top: 8px;
   text-align: right;
   float: right;
-  margin-right: 20px;
+  margin-right: 5px;
+  padding: 10px 15px;
+  background-color: blue;
+  border: 1px solid blue;
+  color: #fff;
+  &:hover {
+    background-color: #fff;
+    color: blue;
+  }
 }
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px #f3f3f3 inset !important;
@@ -224,6 +233,16 @@ div.message {
   // border-radius: 3px;
   color: #000;
   background-color: #a81717;
+}
+@media screen and (min-width: 566px) {
+  .large-566-gone {
+    display: none;
+  }
+}
+@media screen and (max-width: 565px) {
+  .small-565-gone {
+     display: none;
+  }
 }
 
 @media screen and (min-width: 865px) {

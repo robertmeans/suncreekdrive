@@ -32,12 +32,13 @@ if (isset($_POST['submit'])) {
 		$street_address = $current_contact_to_edit;
 		$owner1_first_name = mysql_prep($_POST['owner1_first_name']);
 		$owner1_last_name = mysql_prep($_POST['owner1_last_name']);
-		$owner_home_phone = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['owner1_cell']));
+
+		$owner1_cell = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['owner1_cell']));
 		$owner1_email = mysql_prep($_POST['owner1_email']);
 
 		$owner2_first_name = mysql_prep($_POST['owner2_first_name']);
 		$owner2_last_name = mysql_prep($_POST['owner2_last_name']);
-		$owner_home_phone = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['owner2_cell']));
+		$owner2_cell = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['owner2_cell']));
 		$owner2_email = mysql_prep($_POST['owner2_email']);
 
 		$owner_home_phone = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['owner_home_phone']));
@@ -46,19 +47,19 @@ if (isset($_POST['submit'])) {
 		$owner_alt_street2 = mysql_prep($_POST['owner_alt_street2']);
 		$owner_alt_city = mysql_prep($_POST['owner_alt_city']);
 		$owner_alt_state = mysql_prep($_POST['owner_alt_state']);
-		$owner_home_phone = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['owner_alt_zip']));
+		$owner_alt_zip = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['owner_alt_zip']));
 
 		$tenant1_first_name = mysql_prep($_POST['tenant1_first_name']);
 		$tenant1_last_name = mysql_prep($_POST['tenant1_last_name']);
-		$owner_home_phone = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['tenant1_cell']));
+		$tenant1_cell = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['tenant1_cell']));
 		$tenant1_email = mysql_prep($_POST['tenant1_email']);
 
 		$tenant2_first_name = mysql_prep($_POST['tenant2_first_name']);
 		$tenant2_last_name = mysql_prep($_POST['tenant2_last_name']);
-		$owner_home_phone = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['tenant_cell']));
+		$tenant2_cell = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['tenant_cell']));
 		$tenant2_email = mysql_prep($_POST['tenant2_email']);
 
-		$owner_home_phone = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['tenant_home_phone']));
+		$tenant_home_phone = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['tenant_home_phone']));
 
 		$notes = mysql_prep($_POST['notes']);
 
@@ -152,35 +153,35 @@ include '_includes/edit-contact-variables.php';
 <div class="contact-edit-section">
 	<div class="ef"><div class="el">Owner 1 First Name:</div><div class="ei"><input type="text" name="owner1_first_name" value="<?php echo $o1fn; ?>" /></div></div>
 	<div class="ef"><div class="el">Owner 1 Last Name:</div><div class="ei"><input type="text" name="owner1_last_name" value="<?php echo $o1ln; ?>" /></div></div>
-	<div class="ef"><div class="el">Owner 1 Cell:</div><div class="ei"><input type="text" name="owner1_cell" value="<?php echo $o1c; ?>" /></div></div>
+	<div class="ef"><div class="el">Owner 1 Cell:</div><div class="ei"><input type="tel" name="owner1_cell" value="<?php echo $o1c; ?>" /></div></div>
 	<div class="ef"><div class="el">Owner 1 Email:</div><div class="ei"><input type="text" name="owner1_email" value="<?php echo $o1em; ?>" /></div></div>
 	<hr class="hr-edit1" />
 	<div class="ef"><div class="el">Owner 2 First Name:</div><div class="ei"><input type="text" name="owner2_first_name" value="<?php echo $o2fn; ?>" /></div></div>
 	<div class="ef"><div class="el">Owner 2 Last Name:</div><div class="ei"><input type="text" name="owner2_last_name" value="<?php echo $o2ln; ?>" /></div></div>
-	<div class="ef"><div class="el">Owner 2 Cell:</div><div class="ei"><input type="text" name="owner2_cell" value="<?php echo $o2c; ?>" /></div></div>
+	<div class="ef"><div class="el">Owner 2 Cell:</div><div class="ei"><input type="tel" name="owner2_cell" value="<?php echo $o2c; ?>" /></div></div>
 	<div class="ef"><div class="el">Owner 2 Email:</div><div class="ei"><input type="text" name="owner2_email" value="<?php echo $o2em; ?>" /></div></div>
 	<hr class="hr-edit1" />
-	<div class="ef"><div class="el">Owner Home Phone:</div><div class="ei"><input type="text" name="owner_home_phone" value="<?php echo $ohp; ?>" /></div></div>
+	<div class="ef"><div class="el">Owner Home Phone:</div><div class="ei"><input type="tel" name="owner_home_phone" value="<?php echo $ohp; ?>" /></div></div>
 	<br />
 	<div class="ef"><div class="el">Owner Alt Street 1:</div><div class="ei"><input type="text" name="owner_alt_street1" value="<?php echo $oas1; ?>" /></div></div>
 	<div class="ef"><div class="el">Owner Alt Street 2:</div><div class="ei"><input type="text" name="owner_alt_street2" value="<?php echo $oas2; ?>" /></div></div>
 	<div class="ef"><div class="el">Owner Alt City:</div><div class="ei"><input type="text" name="owner_alt_city" value="<?php echo $oac; ?>" /></div></div>
 	<div class="ef"><div class="el">Owner Alt State:</div><div class="ei"><input type="text" name="owner_alt_state" value="<?php echo $oas; ?>" /></div></div>
-	<div class="ef"><div class="el">Owner Alt Zip:</div><div class="ei"><input type="text" name="owner_alt_zip" value="<?php echo $oaz; ?>" /></div></div>
+	<div class="ef"><div class="el">Owner Alt Zip:</div><div class="ei"><input type="tel" name="owner_alt_zip" value="<?php echo $oaz; ?>" /></div></div>
 </div>
 
 <div class="contact-edit-section">
 	<div class="ef"><div class="el">Tenant 1 First Name:</div><div class="ei"><input type="text" name="tenant1_first_name" value="<?php echo $t1fn; ?>" /></div></div>
 	<div class="ef"><div class="el">Tenant 1 Last Name:</div><div class="ei"><input type="text" name="tenant1_last_name" value="<?php echo $t1ln; ?>" /></div></div>
-	<div class="ef"><div class="el">Tenant 1 Cell:</div><div class="ei"><input type="text" name="tenant1_cell" value="<?php echo $t1c; ?>" /></div></div>
+	<div class="ef"><div class="el">Tenant 1 Cell:</div><div class="ei"><input type="tel" name="tenant1_cell" value="<?php echo $t1c; ?>" /></div></div>
 	<div class="ef"><div class="el">Tenant 1 Email:</div><div class="ei"><input type="text" name="tenant1_email" value="<?php echo $t1em; ?>" /></div></div>
 	<hr class="hr-edit2" />
 	<div class="ef"><div class="el">Tenant 2 First Name:</div><div class="ei"><input type="text" name="tenant2_first_name" value="<?php echo $t2fn; ?>" /></div></div>
 	<div class="ef"><div class="el">Tenant 2 Last Name:</div><div class="ei"><input type="text" name="tenant2_last_name" value="<?php echo $t2ln; ?>" /></div></div>
-	<div class="ef"><div class="el">Tenant 2 Cell:</div><div class="ei"><input type="text" name="tenant2_cell" value="<?php echo $t2c; ?>" /></div></div>
+	<div class="ef"><div class="el">Tenant 2 Cell:</div><div class="ei"><input type="tel" name="tenant2_cell" value="<?php echo $t2c; ?>" /></div></div>
 	<div class="ef"><div class="el">Tenant 2 Email:</div><div class="ei"><input type="text" name="tenant2_email" value="<?php echo $t2em; ?>" /></div></div>
 	<br />
-	<div class="ef"><div class="el">Tenant Home Phone:</div><div class="ei"><input type="text" name="tenant_home_phone" value="<?php echo $thp; ?>" /></div></div>
+	<div class="ef"><div class="el">Tenant Home Phone:</div><div class="ei"><input type="tel" name="tenant_home_phone" value="<?php echo $thp; ?>" /></div></div>
 </div>
 <div class="note-area"><span class="note-label">Notes:</span><textarea name="notes"><?php echo $notes; ?></textarea></div>
 
