@@ -19,23 +19,26 @@
 <div class="header-nav"><?php 
 
 	switch ($layout_context) {
-		case 'admin' 			:	echo "<a class=\"header-link\" href=\"index.php\">Home</a>"; 			break;
+		case 'admin-logged-in' 	:	echo "<span class=\"greetings\">Logged in as: &nbsp;" . htmlentities($_SESSION["username"]) . "</span>";
+									echo "<a class=\"header-link\" href=\"homepage.php\">Home</a>";
+									echo "<a class=\"header-link\" href=\"manage-contacts.php\">Edit</a>";
+									echo "<a class=\"header-link\" href=\"logout.php\">Logout</a>"; 	break;
 
-		case 'admin-logged-in' 	:	echo "<a class=\"header-link\" href=\"homepage.php\">Home</a>";
-									echo "<a class=\"header-link\" href=\"manage-admins.php\">Admin</a>"; 
-									echo "<a class=\"header-link\" href=\"manage-contacts.php\">Edit</a>"; 	break;
+		case 'manage-admins'	:	echo "<span class=\"greetings\">Logged in as: &nbsp;" . htmlentities($_SESSION["username"]) . "</span>";
+									echo "<a class=\"header-link\" href=\"homepage.php\">Home</a>";
+									echo "<a class=\"header-link\" href=\"manage-contacts.php\">Edit</a>";
+									echo "<a class=\"header-link\" href=\"logout.php\">Logout</a>"; 	break;
 
-		case 'manage-admins'	:	echo "<a class=\"header-link\" href=\"homepage.php\">Home</a>";
-									echo "<a class=\"header-link\" href=\"manage-contacts.php\">Edit</a>"; 	break;
+		case 'homepage'			:	echo "<span class=\"greetings\">Logged in as: &nbsp;" . htmlentities($_SESSION["username"]) . "</span>";
+									echo "<a class=\"header-link\" href=\"manage-contacts.php\">Edit</a>";
+									echo "<a class=\"header-link\" href=\"logout.php\">Logout</a>"; 	break;
 
-		case 'homepage'			:	echo "<a class=\"header-link\" href=\"manage-admins.php\">Admin</a>"; 
-									echo "<a class=\"header-link\" href=\"manage-contacts.php\">Edit</a>"; 	break;
+		case 'manage-contacts'	:	echo "<span class=\"greetings\">Logged in as: &nbsp;" . htmlentities($_SESSION["username"]) . "</span>";
+									echo "<a class=\"header-link\" href=\"homepage.php\">Home</a>";
+									echo "<a class=\"header-link\" href=\"logout.php\">Logout</a>"; 	break;
 
-		case 'manage-contacts'	:	echo "<a class=\"header-link\" href=\"homepage.php\">Home</a>";
-									echo "<a class=\"header-link\" href=\"manage-admins.php\">Admin</a>";	break;
-
-		case 'edit-contacts'	: 	echo "<a class=\"header-link\" href=\"manage-contacts.php\">Cancel</a>";
-									echo "<a class=\"header-link\" href=\"manage-admins.php\">Admin</a>";	break;
+		case 'edit-contacts'	: 	echo "<span class=\"greetings\">Logged in as: &nbsp;" . htmlentities($_SESSION["username"]) . "</span>";
+									echo "<a class=\"header-link\" href=\"manage-contacts.php\">Cancel</a>"; break;
 
 		default 				:	echo "<a class=\"header-link\" href=\"login.php\">Manage Site</a>"; 	break;
 	}

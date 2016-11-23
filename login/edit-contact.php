@@ -15,13 +15,7 @@
 
 <?php 
 
-// -------------------------------------- Don't know if any of this is correct...
 if (isset($_POST['submit'])) {
-	// Process the form
-
-	// validations
-	// $required_fields = array("field_name1", "field_name2", "field_name3", "etc");
-	// validate_presences($required_fields);
 
 	$fields_with_max_lengths = array("owner1_first_name" => 25, "owner1_last_name" => 25, "owner1_cell" => 10, "owner1_email" => 40, "owner2_first_name" => 25, "owner2_last_name" => 25, "owner2_cell" => 10, "owner2_email" => 40, "owner_home_phone" => 10, "owner_alt_street1" => 25, "owner_alt_street2" => 25, "owner_alt_city" => 25, "owner_alt_state" => 2, "owner_alt_zip" => 10, "tenant1_first_name" => 25, "tenant1_last_name" => 25, "tenant1_cell" => 10, "tenant1_email" => 40, "tenant2_first_name" => 25, "tenant2_last_name" => 25, "tenant2_cell" => 10, "tenant2_email" => 40, "tenant_home_phone" => 10, "notes" => 255);
 	validate_max_lengths($fields_with_max_lengths);
@@ -110,7 +104,7 @@ if (isset($_POST['submit'])) {
 		// 
 		if ($result && mysqli_affected_rows($connection) >= 0) {
 			// Success
-			$_SESSION["message"] = "Contact Updated.";
+			$_SESSION["message"] = "Update Successful!";
 			redirect_to("manage-contacts.php");
 		} else {
 			// Update Failed
@@ -124,6 +118,8 @@ if (isset($_POST['submit'])) {
 
  ?>
 <?php $layout_context = "edit-contacts"; ?>
+<?php $admin_set = find_all_admins(); ?>
+<?php $admin = mysqli_fetch_assoc($admin_set) ?>
 <?php include '_includes/header.php'; ?>
 
 
@@ -133,14 +129,16 @@ if (isset($_POST['submit'])) {
 	<?php echo 	"<p class=\"main-address\">Edit > " . htmlentities($current_contact_to_edit) . " Sun Creek Drive</p>"; ?>
 </div><!-- .address-header -->
 <div class="card-update">
-
+    <?php echo message(); ?>
+    <?php echo form_errors($errors); ?>
+    
 	<?php 
 		if (!empty($message)) {
 			echo "<div class=\"message\">" . htmlentities($message) . "</div>";
 		}
 
 	 ?>
-	<?php echo form_errors($errors); ?>
+	 
 <?php  	
 // This has to stay here b/c it echos an error 
 // onto the card if bogus address is entered into url

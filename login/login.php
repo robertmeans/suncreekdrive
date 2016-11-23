@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
       // Mark user as logged in
       $_SESSION["admin_id"] = $found_admin["id"];
       $_SESSION["username"] = $found_admin["username"];
-      redirect_to("manage-contacts.php");
+      redirect_to("homepage.php");
     } else {
       // Failure
       $_SESSION["message"] = "Username/password not found.";
@@ -44,10 +44,11 @@ if (isset($_POST['submit'])) {
   <div id="page">
 
 <div class="login-box">
+    <h2>Admin Login</h2>
+
     <?php echo message(); ?>
     <?php echo form_errors($errors); ?>
-    
-    <h2>Admin Login</h2>
+
     <form action="login.php" method="post">
       <div class="login-text">Username:</div>
       <div class="login-input-fields">
@@ -58,6 +59,7 @@ if (isset($_POST['submit'])) {
         <input type="password" name="password" value="" />
       </div>
       <div class="login-input"><input type="submit" name="submit" value="Submit" /></div>
+      <a href="index.php">Cancel</a>
     </form>
   </div>
 </div>

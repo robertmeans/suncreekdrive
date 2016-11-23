@@ -36,13 +36,34 @@ header {
 	header {
 		text-align: center;
 		a.header-link {
+			padding: 10px 30px;
 			&:last-of-type {
-				margin: 0 10px;
+				// margin: 0 10px;
+				margin-right: 0;
 			}
+		}
+	  span.greetings {
+	    display: block;
+	    width: 100%;
+	    float: none;
+	    text-align: center;
+	    padding: 10px 0px;
+	    margin: 0 auto;
+	    background-color: #333;
+	    color: #fff;
+	    border-right: none;
+	    border-left: none;
+	    border-bottom: 1px solid white;
+	  }
+	}
+}
+@media screen and (max-width: 360px) {
+	header {
+		a.header-link {
+			padding: 10px 20px;
 		}
 	}
 }
-
 
 body.edit-page header.edit-page {
 	// background-color: #e9af00;

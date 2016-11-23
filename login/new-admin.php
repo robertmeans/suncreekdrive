@@ -45,15 +45,20 @@ if (isset($_POST['submit'])) {
 ?>
 
 <?php $layout_context = "manage-admins"; ?>
+<?php
+  $admin_set = find_all_admins();
+?>
+<?php $admin = mysqli_fetch_assoc($admin_set) ?>
 <?php include("_includes/header.php"); ?>
 
   <div id="page">
 
   <div class="login-box">
+    <h2>Create Admin</h2>
+
     <?php echo message(); ?>
     <?php echo form_errors($errors); ?>
-    
-    <h2>Create Admin</h2>
+
     <form action="new-admin.php" method="post">
       <div class="login-text">Username:</div>
       <div class="login-input-fields">
@@ -64,9 +69,8 @@ if (isset($_POST['submit'])) {
         <input type="password" name="password" value="" />
       </div>
        <div class="login-input"><input type="submit" name="submit" value="Create Admin" /></div>
+       <a href="manage-admins.php">Cancel</a>
     </form>
-    <br />
-    <a href="manage-admins.php">Cancel</a>
   </div>
 
 </div>

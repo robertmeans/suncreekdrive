@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
   // Process the form
   
   // validations
-  $required_fields = array("username", "password");
+  $required_fields = array("username", "old-password", "password");
   validate_presences($required_fields);
   
   $fields_with_max_lengths = array("username" => 30);
@@ -64,23 +64,36 @@ if (isset($_POST['submit'])) {
   <div id="page">
 
   <div class="login-box">
+    
+    <h2>Edit Admin: <?php echo htmlentities($admin["username"]); ?></h2>
+
     <?php echo message(); ?>
     <?php echo form_errors($errors); ?>
     
-    <h2>Edit Admin: <?php echo htmlentities($admin["username"]); ?></h2>
     <form action="edit-admin.php?id=<?php echo urlencode($admin["id"]); ?>" method="post">
       <div class="login-text">Username:</div>
       <div class="login-input-fields">
         <input type="text" name="username" value="<?php echo htmlentities($admin["username"]); ?>" />
       </div>
-       <div class="login-text">Password:</div>
+       <div class="login-text">Old Password:</div>
+      <div class="login-input-fields">
+        <input type="password" name="old-password" value="" />
+      </div>
+
+
+
+
+      <div class="login-text">New Password:</div>
       <div class="login-input-fields">
         <input type="password" name="password" value="" />
       </div>
+
+
+
+
       <div class="login-input"><input type="submit" name="submit" value="Edit Admin" /></div>
+      <a href="manage-admins.php">Cancel</a>
     </form>
-    <br />
-    <a href="manage-admins.php">Cancel</a>
   </div>
  </div> 
 

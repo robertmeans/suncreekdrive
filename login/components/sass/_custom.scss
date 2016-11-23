@@ -29,6 +29,22 @@ div.login-container {
   justify-content: center;
 }
 
+
+
+span.greetings {
+  display: inline-block;
+  float: left;
+  padding: 10px 15px;
+  margin: 0 0 0 10px;
+  background-color: #757575;
+  color: #fff;
+  border-right: 2px solid #333;
+  border-left: 2px solid #333;
+}
+
+
+
+
 div.login {
   // margin: 0 auto;
   width: 90%;
@@ -88,10 +104,15 @@ em {
   font-weight: bold;
   color: #333;
 }
-#mass-email-links {
+#mass-email-links-front-door {
   display: block;
   width: 90%;
   margin: 60px auto 0 auto;
+}
+#mass-email-links {
+  display: block;
+  width: 90%;
+  margin: 110px auto 0 auto;
 }
 p.underline {
     text-decoration: underline;
@@ -231,9 +252,27 @@ div.message {
   margin-bottom: 1em;
   border: 1px solid #bdf21c;
   // border-radius: 3px;
-  color: #000;
+  color: #fff;
   background-color: #a81717;
 }
+
+
+
+span.contact-update-message {
+  width: 100%;
+  display: block;
+  text-align: center;
+  padding: 10px 10px 10px 15px;
+  margin: 60px auto -40px auto;
+  border: 3px solid green;
+  color: green;
+  background-color: #fff;
+}
+
+
+
+
+
 @media screen and (min-width: 566px) {
   .large-566-gone {
     display: none;
@@ -259,7 +298,11 @@ div.message {
   }
   #mass-email-links {
     text-align: center;
-
+    margin: 60px auto 0 auto;
+  }
+  #mass-email-links-front-door {
+    text-align: center;
+    margin: 60px auto 0 auto;
   }
   .contact {
     margin: 10px;
@@ -268,12 +311,23 @@ div.message {
     }
   }
   .card {
-    width: 360px;
+    width: 420px;
   }
   p.main-address {
     display: block;
     margin: 0;
   }
+  span.contact-update-message {
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding: 10px 10px 10px 15px;
+    margin: 20px auto 20px auto;
+    border: 3px solid green;
+    color: green;
+    background-color: #fff;
+  }
+
 }
 @media screen and (min-width: 1180px) {
     a.email-links {
