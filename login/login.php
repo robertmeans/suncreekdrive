@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {
     <form action="login.php" method="post">
       <div class="login-text">Username:</div>
       <div class="login-input-fields">
-        <input class="pswd-box2" type="text" name="username" value="<?php echo htmlentities($username); ?>" />
+        <input class="pswd-box2" type="text" name="username" value="<?php echo htmlentities($username); ?>" autofocus />
       </div>
       <div class="login-text">Password:</div>
       <div class="login-input-fields">

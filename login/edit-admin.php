@@ -73,7 +73,7 @@ if (isset($_POST['submit'])) {
     <form action="edit-admin.php?id=<?php echo urlencode($admin["id"]); ?>" method="post">
       <div class="login-text">Username:</div>
       <div class="login-input-fields">
-        <input type="text" name="username" value="<?php echo htmlentities($admin["username"]); ?>" />
+        <input type="text" name="username" value="<?php echo htmlentities($admin["username"]); ?>" autofocus />
       </div>
        <div class="login-text">Old Password:</div>
       <div class="login-input-fields">

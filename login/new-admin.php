@@ -62,7 +62,7 @@ if (isset($_POST['submit'])) {
     <form action="new-admin.php" method="post">
       <div class="login-text">Username:</div>
       <div class="login-input-fields">
-        <input type="text" name="username" value="" />
+        <input type="text" name="username" value="" autofocus />
       </div>
      <div class="login-text">Password:</div>
      <div class="login-input-fields">

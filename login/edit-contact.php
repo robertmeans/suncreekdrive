@@ -17,8 +17,27 @@
 
 if (isset($_POST['submit'])) {
 
-	$fields_with_max_lengths = array("owner1_first_name" => 25, "owner1_last_name" => 25, "owner1_cell" => 10, "owner1_email" => 40, "owner2_first_name" => 25, "owner2_last_name" => 25, "owner2_cell" => 10, "owner2_email" => 40, "owner_home_phone" => 10, "owner_alt_street1" => 25, "owner_alt_street2" => 25, "owner_alt_city" => 25, "owner_alt_state" => 2, "owner_alt_zip" => 10, "tenant1_first_name" => 25, "tenant1_last_name" => 25, "tenant1_cell" => 10, "tenant1_email" => 40, "tenant2_first_name" => 25, "tenant2_last_name" => 25, "tenant2_cell" => 10, "tenant2_email" => 40, "tenant_home_phone" => 10, "notes" => 255);
+	$fields_with_max_lengths = array("owner1_first_name" => 25, "owner1_last_name" => 25, "owner1_email" => 40, "owner2_first_name" => 25, "owner2_last_name" => 25, "owner2_email" => 40, "owner_alt_street1" => 25, "owner_alt_street2" => 25, "owner_alt_city" => 25, "owner_alt_state" => 2, "owner_alt_zip" => 10, "tenant1_first_name" => 25, "tenant1_last_name" => 25, "tenant1_email" => 40, "tenant2_first_name" => 25, "tenant2_last_name" => 25, "tenant2_email" => 40, "notes" => 255);
+
+	$phones_to_clean = array("owner1_cell" => 10, "owner2_cell" => 10, "owner_home_phone" => 10, "tenant1_cell" => 10, "tenant2_cell" => 10, "tenant_home_phone" => 10,);
+
 	validate_max_lengths($fields_with_max_lengths);
+	clean_phones($phones_to_clean);
+
+
+
+
+
+	// $fields_with_max_lengths = array("owner1_first_name" => 25, "owner1_last_name" => 25, "owner1_cell" => 10, "owner1_email" => 40, "owner2_first_name" => 25, "owner2_last_name" => 25, "owner2_cell" => 10, "owner2_email" => 40, "owner_home_phone" => 10, "owner_alt_street1" => 25, "owner_alt_street2" => 25, "owner_alt_city" => 25, "owner_alt_state" => 2, "owner_alt_zip" => 10, "tenant1_first_name" => 25, "tenant1_last_name" => 25, "tenant1_cell" => 10, "tenant1_email" => 40, "tenant2_first_name" => 25, "tenant2_last_name" => 25, "tenant2_cell" => 10, "tenant2_email" => 40, "tenant_home_phone" => 10, "notes" => 255);
+
+
+	// validate_max_lengths($fields_with_max_lengths);
+
+
+
+
+	
+
 
 	if (empty($errors)) {
 		// Perform Update 
@@ -50,7 +69,7 @@ if (isset($_POST['submit'])) {
 
 		$tenant2_first_name = mysql_prep($_POST['tenant2_first_name']);
 		$tenant2_last_name = mysql_prep($_POST['tenant2_last_name']);
-		$tenant2_cell = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['tenant_cell']));
+		$tenant2_cell = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['tenant2_cell']));
 		$tenant2_email = mysql_prep($_POST['tenant2_email']);
 
 		$tenant_home_phone = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['tenant_home_phone']));
@@ -181,6 +200,8 @@ include '_includes/edit-contact-variables.php';
 	?>" /></div></div>
 	<div class="ef"><div class="el">Owner 2 Cell:</div><div class="ei"><input <?php if (array_key_exists('owner2_cell', $errors)) { echo "class=\"form-alert\""; } ?> type="tel" name="owner2_cell" value="<?php 
 
+		// echo (isset($_POST['owner2_cell'])) ? preg_replace('/\D/', '', $_POST['owner2_cell']) : preg_replace('/\D/', '', $o2c);
+		// ^^ testing
 		echo (isset($_POST['owner2_cell'])) ? $_POST['owner2_cell'] : $o2c;  
 
 	?>" /></div></div>

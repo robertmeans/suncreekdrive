@@ -12,3 +12,5 @@ $(document).ready(function() {
 function fadeMyDiv() {
    $("#success-fade").fadeOut('slow');
 }
+
+

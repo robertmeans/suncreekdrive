@@ -44,8 +44,34 @@ function validate_max_lengths($fields_with_max_lengths) {
 }
 
 
+// function validate_max_lengths($fields_with_max_lengths) {
+// 	global $errors;
+// 	// Expects an assoc. array
+// 	foreach($fields_with_max_lengths as $field => $max) {
+
+// 		if ($field === ('owner1_cell' || 'owner2_cell' || 'owner_home_phone' || 'tenant1_cell' || 'tenant2_cell' || 'tenant_home_phone')) {
+// 			$value = preg_replace('/\D/', '', ($_POST[$field])); // if it's a phone number, strip everything but numbers then check length
+// 		} else {
+// 			$value = trim($_POST[$field]);
+// 		}
+
+// 	  if (!has_max_length($value, $max)) {
+// 	    $errors[$field] = fieldname_as_text($field) . " is too long.";
+// 	  }
+// 	}
+// }
 
 
+function clean_phones($phones_to_clean) {
+	global $errors;
+
+	foreach($phones_to_clean as $field => $max) {
+		$value = preg_replace('/\D/', '', ($_POST[$field]));
+		if(!has_max_length($value, $max)) {
+			$errors[$field] = fieldname_as_text($field) . " is too long.";
+		}
+	}
+}
 
 // * inclusion in a set
 function has_inclusion_in($value, $set) {
