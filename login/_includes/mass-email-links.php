@@ -1,4 +1,5 @@
-<div id="mass-email-links">
+
+<div <?php if ($layout_context == "front-door") { echo " id=\"mass-email-links-front-door\""; } else { echo " id=\"mass-email-links\""; } ?>>
 <?php
 	// ############################### Email Links at Top #################################
 	//

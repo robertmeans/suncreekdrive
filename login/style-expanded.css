@@ -82,8 +82,10 @@ header a.header-link {
   text-decoration: none;
   color: #303570;
   padding: 10px 15px;
-  margin-right: 40px;
   transition: background-color .3s ease;
+}
+header a.header-link:last-of-type {
+  margin-right: 40px;
 }
 header a.header-link:hover {
   background-color: #b7ac80;
@@ -93,8 +95,37 @@ header a.home-link {
   margin-right: 0;
 }
 
+@media screen and (max-width: 865px) {
+  header {
+    text-align: center;
+  }
+  header a.header-link {
+    padding: 10px 30px;
+  }
+  header a.header-link:last-of-type {
+    margin-right: 0;
+  }
+  header span.greetings {
+    display: block;
+    width: 100%;
+    float: none;
+    text-align: center;
+    padding: 10px 0px;
+    margin: 0 auto;
+    background-color: #333;
+    color: #fff;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid white;
+  }
+}
+@media screen and (max-width: 360px) {
+  header a.header-link {
+    padding: 10px 20px;
+  }
+}
 body.edit-page header.edit-page {
-  background-color: #e9af00;
+  background-color: aqua;
   color: #fff;
 }
 body.edit-page header.edit-page a.header-link {
@@ -137,7 +168,7 @@ body.edit-page header.edit-page a.header-link:hover {
 }
 
 #flex-wrapper-update > div:nth-child(7) > div.address-header {
-  background-color: blue;
+  background-color: darkgreen;
 }
 
 #flex-wrapper-update > div:nth-child(8) > div.address-header {
@@ -162,7 +193,7 @@ body.edit-page header.edit-page a.header-link:hover {
 
 #flex-wrapper-update {
   width: 90%;
-  margin: 0 auto;
+  margin: 110px auto 0 auto;
 }
 
 .contact-update {
@@ -208,7 +239,7 @@ body.edit-page header.edit-page a.header-link:hover {
   }
 
   .card-update {
-    width: 500px;
+    width: 420px;
   }
 }
 .contact-edit-section {
@@ -274,7 +305,26 @@ div.buttons {
   -ms-flex-pack: center;
       justify-content: center;
 }
-div.buttons input[type=submit] {
+div.buttons input[type=submit]#edit-submit {
+  -webkit-appearance: none;
+  text-align: left;
+  font-size: 100%;
+  display: inline-block;
+  padding: 20px;
+  background-color: #008D00;
+  color: #fff;
+  border: 1px solid #fff;
+  cursor: pointer;
+  line-height: 1em;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: background-color .2s ease;
+}
+div.buttons input[type=submit]#edit-submit:hover {
+  background-color: #00CC00;
+  text-decoration: none;
+}
+div.buttons a#edit-submit {
   text-align: left;
   font-size: 100%;
   display: inline-block;
@@ -283,19 +333,19 @@ div.buttons input[type=submit] {
   color: #fff;
   border: 1px solid #fff;
   cursor: pointer;
-  line-height: 16px;
+  line-height: 1em;
   text-decoration: none;
   margin: 0 10px;
   transition: background-color .2s ease;
 }
-div.buttons input[type=submit]:hover {
+div.buttons a#edit-submit:hover {
   background-color: #00CC00;
   text-decoration: none;
 }
 div.buttons a.cancel-button {
   text-align: right;
   display: inline-block;
-  padding: 40px;
+  padding: 20px;
   background-color: #E50000;
   color: #fff;
   border: 1px solid #fff;
@@ -324,7 +374,8 @@ div.buttons a.cancel-button:hover {
     box-shadow: 0px -6px 10px -2px rgba(0, 0, 0, 0.39);
   }
 
-  input[type=text] {
+  input[type=text],
+  input[type=tel] {
     width: 100%;
     max-width: 160px;
   }
@@ -350,6 +401,206 @@ textarea {
     width: 100%;
   }
 }
+div.login-box {
+  display: block;
+  width: 100%;
+  max-width: 410px;
+  margin: 110px auto;
+  border: 1px solid #333;
+  background-color: #fff;
+  border-radius: 5px;
+}
+div.login-box .message {
+  color: #fff;
+  width: 98%;
+  margin: 0 auto;
+}
+div.login-box h2 {
+  display: block;
+  padding: 10px 0px 10px 15px;
+  width: 100%;
+  margin: 0px 0px 20px 0px;
+  background-color: blue;
+  color: white;
+}
+div.login-box form {
+  padding: 20px;
+}
+
+div.login-text {
+  color: #333;
+  display: inline-block;
+  width: 100%;
+  max-width: 150px;
+  text-align: right;
+}
+
+div.login-input-fields {
+  display: inline-block;
+  width: 100%;
+  max-width: 150px;
+  margin-bottom: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+div.login-input {
+  display: block;
+  text-align: right;
+  padding-right: 20px;
+  margin-top: 10px;
+}
+div.login-input input[type=submit] {
+  -webkit-appearance: none;
+  padding: 15px;
+  background-color: blue;
+  color: #fff;
+  border: 1px solid blue;
+}
+div.login-input input[type=submit]:hover {
+  background-color: #fff;
+  color: blue;
+}
+
+div.login-box input[type=text],
+div.login-box input[type=password] {
+  width: 100%;
+  max-width: 150px;
+}
+
+@media screen and (min-width: 865px) {
+  div.login-box {
+    margin: 60px auto 80px auto;
+  }
+}
+@media screen and (max-width: 420px) {
+  div.login-box input[type=text],
+  div.login-box input[type=password] {
+    width: 90%;
+    max-width: 500px;
+  }
+
+  div.login-text {
+    text-align: left;
+  }
+
+  div.login-input-fields {
+    max-width: 400px;
+  }
+}
+div#manage-admins-main {
+  margin-top: 120px;
+  color: #fff;
+  width: 100%;
+}
+
+div#page {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0px 20px;
+}
+div#page div.message {
+  color: #fff;
+}
+div#page a.admin-link {
+  color: inherit;
+  text-decoration: underline;
+}
+div#page a.admin-link:hover {
+  text-decoration: none;
+}
+
+h2.manage-h2 {
+  margin-bottom: 1.5em;
+}
+
+@media screen and (min-width: 865px) {
+  div#manage-admins-main {
+    margin-top: 80px;
+    color: #fff;
+    width: 100%;
+  }
+}
+body {
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+  color: #757575;
+  line-height: 1.5em;
+  background-color: #666d75;
+}
+
+p {
+  display: block;
+  line-height: 1.5em;
+  font-size: 1em;
+}
+
+.u {
+  text-decoration: underline;
+}
+
+.b {
+  font-weight: bold;
+}
+
+div.login-container {
+  background-image: url(_images/suncreek-unit.jpg);
+  background-size: cover;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+
+span.greetings {
+  display: inline-block;
+  float: left;
+  padding: 10px 15px;
+  margin: 0 0 0 10px;
+  background-color: #757575;
+  color: #fff;
+  border-right: 2px solid #333;
+  border-left: 2px solid #333;
+}
+
+div.login {
+  width: 90%;
+  max-width: 300px;
+  padding: 30px;
+  border: 5px solid #414a4d;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: -10px 10px 5px 0px rgba(0, 0, 0, 0.58);
+}
+
+input[type=submit]#login-btn {
+  -webkit-appearance: none;
+  margin-top: 8px;
+  text-align: right;
+  float: right;
+  margin-right: 5px;
+  padding: 10px 15px;
+  background-color: blue;
+  border: 1px solid blue;
+  color: #fff;
+}
+input[type=submit]#login-btn:hover {
+  background-color: #fff;
+  color: blue;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #f3f3f3 inset !important;
+}
+
 table.xdebug-error tr,
 table.xdebug-error td {
   font-size: 16px;
@@ -375,23 +626,21 @@ table.xdebug-error th span {
   box-sizing: border-box;
 }
 
-body {
-  font-size: 16px;
-  font-family: 'Lato', sans-serif;
-  color: #757575;
-  line-height: 1.5em;
-  background-color: #666d75;
-}
-
 em {
   font-weight: bold;
   color: #333;
 }
 
-#mass-email-links {
+#mass-email-links-front-door {
   display: block;
   width: 90%;
   margin: 60px auto 0 auto;
+}
+
+#mass-email-links {
+  display: block;
+  width: 90%;
+  margin: 110px auto 0 auto;
 }
 
 p.underline {
@@ -525,6 +774,12 @@ a.tel-link:hover {
   border-radius: 0px 0px 5px 5px;
 }
 
+p.front-door-error {
+  display: inline-block;
+  line-height: 1.2em;
+  color: red;
+}
+
 div.error {
   padding: 10px 10px 10px 15px;
   margin-bottom: 1em;
@@ -541,6 +796,27 @@ div.message {
   background-color: #a81717;
 }
 
+span.contact-update-message {
+  width: 100%;
+  display: block;
+  text-align: center;
+  padding: 10px 10px 10px 15px;
+  margin: 60px auto -40px auto;
+  border: 3px solid green;
+  color: green;
+  background-color: #fff;
+}
+
+@media screen and (min-width: 566px) {
+  .large-566-gone {
+    display: none;
+  }
+}
+@media screen and (max-width: 565px) {
+  .small-565-gone {
+    display: none;
+  }
+}
 @media screen and (min-width: 865px) {
   body {
     line-height: 1.3em;
@@ -561,6 +837,12 @@ div.message {
 
   #mass-email-links {
     text-align: center;
+    margin: 60px auto 0 auto;
+  }
+
+  #mass-email-links-front-door {
+    text-align: center;
+    margin: 60px auto 0 auto;
   }
 
   .contact {
@@ -571,12 +853,23 @@ div.message {
   }
 
   .card {
-    width: 360px;
+    width: 420px;
   }
 
   p.main-address {
     display: block;
     margin: 0;
+  }
+
+  span.contact-update-message {
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding: 10px 10px 10px 15px;
+    margin: 20px auto 20px auto;
+    border: 3px solid green;
+    color: green;
+    background-color: #fff;
   }
 }
 @media screen and (min-width: 1180px) {

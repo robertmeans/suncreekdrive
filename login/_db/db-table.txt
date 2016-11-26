@@ -1,20 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 db name 	: suncreekdrive
 table name 	: neighbors
 -------------------------------------------------
@@ -51,6 +35,15 @@ notes VARCHAR(255) NOT NULL,
 PRIMARY KEY (id)
 );
 
+-------------------------------------------------
+
+
+ CREATE TABLE admins (
+ id INT(11) NOT NULL AUTO_INCREMENT,
+ username VARCHAR(50) NOT NULL,
+ hashed_password VARCHAR(60) NOT NULL,
+ PRIMARY KEY (id)
+ );
 
 
 -------------------------------------------------
