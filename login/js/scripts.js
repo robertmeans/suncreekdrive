@@ -1,0 +1,1 @@
+function fadeMyDiv(){$("#success-fade").fadeOut("slow")}$.fx.speeds.slow=1500,$(document).ready(function(){window.setTimeout("fadeMyDiv();",3e3)});

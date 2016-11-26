@@ -52,11 +52,11 @@ if (isset($_POST['submit'])) {
     <form action="login.php" method="post">
       <div class="login-text">Username:</div>
       <div class="login-input-fields">
-        <input type="text" name="username" value="<?php echo htmlentities($username); ?>" />
+        <input class="pswd-box2" type="text" name="username" value="<?php echo htmlentities($username); ?>" />
       </div>
       <div class="login-text">Password:</div>
       <div class="login-input-fields">
-        <input type="password" name="password" value="" />
+        <input class="pswd-box2" type="password" name="password" value="" />
       </div>
       <div class="login-input"><input type="submit" name="submit" value="Submit" /></div>
       <a href="index.php">Cancel</a>

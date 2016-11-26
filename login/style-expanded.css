@@ -126,6 +126,10 @@ header a.home-link {
 }
 body.edit-page header.edit-page {
   background-color: aqua;
+  background: #e1ff00;
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #e1ff00), color-stop(100%, #f85032));
+  background: linear-gradient(to bottom, #e1ff00 0%, #f85032 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e1ff00', endColorstr='#f85032', GradientType=0 );
   color: #fff;
 }
 body.edit-page header.edit-page a.header-link {
@@ -465,7 +469,7 @@ div.login-input input[type=submit]:hover {
 div.login-box input[type=text],
 div.login-box input[type=password] {
   width: 100%;
-  max-width: 150px;
+  max-width: 100px;
 }
 
 @media screen and (min-width: 865px) {
@@ -579,6 +583,18 @@ div.login {
   border-radius: 8px;
   background-color: white;
   box-shadow: -10px 10px 5px 0px rgba(0, 0, 0, 0.58);
+}
+
+input.pswd-box {
+  width: 50%;
+  height: 2em;
+  font-size: 1.3em;
+}
+
+input.pswd-box2 {
+  width: 100px;
+  height: 1.5m;
+  font-size: 1em;
 }
 
 input[type=submit]#login-btn {
@@ -800,11 +816,16 @@ span.contact-update-message {
   width: 100%;
   display: block;
   text-align: center;
-  padding: 10px 10px 10px 15px;
+  padding: 16px 10px 16px 15px;
   margin: 60px auto -40px auto;
   border: 3px solid green;
   color: green;
   background-color: #fff;
+}
+
+.form-alert {
+  background-color: yellow;
+  border: 2px solid red;
 }
 
 @media screen and (min-width: 566px) {
@@ -862,14 +883,7 @@ span.contact-update-message {
   }
 
   span.contact-update-message {
-    width: 100%;
-    display: block;
-    text-align: center;
-    padding: 10px 10px 10px 15px;
     margin: 20px auto 20px auto;
-    border: 3px solid green;
-    color: green;
-    background-color: #fff;
   }
 }
 @media screen and (min-width: 1180px) {
