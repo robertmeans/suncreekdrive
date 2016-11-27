@@ -10,7 +10,8 @@ $(document).ready(function() {
  }
 )
 function fadeMyDiv() {
-   $("#success-fade").fadeOut('slow');
+   // $("#success-fade").hide('slow');
+   $('#success-fade').slideUp('slow');
 }
 
 

@@ -17,27 +17,40 @@
 
 if (isset($_POST['submit'])) {
 
-	$fields_with_max_lengths = array("owner1_first_name" => 25, "owner1_last_name" => 25, "owner1_email" => 40, "owner2_first_name" => 25, "owner2_last_name" => 25, "owner2_email" => 40, "owner_alt_street1" => 25, "owner_alt_street2" => 25, "owner_alt_city" => 25, "owner_alt_state" => 2, "owner_alt_zip" => 10, "tenant1_first_name" => 25, "tenant1_last_name" => 25, "tenant1_email" => 40, "tenant2_first_name" => 25, "tenant2_last_name" => 25, "tenant2_email" => 40, "notes" => 255);
+	// $fields_with_max_lengths = array("owner1_first_name" => 25, "owner1_last_name" => 25, "owner1_email" => 40, "owner2_first_name" => 25, "owner2_last_name" => 25, "owner2_email" => 40, "owner_alt_street1" => 25, "owner_alt_street2" => 25, "owner_alt_city" => 25, "owner_alt_state" => 2, "owner_alt_zip" => 10, "tenant1_first_name" => 25, "tenant1_last_name" => 25, "tenant1_email" => 40, "tenant2_first_name" => 25, "tenant2_last_name" => 25, "tenant2_email" => 40, "notes" => 255);
 
-	$phones_to_clean = array("owner1_cell" => 10, "owner2_cell" => 10, "owner_home_phone" => 10, "tenant1_cell" => 10, "tenant2_cell" => 10, "tenant_home_phone" => 10,);
-
-	validate_max_lengths($fields_with_max_lengths);
-	clean_phones($phones_to_clean);
-
-
-
-
-
-	// $fields_with_max_lengths = array("owner1_first_name" => 25, "owner1_last_name" => 25, "owner1_cell" => 10, "owner1_email" => 40, "owner2_first_name" => 25, "owner2_last_name" => 25, "owner2_cell" => 10, "owner2_email" => 40, "owner_home_phone" => 10, "owner_alt_street1" => 25, "owner_alt_street2" => 25, "owner_alt_city" => 25, "owner_alt_state" => 2, "owner_alt_zip" => 10, "tenant1_first_name" => 25, "tenant1_last_name" => 25, "tenant1_cell" => 10, "tenant1_email" => 40, "tenant2_first_name" => 25, "tenant2_last_name" => 25, "tenant2_cell" => 10, "tenant2_email" => 40, "tenant_home_phone" => 10, "notes" => 255);
-
+	// $phones_to_clean = array("owner1_cell" => 10, "owner2_cell" => 10, "owner_home_phone" => 10, "tenant1_cell" => 10, "tenant2_cell" => 10, "tenant_home_phone" => 10,);
 
 	// validate_max_lengths($fields_with_max_lengths);
+	// clean_phones($phones_to_clean);
 
+	$fields_with_max_lengths = array(	"owner1_first_name" 	=> 25, 
+										"owner1_last_name" 		=> 25, 
+										"owner1_cell" 			=> 10, 
+										"owner1_email" 			=> 40, 
+										"owner2_first_name" 	=> 25, 
+										"owner2_last_name" 		=> 25, 
+										"owner2_cell" 			=> 10, 
+										"owner2_email" 			=> 40, 
+										"owner_home_phone" 		=> 10, 
+										"owner_alt_street1" 	=> 25, 
+										"owner_alt_street2" 	=> 25, 
+										"owner_alt_city" 		=> 25, 
+										"owner_alt_state" 		=> 2, 
+										"owner_alt_zip" 		=> 10, 
+										"tenant1_first_name" 	=> 25, 
+										"tenant1_last_name" 	=> 25, 
+										"tenant1_cell" 			=> 10, 
+										"tenant1_email" 		=> 40, 
+										"tenant2_first_name" 	=> 25, 
+										"tenant2_last_name" 	=> 25, 
+										"tenant2_cell" 			=> 10, 
+										"tenant2_email" 		=> 40, 
+										"tenant_home_phone" 	=> 10, 
+										"notes" 				=> 255
+										);
 
-
-
-	
-
+	validate_max_lengths($fields_with_max_lengths);
 
 	if (empty($errors)) {
 		// Perform Update 
@@ -60,7 +73,7 @@ if (isset($_POST['submit'])) {
 		$owner_alt_street2 = mysql_prep($_POST['owner_alt_street2']);
 		$owner_alt_city = mysql_prep($_POST['owner_alt_city']);
 		$owner_alt_state = mysql_prep($_POST['owner_alt_state']);
-		$owner_alt_zip = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['owner_alt_zip']));
+		$owner_alt_zip = mysql_prep($_POST['owner_alt_zip']);
 
 		$tenant1_first_name = mysql_prep($_POST['tenant1_first_name']);
 		$tenant1_last_name = mysql_prep($_POST['tenant1_last_name']);
@@ -163,7 +176,6 @@ if (isset($_POST['submit'])) {
 $this_info = find_contact_by_address($current_contact_to_edit);
 include '_includes/edit-contact-variables.php';
 ?>
-
 <form id="contact-update-form" name="edit_form" action="edit-contact.php?unit=<?php echo urlencode($current_contact_to_edit) ?>" method="post">
 
 <div class="contact-edit-section">
@@ -182,7 +194,7 @@ include '_includes/edit-contact-variables.php';
 		echo (isset($_POST['owner1_cell'])) ? $_POST['owner1_cell'] : $o1c;  
 
 	?>" /></div></div>
-	<div class="ef"><div class="el">Owner 1 Email:</div><div class="ei"><input <?php if (array_key_exists('owner1_email', $errors)) { echo "class=\"form-alert\""; } ?> type="text" name="owner1_email" value="<?php 
+	<div class="ef"><div class="el">Owner 1 Email:</div><div class="ei"><input <?php if (array_key_exists('owner1_email', $errors)) { echo "class=\"form-alert\""; } ?> type="email" name="owner1_email" value="<?php 
 
 		echo (isset($_POST['owner1_email'])) ? $_POST['owner1_email'] : $o1em;  
 
@@ -205,7 +217,7 @@ include '_includes/edit-contact-variables.php';
 		echo (isset($_POST['owner2_cell'])) ? $_POST['owner2_cell'] : $o2c;  
 
 	?>" /></div></div>
-	<div class="ef"><div class="el">Owner 2 Email:</div><div class="ei"><input <?php if (array_key_exists('owner2_email', $errors)) { echo "class=\"form-alert\""; } ?> type="text" name="owner2_email" value="<?php 
+	<div class="ef"><div class="el">Owner 2 Email:</div><div class="ei"><input <?php if (array_key_exists('owner2_email', $errors)) { echo "class=\"form-alert\""; } ?> type="email" name="owner2_email" value="<?php 
 
 		echo (isset($_POST['owner2_email'])) ? $_POST['owner2_email'] : $o2em;  
 
@@ -260,7 +272,7 @@ include '_includes/edit-contact-variables.php';
 		echo (isset($_POST['tenant1_cell'])) ? $_POST['tenant1_cell'] : $t1c; 
 
 	?>" /></div></div>
-	<div class="ef"><div class="el">Tenant 1 Email:</div><div class="ei"><input <?php if (array_key_exists('tenant1_email', $errors)) { echo "class=\"form-alert\""; } ?> type="text" name="tenant1_email" value="<?php 
+	<div class="ef"><div class="el">Tenant 1 Email:</div><div class="ei"><input <?php if (array_key_exists('tenant1_email', $errors)) { echo "class=\"form-alert\""; } ?> type="email" name="tenant1_email" value="<?php 
 
 		echo (isset($_POST['tenant1_email'])) ? $_POST['tenant1_email'] : $t1em;
 
@@ -281,7 +293,7 @@ include '_includes/edit-contact-variables.php';
 		echo (isset($_POST['tenant2_cell'])) ? $_POST['tenant2_cell'] : $t2c; 
 
 	?>" /></div></div>
-	<div class="ef"><div class="el">Tenant 2 Email:</div><div class="ei"><input <?php if (array_key_exists('tenant2_email', $errors)) { echo "class=\"form-alert\""; } ?> type="text" name="tenant2_email" value="<?php 
+	<div class="ef"><div class="el">Tenant 2 Email:</div><div class="ei"><input <?php if (array_key_exists('tenant2_email', $errors)) { echo "class=\"form-alert\""; } ?> type="email" name="tenant2_email" value="<?php 
 
 		echo (isset($_POST['tenant2_email'])) ? $_POST['tenant2_email'] : $t2em; 
 
