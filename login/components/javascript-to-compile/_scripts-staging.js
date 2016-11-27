@@ -13,5 +13,3 @@ function fadeMyDiv() {
    // $("#success-fade").hide('slow');
    $('#success-fade').slideUp('slow');
 }
-
-

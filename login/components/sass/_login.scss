@@ -3,10 +3,11 @@ div.login-box {
 	width: 100%;
 	max-width: 410px;
 	margin: 110px auto;
-	border: 1px solid #333;
+	border: 2px solid #ccc;
 	// padding: 30px;
-	background-color: #fff;
+	background-color: #56636c;
 	border-radius: 5px;
+	box-shadow: -10px 10px 5px 0px rgba(0,0,0,0.28);
 	.message {
 		color: #fff;
 		width: 98%;
@@ -17,16 +18,18 @@ div.login-box {
 		padding: 10px 0px 10px 15px;
 		width: 100%;
 		margin: 0px 0px 20px 0px;
-		background-color: blue;
+		background-color: #2e3235;
 		color: white;
 	}
 	form {
 		padding: 20px;
 	}
 }
-
+#page > div > form > a {
+	color: #fff;
+}
 div.login-text {
-	color: #333;
+	color: #fff;
 	display: inline-block;
 	width: 100%;
 	max-width: 150px;
@@ -48,12 +51,14 @@ div.login-input {
 	input[type=submit] {
 		-webkit-appearance: none;
 		padding: 15px;
-		background-color: blue;
-		color: #fff;
-		border: 1px solid blue;
+		background-color: #e1e1e1;
+		color: #313131;
+		border: 1px solid #fff;
+		transition: background-color .3s ease;
+		cursor: pointer;
 		&:hover {
 			background-color: #fff;
-			color: blue;
+			color: #313131;
 		}
 	}
 }

@@ -424,9 +424,10 @@ div.login-box {
   width: 100%;
   max-width: 410px;
   margin: 110px auto;
-  border: 1px solid #333;
-  background-color: #fff;
+  border: 2px solid #ccc;
+  background-color: #56636c;
   border-radius: 5px;
+  box-shadow: -10px 10px 5px 0px rgba(0, 0, 0, 0.28);
 }
 div.login-box .message {
   color: #fff;
@@ -438,15 +439,19 @@ div.login-box h2 {
   padding: 10px 0px 10px 15px;
   width: 100%;
   margin: 0px 0px 20px 0px;
-  background-color: blue;
+  background-color: #2e3235;
   color: white;
 }
 div.login-box form {
   padding: 20px;
 }
 
+#page > div > form > a {
+  color: #fff;
+}
+
 div.login-text {
-  color: #333;
+  color: #fff;
   display: inline-block;
   width: 100%;
   max-width: 150px;
@@ -471,13 +476,15 @@ div.login-input {
 div.login-input input[type=submit] {
   -webkit-appearance: none;
   padding: 15px;
-  background-color: blue;
-  color: #fff;
-  border: 1px solid blue;
+  background-color: #e1e1e1;
+  color: #313131;
+  border: 1px solid #fff;
+  transition: background-color .3s ease;
+  cursor: pointer;
 }
 div.login-input input[type=submit]:hover {
   background-color: #fff;
-  color: blue;
+  color: #313131;
 }
 
 div.login-box input[type=text],
@@ -593,9 +600,10 @@ div.login {
   width: 90%;
   max-width: 300px;
   padding: 30px;
-  border: 5px solid #414a4d;
+  border: 5px solid #fff;
+  color: #fff;
   border-radius: 8px;
-  background-color: white;
+  background-color: #545c5f;
   box-shadow: -10px 10px 5px 0px rgba(0, 0, 0, 0.58);
 }
 
@@ -616,15 +624,17 @@ input[type=submit]#login-btn {
   margin-top: 8px;
   text-align: right;
   float: right;
-  margin-right: 5px;
+  cursor: pointer;
+  margin-right: 15px;
   padding: 10px 15px;
-  background-color: blue;
-  border: 1px solid blue;
-  color: #fff;
+  background-color: #e1e1e1;
+  border: 1px solid #313131;
+  color: #313131;
+  transition: background-color .3s ease;
 }
 input[type=submit]#login-btn:hover {
   background-color: #fff;
-  color: blue;
+  color: 313131;
 }
 
 input:-webkit-autofill {
@@ -807,7 +817,7 @@ a.tel-link:hover {
 p.front-door-error {
   display: inline-block;
   line-height: 1.2em;
-  color: red;
+  color: #fff;
 }
 
 div.error {
@@ -945,6 +955,48 @@ footer p.copyright a:hover {
   footer p.copyright {
     width: 100%;
     text-align: center;
+  }
+
+  a.email-links {
+    background-color: #272c33;
+  }
+  a.email-links:hover {
+    background-color: #272c33;
+    color: #fff;
+  }
+
+  body.edit-page header.edit-page {
+    background-color: aqua;
+    background: #e1ff00;
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, #e1ff00), color-stop(100%, #f85032));
+    background: linear-gradient(to bottom, #e1ff00 0%, #f85032 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e1ff00', endColorstr='#f85032', GradientType=0 );
+    color: #fff;
+  }
+  body.edit-page header.edit-page a.header-link {
+    transition: background-color .8s ease;
+  }
+  body.edit-page header.edit-page a.header-link:hover {
+    background-color: transparent;
+    color: #303570;
+  }
+
+  header a.header-link:hover {
+    background-color: #e7e1c8;
+    color: #333;
+  }
+
+  div.buttons input[type=submit]#edit-submit {
+    background-color: #008D00;
+  }
+  div.buttons input[type=submit]#edit-submit:hover {
+    background-color: #008D00;
+  }
+  div.buttons a#edit-submit:hover {
+    background-color: #008D00;
+  }
+  div.buttons a.cancel-button:hover {
+    background-color: #E50000;
   }
 }
 ul.admin {

@@ -5,7 +5,7 @@
 <?php confirm_logged_in(); ?>
 
 <?php
-  $admin = find_admin_by_id($_GET["id"]);
+  // $admin = find_admin_by_id($_GET["id"]);
   
   if (!$admin) {
     // admin ID was missing or invalid or 
