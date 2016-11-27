@@ -264,7 +264,8 @@ body.edit-page header.edit-page a.header-link:hover {
   color: #333;
 }
 .contact-edit-section input {
-  width: 160px;
+  width: 100%;
+  max-width: 160px;
 }
 .contact-edit-section div.ef {
   display: block;
@@ -311,6 +312,7 @@ div.buttons {
 }
 div.buttons input[type=submit]#edit-submit {
   -webkit-appearance: none;
+  border-radius: 0px;
   text-align: left;
   font-size: 100%;
   display: inline-block;
@@ -390,19 +392,31 @@ textarea {
 }
 
 @media screen and (max-width: 460px) {
-  div.ef {
+  .contact-edit-section {
+    padding: 20px 5px 20px 20px;
+  }
+  .contact-edit-section div.ef {
     margin-bottom: 12px;
   }
-
-  div.el {
+  .contact-edit-section div.el {
     display: block;
     width: 100%;
+    max-width: 400px;
     text-align: left;
   }
-
-  div.ei {
+  .contact-edit-section div.ei {
     display: block;
     width: 100%;
+    max-width: 400px;
+  }
+  .contact-edit-section div.ei input[type=text],
+  .contact-edit-section div.ei input[type=tel],
+  .contact-edit-section div.ei input[type=email] {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 400px;
+    height: 2em;
+    font-size: 1.2em;
   }
 }
 div.login-box {
