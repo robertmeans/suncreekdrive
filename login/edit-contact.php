@@ -17,7 +17,39 @@
 
 if (isset($_POST['submit'])) {
 
-	$fields_with_max_lengths = array("owner1_first_name" => 25, "owner1_last_name" => 25, "owner1_cell" => 10, "owner1_email" => 40, "owner2_first_name" => 25, "owner2_last_name" => 25, "owner2_cell" => 10, "owner2_email" => 40, "owner_home_phone" => 10, "owner_alt_street1" => 25, "owner_alt_street2" => 25, "owner_alt_city" => 25, "owner_alt_state" => 2, "owner_alt_zip" => 10, "tenant1_first_name" => 25, "tenant1_last_name" => 25, "tenant1_cell" => 10, "tenant1_email" => 40, "tenant2_first_name" => 25, "tenant2_last_name" => 25, "tenant2_cell" => 10, "tenant2_email" => 40, "tenant_home_phone" => 10, "notes" => 255);
+	// $fields_with_max_lengths = array("owner1_first_name" => 25, "owner1_last_name" => 25, "owner1_email" => 40, "owner2_first_name" => 25, "owner2_last_name" => 25, "owner2_email" => 40, "owner_alt_street1" => 25, "owner_alt_street2" => 25, "owner_alt_city" => 25, "owner_alt_state" => 2, "owner_alt_zip" => 10, "tenant1_first_name" => 25, "tenant1_last_name" => 25, "tenant1_email" => 40, "tenant2_first_name" => 25, "tenant2_last_name" => 25, "tenant2_email" => 40, "notes" => 255);
+
+	// $phones_to_clean = array("owner1_cell" => 10, "owner2_cell" => 10, "owner_home_phone" => 10, "tenant1_cell" => 10, "tenant2_cell" => 10, "tenant_home_phone" => 10,);
+
+	// validate_max_lengths($fields_with_max_lengths);
+	// clean_phones($phones_to_clean);
+
+	$fields_with_max_lengths = array(	"owner1_first_name" 	=> 25, 
+										"owner1_last_name" 		=> 25, 
+										"owner1_cell" 			=> 10, 
+										"owner1_email" 			=> 40, 
+										"owner2_first_name" 	=> 25, 
+										"owner2_last_name" 		=> 25, 
+										"owner2_cell" 			=> 10, 
+										"owner2_email" 			=> 40, 
+										"owner_home_phone" 		=> 10, 
+										"owner_alt_street1" 	=> 25, 
+										"owner_alt_street2" 	=> 25, 
+										"owner_alt_city" 		=> 25, 
+										"owner_alt_state" 		=> 2, 
+										"owner_alt_zip" 		=> 10, 
+										"tenant1_first_name" 	=> 25, 
+										"tenant1_last_name" 	=> 25, 
+										"tenant1_cell" 			=> 10, 
+										"tenant1_email" 		=> 40, 
+										"tenant2_first_name" 	=> 25, 
+										"tenant2_last_name" 	=> 25, 
+										"tenant2_cell" 			=> 10, 
+										"tenant2_email" 		=> 40, 
+										"tenant_home_phone" 	=> 10, 
+										"notes" 				=> 255
+										);
+
 	validate_max_lengths($fields_with_max_lengths);
 
 	if (empty($errors)) {
@@ -41,7 +73,7 @@ if (isset($_POST['submit'])) {
 		$owner_alt_street2 = mysql_prep($_POST['owner_alt_street2']);
 		$owner_alt_city = mysql_prep($_POST['owner_alt_city']);
 		$owner_alt_state = mysql_prep($_POST['owner_alt_state']);
-		$owner_alt_zip = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['owner_alt_zip']));
+		$owner_alt_zip = mysql_prep($_POST['owner_alt_zip']);
 
 		$tenant1_first_name = mysql_prep($_POST['tenant1_first_name']);
 		$tenant1_last_name = mysql_prep($_POST['tenant1_last_name']);
@@ -50,7 +82,7 @@ if (isset($_POST['submit'])) {
 
 		$tenant2_first_name = mysql_prep($_POST['tenant2_first_name']);
 		$tenant2_last_name = mysql_prep($_POST['tenant2_last_name']);
-		$tenant2_cell = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['tenant_cell']));
+		$tenant2_cell = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['tenant2_cell']));
 		$tenant2_email = mysql_prep($_POST['tenant2_email']);
 
 		$tenant_home_phone = mysql_prep(preg_replace('/[^0-9]/', '', $_POST['tenant_home_phone']));
@@ -129,14 +161,13 @@ if (isset($_POST['submit'])) {
 	<?php echo 	"<p class=\"main-address\">Edit > " . htmlentities($current_contact_to_edit) . " Sun Creek Drive</p>"; ?>
 </div><!-- .address-header -->
 <div class="card-update">
-    <?php echo message(); ?>
+    <?php echo message(); ?>  
     <?php echo form_errors($errors); ?>
     
 	<?php 
 		if (!empty($message)) {
 			echo "<div class=\"message\">" . htmlentities($message) . "</div>";
 		}
-
 	 ?>
 	 
 <?php  	
@@ -145,43 +176,140 @@ if (isset($_POST['submit'])) {
 $this_info = find_contact_by_address($current_contact_to_edit);
 include '_includes/edit-contact-variables.php';
 ?>
-
 <form id="contact-update-form" name="edit_form" action="edit-contact.php?unit=<?php echo urlencode($current_contact_to_edit) ?>" method="post">
 
 <div class="contact-edit-section">
-	<div class="ef"><div class="el">Owner 1 First Name:</div><div class="ei"><input type="text" name="owner1_first_name" value="<?php echo $o1fn; ?>" /></div></div>
-	<div class="ef"><div class="el">Owner 1 Last Name:</div><div class="ei"><input type="text" name="owner1_last_name" value="<?php echo $o1ln; ?>" /></div></div>
-	<div class="ef"><div class="el">Owner 1 Cell:</div><div class="ei"><input type="tel" name="owner1_cell" value="<?php echo $o1c; ?>" /></div></div>
-	<div class="ef"><div class="el">Owner 1 Email:</div><div class="ei"><input type="text" name="owner1_email" value="<?php echo $o1em; ?>" /></div></div>
+	<div class="ef"><div class="el">Owner 1 First Name:</div><div class="ei"><input <?php if (array_key_exists('owner1_first_name', $errors)) { echo "class=\"form-alert\""; } ?> type="text" name="owner1_first_name" value="<?php
+
+		echo (isset($_POST['owner1_first_name'])) ? $_POST['owner1_first_name'] : $o1fn;
+
+	?>" /></div></div>
+	<div class="ef"><div class="el">Owner 1 Last Name:</div><div class="ei"><input <?php if (array_key_exists('owner1_last_name', $errors)) { echo "class=\"form-alert\""; } ?> type="text" name="owner1_last_name" value="<?php 
+
+		echo (isset($_POST['owner1_last_name'])) ? $_POST['owner1_last_name'] : $o1ln;
+
+	?>" /></div></div>
+	<div class="ef"><div class="el">Owner 1 Cell:</div><div class="ei"><input <?php if (array_key_exists('owner1_cell', $errors)) { echo "class=\"form-alert\""; } ?> type="tel" name="owner1_cell" value="<?php 
+
+		echo (isset($_POST['owner1_cell'])) ? $_POST['owner1_cell'] : $o1c;  
+
+	?>" /></div></div>
+	<div class="ef"><div class="el">Owner 1 Email:</div><div class="ei"><input <?php if (array_key_exists('owner1_email', $errors)) { echo "class=\"form-alert\""; } ?> type="email" name="owner1_email" value="<?php 
+
+		echo (isset($_POST['owner1_email'])) ? $_POST['owner1_email'] : $o1em;  
+
+	?>" /></div></div>
 	<hr class="hr-edit1" />
-	<div class="ef"><div class="el">Owner 2 First Name:</div><div class="ei"><input type="text" name="owner2_first_name" value="<?php echo $o2fn; ?>" /></div></div>
-	<div class="ef"><div class="el">Owner 2 Last Name:</div><div class="ei"><input type="text" name="owner2_last_name" value="<?php echo $o2ln; ?>" /></div></div>
-	<div class="ef"><div class="el">Owner 2 Cell:</div><div class="ei"><input type="tel" name="owner2_cell" value="<?php echo $o2c; ?>" /></div></div>
-	<div class="ef"><div class="el">Owner 2 Email:</div><div class="ei"><input type="text" name="owner2_email" value="<?php echo $o2em; ?>" /></div></div>
+	<div class="ef"><div class="el">Owner 2 First Name:</div><div class="ei"><input <?php if (array_key_exists('owner2_first_name', $errors)) { echo "class=\"form-alert\""; } ?> type="text" name="owner2_first_name" value="<?php 
+
+		echo (isset($_POST['owner2_first_name'])) ? $_POST['owner2_first_name'] : $o2fn;  
+
+	?>" /></div></div>
+	<div class="ef"><div class="el">Owner 2 Last Name:</div><div class="ei"><input <?php if (array_key_exists('owner2_last_name', $errors)) { echo "class=\"form-alert\""; } ?> type="text" name="owner2_last_name" value="<?php 
+
+		echo (isset($_POST['owner2_last_name'])) ? $_POST['owner2_last_name'] : $o2ln;  
+
+	?>" /></div></div>
+	<div class="ef"><div class="el">Owner 2 Cell:</div><div class="ei"><input <?php if (array_key_exists('owner2_cell', $errors)) { echo "class=\"form-alert\""; } ?> type="tel" name="owner2_cell" value="<?php 
+
+		// echo (isset($_POST['owner2_cell'])) ? preg_replace('/\D/', '', $_POST['owner2_cell']) : preg_replace('/\D/', '', $o2c);
+		// ^^ testing
+		echo (isset($_POST['owner2_cell'])) ? $_POST['owner2_cell'] : $o2c;  
+
+	?>" /></div></div>
+	<div class="ef"><div class="el">Owner 2 Email:</div><div class="ei"><input <?php if (array_key_exists('owner2_email', $errors)) { echo "class=\"form-alert\""; } ?> type="email" name="owner2_email" value="<?php 
+
+		echo (isset($_POST['owner2_email'])) ? $_POST['owner2_email'] : $o2em;  
+
+	?>" /></div></div>
 	<hr class="hr-edit1" />
-	<div class="ef"><div class="el">Owner Home Phone:</div><div class="ei"><input type="tel" name="owner_home_phone" value="<?php echo $ohp; ?>" /></div></div>
+	<div class="ef"><div class="el">Owner Home Phone:</div><div class="ei"><input <?php if (array_key_exists('owner_home_phone', $errors)) { echo "class=\"form-alert\""; } ?> type="tel" name="owner_home_phone" value="<?php 
+
+		echo (isset($_POST['owner_home_phone'])) ? $_POST['owner_home_phone'] : $ohp;  
+
+	?>" /></div></div>
 	<br />
-	<div class="ef"><div class="el">Owner Alt Street 1:</div><div class="ei"><input type="text" name="owner_alt_street1" value="<?php echo $oas1; ?>" /></div></div>
-	<div class="ef"><div class="el">Owner Alt Street 2:</div><div class="ei"><input type="text" name="owner_alt_street2" value="<?php echo $oas2; ?>" /></div></div>
-	<div class="ef"><div class="el">Owner Alt City:</div><div class="ei"><input type="text" name="owner_alt_city" value="<?php echo $oac; ?>" /></div></div>
-	<div class="ef"><div class="el">Owner Alt State:</div><div class="ei"><input type="text" name="owner_alt_state" value="<?php echo $oas; ?>" /></div></div>
-	<div class="ef"><div class="el">Owner Alt Zip:</div><div class="ei"><input type="tel" name="owner_alt_zip" value="<?php echo $oaz; ?>" /></div></div>
+	<div class="ef"><div class="el">Owner Alt Street 1:</div><div class="ei"><input <?php if (array_key_exists('owner_alt_street1', $errors)) { echo "class=\"form-alert\""; } ?> type="text" name="owner_alt_street1" value="<?php 
+
+		echo (isset($_POST['owner_alt_street1'])) ? $_POST['owner_alt_street1'] : $oas1;  
+
+	?>" /></div></div>
+	<div class="ef"><div class="el">Owner Alt Street 2:</div><div class="ei"><input <?php if (array_key_exists('owner_alt_street2', $errors)) { echo "class=\"form-alert\""; } ?> type="text" name="owner_alt_street2" value="<?php 
+
+		echo (isset($_POST['owner_alt_street2'])) ? $_POST['owner_alt_street2'] : $oas2;  
+
+	?>" /></div></div>
+	<div class="ef"><div class="el">Owner Alt City:</div><div class="ei"><input <?php if (array_key_exists('owner_alt_city', $errors)) { echo "class=\"form-alert\""; } ?> type="text" name="owner_alt_city" value="<?php 
+
+		echo (isset($_POST['owner_alt_city'])) ? $_POST['owner_alt_city'] : $oac;  
+
+	?>" /></div></div>
+	<div class="ef"><div class="el">Owner Alt State:</div><div class="ei"><input <?php if (array_key_exists('owner_alt_state', $errors)) { echo "class=\"form-alert\""; } ?> type="text" name="owner_alt_state" value="<?php 
+
+		echo (isset($_POST['owner_alt_state'])) ? $_POST['owner_alt_state'] : $oas;  
+
+	?>" /></div></div>
+	<div class="ef"><div class="el">Owner Alt Zip:</div><div class="ei"><input <?php if (array_key_exists('owner_alt_zip', $errors)) { echo "class=\"form-alert\""; } ?> type="tel" name="owner_alt_zip" value="<?php 
+
+		echo (isset($_POST['owner_alt_zip'])) ? $_POST['owner_alt_zip'] : $oaz;  
+
+	?>" /></div></div>
 </div>
 
 <div class="contact-edit-section">
-	<div class="ef"><div class="el">Tenant 1 First Name:</div><div class="ei"><input type="text" name="tenant1_first_name" value="<?php echo $t1fn; ?>" /></div></div>
-	<div class="ef"><div class="el">Tenant 1 Last Name:</div><div class="ei"><input type="text" name="tenant1_last_name" value="<?php echo $t1ln; ?>" /></div></div>
-	<div class="ef"><div class="el">Tenant 1 Cell:</div><div class="ei"><input type="tel" name="tenant1_cell" value="<?php echo $t1c; ?>" /></div></div>
-	<div class="ef"><div class="el">Tenant 1 Email:</div><div class="ei"><input type="text" name="tenant1_email" value="<?php echo $t1em; ?>" /></div></div>
+	<div class="ef"><div class="el">Tenant 1 First Name:</div><div class="ei"><input <?php if (array_key_exists('tenant1_first_name', $errors)) { echo "class=\"form-alert\""; } ?> type="text" name="tenant1_first_name" value="<?php 
+
+		echo (isset($_POST['tenant1_first_name'])) ? $_POST['tenant1_first_name'] : $t1fn; 
+
+	?>" /></div></div>
+	<div class="ef"><div class="el">Tenant 1 Last Name:</div><div class="ei"><input <?php if (array_key_exists('tenant1_last_name', $errors)) { echo "class=\"form-alert\""; } ?> type="text" name="tenant1_last_name" value="<?php 
+
+		echo (isset($_POST['tenant1_last_name'])) ? $_POST['tenant1_last_name'] : $t1ln; 
+
+	?>" /></div></div>
+	<div class="ef"><div class="el">Tenant 1 Cell:</div><div class="ei"><input <?php if (array_key_exists('tenant1_cell', $errors)) { echo "class=\"form-alert\""; } ?> type="tel" name="tenant1_cell" value="<?php 
+
+		echo (isset($_POST['tenant1_cell'])) ? $_POST['tenant1_cell'] : $t1c; 
+
+	?>" /></div></div>
+	<div class="ef"><div class="el">Tenant 1 Email:</div><div class="ei"><input <?php if (array_key_exists('tenant1_email', $errors)) { echo "class=\"form-alert\""; } ?> type="email" name="tenant1_email" value="<?php 
+
+		echo (isset($_POST['tenant1_email'])) ? $_POST['tenant1_email'] : $t1em;
+
+	?>" /></div></div>
 	<hr class="hr-edit2" />
-	<div class="ef"><div class="el">Tenant 2 First Name:</div><div class="ei"><input type="text" name="tenant2_first_name" value="<?php echo $t2fn; ?>" /></div></div>
-	<div class="ef"><div class="el">Tenant 2 Last Name:</div><div class="ei"><input type="text" name="tenant2_last_name" value="<?php echo $t2ln; ?>" /></div></div>
-	<div class="ef"><div class="el">Tenant 2 Cell:</div><div class="ei"><input type="tel" name="tenant2_cell" value="<?php echo $t2c; ?>" /></div></div>
-	<div class="ef"><div class="el">Tenant 2 Email:</div><div class="ei"><input type="text" name="tenant2_email" value="<?php echo $t2em; ?>" /></div></div>
+	<div class="ef"><div class="el">Tenant 2 First Name:</div><div class="ei"><input <?php if (array_key_exists('tenant2_first_name', $errors)) { echo "class=\"form-alert\""; } ?> type="text" name="tenant2_first_name" value="<?php 
+
+		echo (isset($_POST['tenant2_first_name'])) ? $_POST['tenant2_first_name'] : $t2fn; 
+
+	?>" /></div></div>
+	<div class="ef"><div class="el">Tenant 2 Last Name:</div><div class="ei"><input <?php if (array_key_exists('tenant2_last_name', $errors)) { echo "class=\"form-alert\""; } ?> type="text" name="tenant2_last_name" value="<?php 
+
+		echo (isset($_POST['tenant2_last_name'])) ? $_POST['tenant2_last_name'] : $t2ln; 
+
+	?>" /></div></div>
+	<div class="ef"><div class="el">Tenant 2 Cell:</div><div class="ei"><input <?php if (array_key_exists('tenant2_cell', $errors)) { echo "class=\"form-alert\""; } ?> type="tel" name="tenant2_cell" value="<?php 
+
+		echo (isset($_POST['tenant2_cell'])) ? $_POST['tenant2_cell'] : $t2c; 
+
+	?>" /></div></div>
+	<div class="ef"><div class="el">Tenant 2 Email:</div><div class="ei"><input <?php if (array_key_exists('tenant2_email', $errors)) { echo "class=\"form-alert\""; } ?> type="email" name="tenant2_email" value="<?php 
+
+		echo (isset($_POST['tenant2_email'])) ? $_POST['tenant2_email'] : $t2em; 
+
+	?>" /></div></div>
 	<br />
-	<div class="ef"><div class="el">Tenant Home Phone:</div><div class="ei"><input type="tel" name="tenant_home_phone" value="<?php echo $thp; ?>" /></div></div>
+	<div class="ef"><div class="el">Tenant Home Phone:</div><div class="ei"><input <?php if (array_key_exists('tenant_home_phone', $errors)) { echo "class=\"form-alert\""; } ?> type="tel" name="tenant_home_phone" value="<?php 
+
+		echo (isset($_POST['tenant_home_phone'])) ? $_POST['tenant_home_phone'] : $thp; 
+
+	?>" /></div></div>
 </div>
-<div class="note-area"><span class="note-label">Notes:</span><textarea name="notes"><?php echo $notes; ?></textarea></div>
+<div class="note-area"><span class="note-label">Notes:</span><textarea <?php if (array_key_exists('notes', $errors)) { echo "class=\"form-alert\""; } ?> name="notes"><?php 
+
+	echo (isset($_POST['notes'])) ? $_POST['notes'] : $notes; 
+
+?></textarea></div>
 
 <br />
 

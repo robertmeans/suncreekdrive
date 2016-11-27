@@ -16,7 +16,7 @@
 
 	function contact_update_message() {
 		if (isset($_SESSION["message"])) {
-			$output  = "<span class=\"contact-update-message\"><i class=\"fa fa-star\" aria-hidden=\"true\"></i>&nbsp;&nbsp;&nbsp;";
+			$output  = "<span id=\"success-fade\" class=\"contact-update-message\"><i class=\"fa fa-star\" aria-hidden=\"true\"></i>&nbsp;&nbsp;&nbsp;";
 			$output .= htmlentities($_SESSION["message"]);
 			$output .= "&nbsp;&nbsp;&nbsp;<i class=\"fa fa-star\" aria-hidden=\"true\"></i></span>";
 

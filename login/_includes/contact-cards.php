@@ -199,7 +199,7 @@
 	if ($t2c !== "") {
 		$data = $t2c;
 		echo "<i class=\"fa fa-mobile\" aria-hidden=\"true\"></i> &nbsp;" . 
-		$t2fn . "'s cell: <a class=\"tel-link\" href=\"tel: (" .substr($data, 0, 3).") ".substr($data, 3, 3)."-".substr($data,6) . "\">(".substr($data, 0, 3).") ".substr($data, 3, 3)."-".substr($data,6) . "</a><br /><br />";
+		$t2fn . "'s cell: <a class=\"tel-link\" href=\"tel: (" .substr($data, 0, 3).") ".substr($data, 3, 3)."-".substr($data,6) . "\">(".substr($data, 0, 3).") ".substr($data, 3, 3)."-".substr($data,6) . "</a><br />";
 	} else {
 		echo "<p class=\"hide\">this is an empty string </p>";
 
