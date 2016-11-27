@@ -25,7 +25,7 @@ if (isset($_SESSION["session_first_password"]) == "$front_door_password") {
 	// If password did not match show error and try again
 	} else {
 		echo 	"<div class=\"login-container\">";
-		echo 	"<div class=\"login cf\">";
+		echo 	"<div class=\"login cf\"><div class=\"rounded-corners cf\">";
 
 		// Wrong password error message
 		if (isset($_POST['first_password']) || $front_door_password == "") {
@@ -37,7 +37,7 @@ if (isset($_SESSION["session_first_password"]) == "$front_door_password") {
 		echo 	"<input class=\"pswd-box\" name=\"first_password\" type=\"tel\" size=\"15\" maxlength=\"10\"  autofocus><br />
 				<input id=\"login-btn\" value=\"Login\" type=\"submit\"></p></form>";
 		echo 	"</div>";
-		echo 	"</div>";
+		echo 	"</div></div>";
 		echo 	"</body>";
 		echo 	"</html>";
 

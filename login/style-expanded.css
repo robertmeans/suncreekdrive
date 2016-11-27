@@ -423,7 +423,7 @@ div.login-box {
   display: block;
   width: 100%;
   max-width: 410px;
-  margin: 110px auto;
+  margin: 70px auto;
   border: 2px solid #ccc;
   background-color: #56636c;
   border-radius: 5px;
@@ -440,14 +440,34 @@ div.login-box h2 {
   width: 100%;
   margin: 0px 0px 20px 0px;
   background-color: #2e3235;
+  border-bottom: 1px dotted #b2bfc8;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   color: white;
 }
 div.login-box form {
   padding: 20px;
 }
 
-#page > div > form > a {
+#page > div > form > div.login-input > a {
+  display: inline-block;
+  padding: 20px 0px 0px 0px;
+  margin-right: 20px;
+  text-decoration: none;
+  background-color: #b7ac80;
+  border: 1px solid #2e3235;
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  vertical-align: top;
+  text-align: center;
   color: #fff;
+  transition: background-color .3s ease, border .3s ease;
+}
+#page > div > form > div.login-input > a:hover {
+  background-color: #e7e1c8;
+  border: 1px solid #b8b8b8;
+  color: #313131;
 }
 
 div.login-text {
@@ -468,22 +488,27 @@ div.login-input-fields {
 }
 
 div.login-input {
-  display: block;
-  text-align: right;
-  padding-right: 20px;
-  margin-top: 10px;
+  text-align: center;
+  margin: 10px auto 0 auto;
 }
 div.login-input input[type=submit] {
   -webkit-appearance: none;
-  padding: 15px;
-  background-color: #e1e1e1;
-  color: #313131;
-  border: 1px solid #fff;
-  transition: background-color .3s ease;
+  padding: 1px;
+  text-align: center;
+  background-color: #b7ac80;
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  color: #fff;
+  border: 1px solid #2e3235;
+  transition: background-color .3s ease, border .3s ease;
+  font-family: 'Lato', sans serif;
+  font-size: 1em;
   cursor: pointer;
 }
 div.login-input input[type=submit]:hover {
-  background-color: #fff;
+  background-color: #e7e1c8;
+  border: 1px solid #b8b8b8;
   color: #313131;
 }
 
@@ -491,6 +516,8 @@ div.login-box input[type=text],
 div.login-box input[type=password] {
   width: 100%;
   max-width: 100px;
+  height: 2em;
+  font-size: 1em;
 }
 
 @media screen and (min-width: 865px) {
@@ -599,12 +626,17 @@ span.greetings {
 div.login {
   width: 90%;
   max-width: 300px;
-  padding: 30px;
+  padding: 15px 0px;
   border: 5px solid #fff;
   color: #fff;
-  border-radius: 8px;
+  border-radius: 16px;
   background-color: #545c5f;
   box-shadow: -10px 10px 5px 0px rgba(0, 0, 0, 0.58);
+}
+
+div.rounded-corners {
+  width: 100%;
+  padding: 30px;
 }
 
 input.pswd-box {
@@ -613,10 +645,11 @@ input.pswd-box {
   font-size: 1.3em;
 }
 
-input.pswd-box2 {
+input[type=tel].pswd-box2 {
   width: 100px;
-  height: 1.5m;
+  height: 1.5em;
   font-size: 1em;
+  border-radius: 8px;
 }
 
 input[type=submit]#login-btn {
@@ -629,6 +662,7 @@ input[type=submit]#login-btn {
   padding: 10px 15px;
   background-color: #e1e1e1;
   border: 1px solid #313131;
+  border-radius: 8px;
   color: #313131;
   transition: background-color .3s ease;
 }
@@ -831,7 +865,7 @@ div.error {
 div.message {
   padding: 10px 10px 10px 15px;
   margin-bottom: 1em;
-  border: 1px solid #bdf21c;
+  border: 1px solid #fff;
   color: #fff;
   background-color: #a81717;
 }

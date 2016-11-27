@@ -29,8 +29,6 @@ div.login-container {
   justify-content: center;
 }
 
-
-
 span.greetings {
   display: inline-block;
   float: left;
@@ -49,22 +47,27 @@ div.login {
   // margin: 0 auto;
   width: 90%;
   max-width: 300px;
-  padding: 30px;
+  padding: 15px 0px;
   border: 5px solid #fff;
   color: #fff;
-  border-radius: 8px;
+  border-radius: 16px;
   background-color: #545c5f;
   box-shadow: -10px 10px 5px 0px rgba(0,0,0,0.58);
+}
+div.rounded-corners {
+  width: 100%;
+  padding: 30px;
 }
 input.pswd-box {
   width: 50%;
   height: 2em;
   font-size: 1.3em;
 }
-input.pswd-box2 {
+input[type=tel].pswd-box2 {
   width: 100px;
-  height: 1.5m;
+  height: 1.5em;
   font-size: 1em;
+  border-radius: 8px;
 }
 input[type=submit]#login-btn {
   -webkit-appearance: none;
@@ -76,6 +79,7 @@ input[type=submit]#login-btn {
   padding: 10px 15px;
   background-color: #e1e1e1;
   border: 1px solid #313131;
+  border-radius: 8px;
   color: #313131;
   transition: background-color .3s ease;
   &:hover {
@@ -263,7 +267,7 @@ div.error {
 div.message {
   padding: 10px 10px 10px 15px;
   margin-bottom: 1em;
-  border: 1px solid #bdf21c;
+  border: 1px solid #fff;
   // border-radius: 3px;
   color: #fff;
   background-color: #a81717;

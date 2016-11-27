@@ -2,7 +2,7 @@ div.login-box {
 	display: block;
 	width: 100%;
 	max-width: 410px;
-	margin: 110px auto;
+	margin: 70px auto;
 	border: 2px solid #ccc;
 	// padding: 30px;
 	background-color: #56636c;
@@ -19,14 +19,35 @@ div.login-box {
 		width: 100%;
 		margin: 0px 0px 20px 0px;
 		background-color: #2e3235;
+		border-bottom: 1px dotted #b2bfc8;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
 		color: white;
 	}
 	form {
 		padding: 20px;
 	}
 }
-#page > div > form > a {
+#page > div > form > div.login-input > a {
+	display: inline-block;
+	padding: 20px 0px 0px 0px;
+	margin-right: 20px;
+	text-decoration: none;
+	background-color: #b7ac80;
+	border: 1px solid #2e3235;
+	border-radius: 50%;
+	width: 65px;
+	height: 65px;
+	vertical-align: top;
+	// baseline: bottom; 
+	text-align: center;
 	color: #fff;
+	transition: background-color .3s ease, border .3s ease;
+	&:hover {
+		background-color: #e7e1c8;
+		border: 1px solid #b8b8b8;
+		color: #313131;
+	}
 }
 div.login-text {
 	color: #fff;
@@ -44,20 +65,27 @@ div.login-input-fields {
 	padding-left: 10px;
 }
 div.login-input {
-	display: block;
-	text-align: right;
-	padding-right: 20px;
-	margin-top: 10px;
+	// display: inline-block;
+	text-align: center;
+	// padding-right: 20px;
+	margin: 10px auto 0 auto;
 	input[type=submit] {
 		-webkit-appearance: none;
-		padding: 15px;
-		background-color: #e1e1e1;
-		color: #313131;
-		border: 1px solid #fff;
-		transition: background-color .3s ease;
+		padding: 1px; // needed in order to center text for some reason
+		text-align: center;
+		background-color: #b7ac80;
+		border-radius: 50%;
+		width: 65px;
+		height: 65px;
+		color: #fff;
+		border: 1px solid #2e3235;
+		transition: background-color .3s ease, border .3s ease;
+		font-family: 'Lato', sans serif;
+		font-size: 1em;
 		cursor: pointer;
 		&:hover {
-			background-color: #fff;
+			background-color: #e7e1c8;
+			border: 1px solid #b8b8b8;
 			color: #313131;
 		}
 	}
@@ -67,6 +95,8 @@ div.login-box {
 	input[type=password] {
 		width: 100%;
 		max-width: 100px;
+		height: 2em;
+		font-size: 1em;
 	}
 
 }

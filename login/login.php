@@ -58,8 +58,8 @@ if (isset($_POST['submit'])) {
       <div class="login-input-fields">
         <input class="pswd-box2" type="password" name="password" value="" />
       </div>
-      <div class="login-input"><input type="submit" name="submit" value="Submit" /></div>
-      <a href="index.php">Cancel</a>
+      <div class="login-input"><a href="index.php">Cancel</a> <input type="submit" name="submit" value="Submit" /></div>
+      
     </form>
   </div>
 </div>

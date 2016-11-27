@@ -40,6 +40,8 @@
 		case 'edit-contacts'	: 	echo "<span class=\"greetings\">Logged in as: &nbsp;" . htmlentities($_SESSION["username"]) . "</span>";
 									echo "<a class=\"header-link\" href=\"manage-contacts.php\">Cancel</a>"; break;
 
+		case 'admin'			:	echo "<a class=\"header-link\" href=\"index.php\">Cancel</a>";			break;
+
 		default 				:	echo "<a class=\"header-link\" href=\"login.php\">Manage Site</a>"; 	break;
 	}
 	 
