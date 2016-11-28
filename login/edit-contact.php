@@ -315,7 +315,7 @@ include '_includes/edit-contact-variables.php';
 
 <div class="button-footer">
 	<div class="buttons">
-		<input type="submit" id="edit-submit" name="submit" value="Update" /> <a class="cancel-button" href="manage-contacts.php">Cancel</a><br />
+		<a class="cancel-button" href="manage-contacts.php">Cancel</a> <input type="submit" id="edit-submit" name="submit" value="Update" /><br />
 	</div>
 </div>
 </form>

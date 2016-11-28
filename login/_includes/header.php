@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="style.css?<?php echo time(); ?>" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
-<body 	<?php 		if ($layout_context == "manage-contacts") { echo " class=\"edit-page\""; } ?>>
+<body 	<?php 		if (($layout_context == "manage-contacts") || ($layout_context == "edit-contacts")) { echo " class=\"edit-page\""; } ?>>
 <header <?php 		if ($layout_context == "manage-contacts") { echo " class=\"edit-page\""; } ?>>
 <div class="header-nav"><?php 
 

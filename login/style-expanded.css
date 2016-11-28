@@ -580,6 +580,16 @@ body {
   color: #757575;
   line-height: 1.5em;
   background-color: #666d75;
+  background-image: url("_images/beta-bkg-05.jpg");
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+body.edit-page {
+  background-color: #666d75;
+  background-image: url("_images/beta-bkg-06.jpg");
+  background-repeat: repeat;
+  background-attachment: fixed;
 }
 
 p {
@@ -631,6 +641,10 @@ div.login {
   color: #fff;
   border-radius: 16px;
   background-color: #545c5f;
+  background-color: rgba(84, 92, 95, 0.8);
+  background: rgba(84, 92, 95, 0.99);
+  background: radial-gradient(ellipse at center, rgba(84, 92, 95, 0.99) 0%, #545c5f 0%, rgba(84, 92, 95, 0.92) 54%, rgba(84, 92, 95, 0.39) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#545c5f', endColorstr='#545c5f', GradientType=1 );
   box-shadow: -10px 10px 5px 0px rgba(0, 0, 0, 0.58);
 }
 
@@ -765,6 +779,7 @@ a.email-links {
   padding: 15px;
   text-align: center;
   background-color: #272C33;
+  box-shadow: -4px 4px 5px -2px rgba(0, 0, 0, 0.4);
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
@@ -793,6 +808,7 @@ a.tel-link:hover {
 
 .contact {
   background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.9);
   margin-bottom: 15px;
   border-radius: 5px;
   border-right: 1px solid #8f8f8f;
