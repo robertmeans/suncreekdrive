@@ -51,7 +51,6 @@ if (isset($_POST['submit'])) {
 <?php $admin = mysqli_fetch_assoc($admin_set) ?>
 <?php include("_includes/header.php"); ?>
 
-  <div id="page">
 
   <div class="login-box">
     <h2>Create Admin</h2>
@@ -68,11 +67,10 @@ if (isset($_POST['submit'])) {
      <div class="login-input-fields">
         <input type="password" name="password" value="" />
       </div>
-       <div class="login-input"><input type="submit" name="submit" value="Create Admin" /></div>
-       <a href="manage-admins.php">Cancel</a>
+       <div class="login-input"><input type="submit" name="submit" value="Create" /></div>
+       <a class="cancel-admins" href="manage-admins.php">Cancel</a>
     </form>
   </div>
 
-</div>
 
 <?php include("_includes/footer.php"); ?>

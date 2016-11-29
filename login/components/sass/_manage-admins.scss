@@ -7,7 +7,9 @@ div#page {
 	width: 100%;
 	max-width: 500px;
 	margin: 0 auto;
-	padding: 0px 20px;
+	padding: 30px 20px;
+	background-color: #56636c;
+	border: 2px solid #fff;
 	div.message {
 		color: #fff;
 	}
@@ -19,6 +21,14 @@ div#page {
 		}
 	}
 }
+a.cancel-admins {
+	color: #fff;
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
 h2.manage-h2 {
 	margin-bottom: 1.5em;
 }

@@ -118,6 +118,12 @@ header a.home-link {
     border-left: none;
     border-bottom: 1px solid white;
   }
+
+  body.edit-page header span.greetings {
+    background-color: #cc0000;
+    border-right: none;
+    border-left: none;
+  }
 }
 @media screen and (max-width: 360px) {
   header a.header-link {
@@ -550,7 +556,9 @@ div#page {
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
-  padding: 0px 20px;
+  padding: 30px 20px;
+  background-color: #56636c;
+  border: 2px solid #fff;
 }
 div#page div.message {
   color: #fff;
@@ -561,6 +569,14 @@ div#page a.admin-link {
 }
 div#page a.admin-link:hover {
   text-decoration: none;
+}
+
+a.cancel-admins {
+  color: #fff;
+  text-decoration: none;
+}
+a.cancel-admins:hover {
+  text-decoration: underline;
 }
 
 h2.manage-h2 {
@@ -580,14 +596,14 @@ body {
   color: #757575;
   line-height: 1.5em;
   background-color: #666d75;
-  background-image: url("_images/beta-bkg-05.jpg");
+  background-image: url("_images/pattern-bkg-default.jpg");
   background-repeat: repeat;
   background-attachment: fixed;
 }
 
 body.edit-page {
   background-color: #666d75;
-  background-image: url("_images/beta-bkg-06.jpg");
+  background-image: url("_images/pattern-bkg-edit.jpg");
   background-repeat: repeat;
   background-attachment: fixed;
 }
@@ -633,10 +649,15 @@ span.greetings {
   border-left: 2px solid #333;
 }
 
+body.edit-page span.greetings {
+  background-color: #cc0000;
+  border-right: 2px solid yellow;
+  border-left: 2px solid yellow;
+}
+
 div.login {
   width: 90%;
   max-width: 300px;
-  padding: 15px 0px;
   border: 5px solid #fff;
   color: #fff;
   border-radius: 16px;
@@ -650,7 +671,7 @@ div.login {
 
 div.rounded-corners {
   width: 100%;
-  padding: 30px;
+  padding: 15px;
 }
 
 input.pswd-box {

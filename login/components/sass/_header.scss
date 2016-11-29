@@ -56,7 +56,13 @@ header {
 	    border-bottom: 1px solid white;
 	  }
 	}
+body.edit-page header span.greetings {
+  background-color: #cc0000;
+  border-right: none;
+  border-left: none;
 }
+
+} // end 865 media
 @media screen and (max-width: 360px) {
 	header {
 		a.header-link {
