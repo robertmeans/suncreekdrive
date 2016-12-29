@@ -11,7 +11,7 @@
 
 
 <div id="manage-admins-main">
-  <div id="page">
+  <div id="page" class="login-box w_bkg">
     <?php echo message(); ?>
     <!-- <h2 class="manage-h2">Manager</h2> -->
     <table>

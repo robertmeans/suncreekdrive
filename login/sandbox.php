@@ -1,76 +1,97 @@
-<!DOCTYPE html>
- <html lang="en">
- <head>
- 	<meta charset="UTF-8">
- 	<title>Document</title>
- </head>
- <body>
-
 <?php 
 
-function add_subtract($value1, $value2) {
-  $add = $value1 + $value2;
-  $subtract = $value1 - $value2;
-  return array($add, $subtract);
-}
+// Convert $total_minutes to hours and minutes.
 
-$results = add_subtract(30,20);
-echo "adding " . $results[0] . "<br />";
-echo "subtract " . $results[1] . "<br />";
+// $total_minutes = 318;
+// $minutes = $total_minutes % 60;
+// $hours = ($total_minutes - $minutes) / 60;
 
-list($adding_results, $subtracting_results) = add_subtract(30,20);
-echo "adding " . $results[0] . "<br />";
-echo "subtract " . $results[1] . "<br />";
+// echo "Time taken was $hours hours $minutes minutes<br />";
+
+//  ?>
+
+// <hr>
+
+// <?php 
+
+// $number = 2;
+
+// function ewd_timesTwo($foo) {
+//     return $foo *= 2;
+// }
+
+// $doubled = ewd_timesTwo(8);
+
+// echo '$doubled is ' . $doubled . '<br />';
+// echo '$number is ' . $number . '<br />';
 
  ?>
+ <hr>
 
-
-<hr />
-<?php 
-function whats_up($freak) {
-  echo "testing {$freak}<br />";
-}
-
-whats_up("function");
-
- ?>
-
-
-<?php 
-
-$count = 0;
-
-while ($count <= 10) {
-	echo $count . ".<br />";
-	$count++;
-}
- ?>
- <hr />
  <?php 
 
-for ($count = 0; $count <= 10; $count++) {
-	if ($count == 6) {
-		break;
-	}
-	echo $count . " ) <br />";
+function ewd_convertToMinutes($seconds) {
+    $sec = $seconds % 60; // whatever's left over after dividing by 60 = $sec
+    $min = ($seconds - $sec) / 60; // total $seconds - leftover / 60 = $min ... now need hours
+    $minutes = $min % 60; // $minutes will = leftover of dividing by 60 because we need 60 minutes per hour
+    $hrs = ($minutes - $min) / 60; // 
+    $hours = $hrs % 24;
+    $days = ($hours - $hrs) / 24;
+    $dayz = $days % 7;
+    $week = ($dayz - $days) / 7;
+    $weeks = $week % 4;
+    $month = ($weeks - $week) / 4;
+
+
+    $sec = abs($sec);
+    $minutes = abs($minutes);
+    $hours = abs($hours);
+    $dayz = abs($dayz);
+    $weeks = abs($weeks);
+    $month = abs($month);
+
+
+    $sec = ($sec < 10 ) ? '0' . $sec : $sec;
+    $minutes = ($minutes < 10 ) ? '0' . $minutes : $minutes;
+    $hours = ($hours < 10 ) ? '0' . $hours : $hours;
+    $dayz = ($dayz < 10) ? '0' . $dayz : $dayz;
+    $weeks = ($weeks < 10) ? '0' . $weeks : $weeks;
+    $month = ($month < 10) ? '0' . $month : $month;
+
+    return "$month:$weeks:$dayz:$hours:$minutes:$sec";
 }
+
+echo ewd_convertToMinutes(29030399);
+
   ?>
-  <hr />
+
+  <hr>
 
   <?php 
-  $code = array(1,4,"a bunch",6,"of",9,33,"code");
+  $xmas2017 = strtotime('Dec 25, 2017');
+  echo date('l, F j, Y', $xmas2017) . '<br />';
 
-  echo $code[2] . $code[2] . " " . $code[4] . " " . $code[7] . ".<br />";
-  echo print_r($code);
+  $date1 = new DateTime();
+  echo $date1;
 
    ?>
-   <pre>
-   	<?php echo print_r($code); ?>
-   </pre>
-   <?php echo implode($code); ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
  <script src="http://localhost:35729/livereload.js"></script>
- </body>
- </html>

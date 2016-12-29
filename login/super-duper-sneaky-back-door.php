@@ -13,7 +13,7 @@
 
 
 <div id="manage-admins-main">
-  <div id="page">
+  <div id="page" class="w_bkg">
     <?php echo message(); ?>
     <h2 class="manage-h2">Manage Editors</h2>
     <table>

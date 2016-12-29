@@ -7,9 +7,8 @@ div#page {
 	width: 100%;
 	max-width: 500px;
 	margin: 0 auto;
-	padding: 30px 20px;
-	background-color: #56636c;
-	border: 2px solid #fff;
+	
+
 	div.message {
 		color: #fff;
 	}
@@ -20,6 +19,11 @@ div#page {
 			text-decoration: none;
 		}
 	}
+}
+.w_bkg {
+	padding: 30px 20px;
+	background-color: #56636c;
+	border: 2px solid #fff;	
 }
 a.cancel-admins {
 	color: #fff;

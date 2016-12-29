@@ -474,6 +474,7 @@ div.login-box form {
   background-color: #e7e1c8;
   border: 1px solid #b8b8b8;
   color: #313131;
+  box-shadow: 1px 2px 11px 6px rgba(0, 0, 0, 0.25);
 }
 
 div.login-text {
@@ -516,6 +517,7 @@ div.login-input input[type=submit]:hover {
   background-color: #e7e1c8;
   border: 1px solid #b8b8b8;
   color: #313131;
+  box-shadow: 1px 2px 11px 6px rgba(0, 0, 0, 0.25);
 }
 
 div.login-box input[type=text],
@@ -556,9 +558,6 @@ div#page {
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
-  padding: 30px 20px;
-  background-color: #56636c;
-  border: 2px solid #fff;
 }
 div#page div.message {
   color: #fff;
@@ -569,6 +568,12 @@ div#page a.admin-link {
 }
 div#page a.admin-link:hover {
   text-decoration: none;
+}
+
+.w_bkg {
+  padding: 30px 20px;
+  background-color: #56636c;
+  border: 2px solid #fff;
 }
 
 a.cancel-admins {
