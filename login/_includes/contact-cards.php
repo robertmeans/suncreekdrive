@@ -158,6 +158,10 @@
 	} elseif (($t1ln === $t2ln) && (($t1em !== "") && ($t2em !== ""))) {
 		echo "<p class=\"pad\"><a href=\"mailto:{$t1em}\">{$t1fn}</a> &amp; <a href=\"mailto:{$t2em}\">{$t2fn}</a> {$t1ln}<span class=\"large-566-gone\"><br /></span><span class=\"small-565-gone\">&nbsp;&nbsp;&nbsp;</span>[ <a href=\"mailto{$t1em}; {$t2em}\">email both</a> ]</p>";
 
+	// same last names and neither has email (includes no last name for either)
+	} elseif (($t1ln === $t2ln) && (($t1em === "") && ($t2em === ""))) {
+		echo "<p class=\"pad\">{$t1fn} &amp; {$t2fn}</p>";	
+
 	// only 1 tenant (tenant1)
 	} elseif (($t1em !== "") && ($t2em === "")) {
 		echo "<p class=\"pad\"><a href=\"mailto:{$t1em}\">{$t1fn} {$t1ln}</a></p>";
