@@ -35,6 +35,7 @@
 	} elseif (($o1ln === $o2ln) && (($o1em !== "") && ($o2em === ""))) {
 		echo "<p class=\"pad\"><a href=\"mailto:{$o1em}\">{$o1fn}</a> &amp; {$o2fn} {$o1ln}</p>";
 
+	// both have last names, same last name, same email (Brett & Tammy)
 	} elseif ((($o1ln !== "") && ($o2ln !== "")) && (($o1ln === $o2ln) && ($o1em === $o2em))) {
 		echo "<p class=\"pad\"><a href=\"mailto:{$o1em}\">{$o1fn} &amp; {$o2fn} {$o1ln}</a></p>";
 
@@ -55,7 +56,7 @@
 		echo "<p class=\"pad\"><a href=\"mailto:{$o2em}\">{$o2fn} {$o2ln}</a></p>";
 
 	} else {
-		echo "You're trying to break this, I can tell.<br />";
+		echo "Unique combination of data entered. New rule required. Thank you! You're heplping build this.<br /><br />";
 	}
 
 	// ########################### Owner Phone Numbers ###########################
@@ -175,7 +176,7 @@
 		echo "<p class=\"hide\">";	
 
 	} else {
-		echo "You're trying to break this, I can tell.<br />";
+		echo "Unique combination of data entered. New rule required. Thank you! You're heplping build this.<br /><br />";
 	}
 
 	// ########## Tenant phone numbers ##########
