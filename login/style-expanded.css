@@ -993,15 +993,174 @@ span.contact-update-message {
     margin: 0 5px;
   }
 }
+div#success-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 8888;
+  width: 100%;
+  height: 100%;
+  height: 100vh;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+div#success-wrap span.success-msg {
+  padding: 50px;
+  text-align: center;
+  background-color: rgba(47, 126, 25, 0.85);
+  color: #fff;
+  border: 3px solid #fff;
+}
+
 footer {
   line-height: 3em;
   width: 100%;
-  height: 400px;
   background-color: #333;
   color: white;
   text-align: center;
   padding-top: 60px;
   margin-top: 50px;
+}
+footer button#toggle-contact-form {
+  background: none;
+  border: none;
+  font-size: 1em;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 5px;
+  background-color: inherit;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+footer button#toggle-contact-form:hover {
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #1e1e1e;
+  border: 1px solid #000;
+}
+footer button#toggle-contact-form:focus {
+  outline: 0;
+}
+footer button#toggle-contact-form.active {
+  border-bottom: 1px dotted #808080;
+  width: 96%;
+  max-width: 400px;
+  text-align: center;
+}
+footer button#toggle-contact-form .close-left {
+  padding-left: 70px;
+  padding-right: 30px;
+}
+footer button#toggle-contact-form .close-right {
+  padding-left: 30px;
+  padding-right: 70px;
+}
+footer form#contactForm {
+  width: 100%;
+  max-width: 400px;
+  margin: 1.5em auto 5em auto;
+}
+footer form#contactForm ul {
+  margin: 0;
+  padding: 0;
+}
+footer form#contactForm ul li {
+  list-style: none;
+}
+footer form#contactForm label {
+  display: block;
+  margin-bottom: .5em;
+}
+footer form#contactForm input {
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+footer form#contactForm input#name,
+footer form#contactForm input#email {
+  height: 25px;
+  width: 100%;
+  max-width: 400px;
+}
+footer form#contactForm textarea#comments {
+  height: 150px;
+  width: 100%;
+  max-width: 400px;
+  margin-top: .2em;
+  margin-bottom: .2em;
+}
+footer form#contactForm input#send {
+  display: inline-block;
+  float: left;
+  width: 150px;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 3px;
+  border: 1px solid #233851;
+  background: #ccc;
+  color: #000;
+}
+footer form#contactForm input#send:hover {
+  background: #565656;
+  color: #fff;
+}
+footer form#contactForm input#send:active, footer form#contactForm input#send:focus {
+  outline: 0;
+  outline-style: 0;
+}
+footer form#contactForm input#send:visited {
+  background: #ccc;
+}
+footer button#confirm {
+  float: left;
+  margin-top: 10px;
+  max-width: 300px;
+  padding: 10px 12px;
+  border: 1px solid #950808;
+  background: #ba2222;
+  color: #fff;
+  cursor: pointer;
+}
+footer button#confirm:hover {
+  background: #ba2222;
+  color: #fff;
+  cursor: default;
+}
+footer button#confirm:active, footer button#confirm:focus {
+  outline: 0;
+  outline-style: 0;
+}
+footer button.enable-submit {
+  display: none;
+}
+footer .g-recaptcha {
+  margin-top: 10px;
+}
+footer button#send {
+  float: left;
+  margin-top: 10px;
+  max-width: 300px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid #206311;
+  background: #2cb20c;
+  color: #fff;
+  cursor: pointer;
+}
+footer button#send:hover {
+  background: #278111;
+  color: #fff;
+}
+footer button#send:active, footer button#send:focus {
+  outline: 0;
+  outline-style: 0;
+}
+footer .display {
+  display: none;
 }
 footer .footer-link {
   color: inherit;

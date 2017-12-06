@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--
+  Author:       Robert Means
+
+  Contact:      robert@robertmeans.com
+                (303) WEBSITE
+                *that's (303) 932.7483
+
+  Comments:     You look very nice today! :)
+-->
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -23,6 +32,15 @@
 	  ga('create', 'UA-88380172-1', 'auto');
 	  ga('send', 'pageview');
 
+	</script>
+	
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+	<script>
+	function recaptchaCallback() {
+	    $('#confirm').addClass('display');
+	    $('#send').removeAttr('disabled');
+	    $('#send').removeClass('display');
+	};
 	</script>
 	
 </head>
