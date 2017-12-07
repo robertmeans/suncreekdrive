@@ -393,7 +393,8 @@ div#success-wrap {
   span.success-msg {
     padding: 50px;
     text-align: center;
-    background-color: rgba(47,126,25,0.85);
+    background-color: rgba(47,126,25,0.9);
+    border-radius: 3px;
     color: #fff;
     border: 3px solid #fff;
   }
@@ -585,6 +586,34 @@ footer {
     }
   }
 }
+
+@media screen and (max-width: 430px) {
+  footer {
+    form#contactForm {
+      width: 94%;
+      max-width: 420px;
+    }
+    button#toggle-contact-form {
+      display: block;
+      padding: 8px 0px;
+      margin: 0 auto;
+      width: 94%;
+      max-width: 400px;
+      .fa-star {
+        display: none;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
 @media screen and (max-width: 445px) {
   footer p.copyright {
     width: 100%;
