@@ -8,7 +8,7 @@ function fadeMyDiv() {
    $('#success-fade').slideUp('slow');
 }
 
-// testing
+
 $(document).ready(function(){  
 $("#email-bob").hide();
 $("button#toggle-contact-form").click(function(){
@@ -25,8 +25,9 @@ $("button#toggle-contact-form").click(function(){
 
 
 setTimeout(function() {
-  $("#success-wrap").fadeOut().empty();
+  $("#success-wrap").fadeOut(1500);
 }, 3000);
+
 
 // validate general contact
 function validateEmail(emailStr) {

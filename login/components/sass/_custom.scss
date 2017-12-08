@@ -390,13 +390,16 @@ div#success-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: rgba(0,0,0,0.7);
   span.success-msg {
     padding: 50px;
     text-align: center;
     background-color: rgba(47,126,25,0.9);
-    border-radius: 3px;
+    border-radius: 8px;
     color: #fff;
     border: 3px solid #fff;
+    width: 90%;
+    max-width: 400px;
   }
 }
 // span.success-msg {
@@ -478,6 +481,7 @@ footer {
       height: 25px;
       width: 100%;
       max-width: 400px;
+      font-size: 16px;
     }
     textarea#comments {
       height: 150px;
@@ -485,6 +489,7 @@ footer {
       max-width: 400px;
       margin-top: .2em;
       margin-bottom: .2em;
+      font-size: 16px;
     }
     input#send {
       display: inline-block;
@@ -592,6 +597,10 @@ footer {
     form#contactForm {
       width: 94%;
       max-width: 420px;
+      input#name,
+      input#email {
+        height: 30px;
+      }
     }
     button#toggle-contact-form {
       display: block;

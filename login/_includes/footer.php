@@ -194,7 +194,7 @@
 			  </li>
 			  <li>
 			    <label class="text" for="email">Email</label>
-			    <input name="email" type="text" id="email" tabindex="20" />
+			    <input name="email" type="email" id="email" tabindex="20" />
 			  </li>
 			  <li>
 			    <label class="text" for="comments">Message</label>
