@@ -1,0 +1,15 @@
+body {
+  background-color: #333;
+  color: #dfc847;
+  font-size: 16px;
+}
+div#content {
+  font-family: 'Italianno', cursive;
+  font-size: 3em;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
