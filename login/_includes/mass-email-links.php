@@ -12,10 +12,10 @@
 	$o2em = $contact_info["owner2_email"];
 
 		if 	($o1em !== "") {
-			echo $o1em . "; ";
+			echo $o1em . ";";
 		}
 		if 	($o2em !== "") {
-			echo $o2em . "; ";
+			echo $o2em . ";";
 		}
 	}
 	echo "?subject=Sun Creek HOA II - All Owners\">Email Just the Owners</a>";
@@ -29,10 +29,10 @@
 	$t2em = $contact_info["tenant2_email"];
 
 		if ($t1em !== "") {
-			echo $t1em . "; ";
+			echo $t1em . ";";
 		}
 		if ($t2em !== "") {
-			echo $t2em . "; ";
+			echo $t2em . ";";
 		}
 	}
 	echo "?subject=Sun Creek HOA II - All Tenants\">Email Just the Tenants</a>";
@@ -48,16 +48,16 @@
 	$t2em = $contact_info["tenant2_email"];
 
 		if (($o1em !== "") && ($t1em === ""))  {
-			echo $o1em . "; ";
+			echo $o1em . ";";
 		}
 		if (($o2em !== "") && ($t1em === "")) {
-			echo $o2em . "; ";
+			echo $o2em . ";";
 		}
 		if ($t1em !== "") {
-			echo $t1em . "; ";
+			echo $t1em . ";";
 		}
 		if ($t2em !== "") {
-			echo $t2em . "; ";
+			echo $t2em . ";";
 		}
 	}
 	echo "?subject=Sun Creek HOA II - Current Residents\">Email Current Residents</a>";
@@ -73,16 +73,16 @@
 	$t2em = $contact_info["tenant2_email"];
 
 		if ($o1em !== "") {
-			echo $o1em . "; ";
+			echo $o1em . ";";
 		}
 		if ($o2em !== "") {
-			echo $o2em . "; ";
+			echo $o2em . ";";
 		}
 		if ($t1em !== "") {
-			echo $t1em . "; ";
+			echo $t1em . ";";
 		}
 		if ($t2em !== "") {
-			echo $t2em . "; ";
+			echo $t2em . ";";
 		}
 	}
 	echo "?subject=Sun Creek HOA II - To Everyone\">Email Everyone</a>";
