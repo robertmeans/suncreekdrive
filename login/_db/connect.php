@@ -4,7 +4,7 @@
 	// define("DB_PASS", "I-was-30623-in-2016");
 	// define("DB_NAME", "suncreekdrive");
 
-// Local Testing
+// Local testing
 	define("DB_SERVER", "localhost");
 	define("DB_USER", "root");
 	define("DB_PASS", "");
