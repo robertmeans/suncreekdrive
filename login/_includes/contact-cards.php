@@ -45,7 +45,7 @@
 
 	// same last names and both have email addresses
 	} elseif (($o1ln === $o2ln) && (($o1em !== "") && ($o2em !== ""))) {
-		echo "<p class=\"pad\"><a href=\"mailto:{$o1em}\">{$o1fn}</a> &amp; <a href=\"mailto:{$o2em}\">{$o2fn}</a> {$o1ln}<span class=\"large-566-gone\"><br /></span><span class=\"small-565-gone\">&nbsp;&nbsp;&nbsp;</span>[ <a href=\"mailto{$o1em}; {$o2em}\">email both</a> ]</p>";
+		echo "<p class=\"pad\"><a href=\"mailto:{$o1em}\">{$o1fn}</a> &amp; <a href=\"mailto:{$o2em}\">{$o2fn}</a> {$o1ln}<span class=\"large-566-gone\"><br /></span><span class=\"small-565-gone\">&nbsp;&nbsp;&nbsp;</span>[ <a href=\"mailto:{$o1em}; {$o2em}\">email both</a> ]</p>";
 
 	// only 1 owner (owner1)
 	} elseif (($o1em !== "") && ($o2em === "")) {
@@ -157,7 +157,7 @@
 
 	// same last names and both have email addresses
 	} elseif (($t1ln === $t2ln) && (($t1em !== "") && ($t2em !== ""))) {
-		echo "<p class=\"pad\"><a href=\"mailto:{$t1em}\">{$t1fn}</a> &amp; <a href=\"mailto:{$t2em}\">{$t2fn}</a> {$t1ln}<span class=\"large-566-gone\"><br /></span><span class=\"small-565-gone\">&nbsp;&nbsp;&nbsp;</span>[ <a href=\"mailto{$t1em}; {$t2em}\">email both</a> ]</p>";
+		echo "<p class=\"pad\"><a href=\"mailto:{$t1em}\">{$t1fn}</a> &amp; <a href=\"mailto:{$t2em}\">{$t2fn}</a> {$t1ln}<span class=\"large-566-gone\"><br /></span><span class=\"small-565-gone\">&nbsp;&nbsp;&nbsp;</span>[ <a href=\"mailto:{$t1em}; {$t2em}\">email both</a> ]</p>";
 
 	// same last names and neither has email (last name could be empty)
 	} elseif ((($t1fn !== "") && ($t2fn !== "")) && (($t1em === "") && ($t2em ===""))) {
