@@ -82,7 +82,7 @@
 	// Owner 2 cell number
 	if ($o2c !== "") {
 		$data = $o2c;
-		echo "<i class=\"fa fa-mobile\" aria-hidden=\"true\"></i> &nbsp;" . $o2fn . "'s cell: <a class=\"tel-link\" href=\"tel: (" .substr($data, 0, 3).") ".substr($data, 3, 3)."-".substr($data,6) . "\">(".substr($data, 0, 3).") ".substr($data, 3, 3)."-".substr($data,6) . "</a><br /><br />";
+		echo "<i class=\"fa fa-mobile\" aria-hidden=\"true\"></i> &nbsp;" . $o2fn . "'s cell: <a class=\"tel-link\" href=\"tel: (" .substr($data, 0, 3).") ".substr($data, 3, 3)."-".substr($data,6) . "\">(".substr($data, 0, 3).") ".substr($data, 3, 3)."-".substr($data,6) . "</a><br />";
 
 	} else {
 		echo "<p class=\"hide\">this is an empty string </p>";
@@ -91,7 +91,7 @@
 	// ########################### Owner alternate home address ###########################
 	// Owner alternate home address
 	if ($oas1 !== "") {
-		echo "<p class=\"underline\">Owner Mailing Address</p>";
+		echo "<br /><p class=\"underline\">Owner Mailing Address</p>";
 		echo $oas1 . "<br />";
 	}
 	if ($oas2 !== "") {

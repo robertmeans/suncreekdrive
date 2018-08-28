@@ -45,6 +45,7 @@
 	
 </head>
 <body 	<?php 		if (($layout_context == "manage-contacts") || ($layout_context == "edit-contacts")) { echo " class=\"edit-page\""; } ?>>
+<!-- <div id="body-wrap"> -->	
 <header <?php 		if ($layout_context == "manage-contacts") { echo " class=\"edit-page\""; } ?>>
 <div class="header-nav"><?php 
 

@@ -1021,7 +1021,6 @@ div#success-wrap span.success-msg {
 }
 
 footer {
-  line-height: 3em;
   width: 100%;
   background-color: #333;
   color: white;
@@ -1040,6 +1039,7 @@ footer button#toggle-contact-form {
   background-color: inherit;
   border: 1px solid transparent;
   transition: all 0.3s ease;
+  margin: 0 auto;
 }
 footer button#toggle-contact-form:hover {
   text-decoration: none;

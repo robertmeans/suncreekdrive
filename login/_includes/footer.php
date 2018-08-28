@@ -179,7 +179,7 @@
     // break;
     }
 ?>
-<footer class="cf">
+<footer>
 
 	<button id="toggle-contact-form"><i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp; comments | questions | suggestions &nbsp;&nbsp;<i class="fa fa-star" aria-hidden="true"></i></button>
 
@@ -216,7 +216,7 @@
 
 	<p class="copyright"><?= ewd_copyright(2016); ?> Neighborly neighborhood neighbor Bob</p> 
 </footer>
-
+<!-- </div> --><!-- #body-wrap -->
 <script src="js/scripts.js?<?php echo time(); ?>"></script>
 <script src="http://localhost:35729/livereload.js"></script>	
 </body>
