@@ -73,6 +73,8 @@
 
 		case 'admin'			:	echo "<a class=\"header-link\" href=\"index.php\">Cancel</a>";			break;
 
+		case 'edit-admin'		:	echo "<a class=\"header-link\" href=\"manage-admins.php\">Cancel</a>";	break;
+
 		default 				:	echo "<a class=\"header-link\" href=\"login.php\">Manage Site</a>"; 	break;
 	}
 	 

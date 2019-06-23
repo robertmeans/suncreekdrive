@@ -1027,6 +1027,8 @@ footer {
   text-align: center;
   padding-top: 60px;
   margin-top: 50px;
+  -ms-flex: 1;
+      flex: 1;
 }
 footer button#toggle-contact-form {
   background: none;
@@ -1262,4 +1264,12 @@ footer p.copyright a:hover {
 }
 ul.admin {
   color: #fff;
+}
+
+a.edit-admin-cancel {
+  color: #fff;
+  text-decoration: none;
+}
+a.edit-admin-cancel:hover {
+  text-decoration: underline;
 }

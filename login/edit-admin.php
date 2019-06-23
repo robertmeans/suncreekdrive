@@ -7,11 +7,11 @@
 <?php
   // $admin = find_admin_by_id($_GET["id"]);
   
-  if (!$admin) {
+  // if ($admin) {
     // admin ID was missing or invalid or 
     // admin couldn't be found in database
-    redirect_to("manage-admins.php");
-  }
+    // redirect_to("logout.php");
+  // }
 ?>
 
 <?php
@@ -57,7 +57,7 @@ if (isset($_POST['submit'])) {
 
 ?>
 
-<?php $layout_context = "admin"; ?>
+<?php $layout_context = "edit-admin"; ?>
 <?php include("_includes/header.php"); ?>
 
 
@@ -91,8 +91,8 @@ if (isset($_POST['submit'])) {
 
 
 
-      <div class="login-input"><input type="submit" name="submit" value="Edit Admin" /></div>
-      <a href="manage-admins.php">Cancel</a>
+      <div class="login-input"><input type="submit" name="submit" value="Edit" /></div>
+      <a class="edit-admin-cancel" href="manage-admins.php">Cancel</a>
     </form>
   </div>
  </div> 
