@@ -2,7 +2,7 @@
 <?php require '_db/connect.php'; ?>
 <?php require_once("_includes/functions.php"); ?>
 <?php require_once("_includes/validation-functions.php"); ?>
-<?php confirm_logged_in(); ?>
+<?php // confirm_logged_in(); ?>
 
 <?php
 if (isset($_POST['submit'])) {
