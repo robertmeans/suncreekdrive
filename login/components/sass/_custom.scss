@@ -727,3 +727,19 @@ a.edit-admin-cancel {
     text-decoration: underline;
   }
 }
+
+.copy-info {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #fff;
+  background-color: #dbd7cb;
+  color: #272c33;
+  padding: 1.5em;
+  line-height: 1.5em;
+  margin-bottom: 1em;
+  i.fa-copy {
+    margin: 0.2em 0.5em;
+  }
+}

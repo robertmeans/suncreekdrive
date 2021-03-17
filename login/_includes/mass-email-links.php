@@ -1,5 +1,10 @@
 
 <div <?php if ($layout_context == "front-door") { echo " id=\"mass-email-links-front-door\""; } else { echo " id=\"mass-email-links\""; } ?>>
+	
+<div class="copy-info">
+	If the email links do not open your email editor and autopopulate the &quot;To:&quot; field, you can use this icon <i class="far fa-copy fa-fw"></i> to copy the email list to your clipboard.
+</div>
+
 <?php
 	// ############################### Email Links at Top #################################
 	//
