@@ -1,0 +1,15 @@
+*config*
+*.sass-cache*
+_Adobe
+_db
+_errors.txt
+php-error.log
+vendor
+unusual-letter
+node_modules
+.gitattributes
+composer.json
+composer.lock
+package.json
+package-lock.jason
+sftp-config.json

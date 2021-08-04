@@ -1,0 +1,86 @@
+<?php
+
+$errors = array();
+
+function fieldname_as_text($fieldname) {
+	$fieldname = str_replace("_", " ", $fieldname);
+	$fieldname = str_replace("1", " 1", $fieldname);
+	$fieldname = str_replace("2", " 2", $fieldname);
+	$fieldname = ucwords($fieldname);
+	return $fieldname;
+}
+
+// * presence
+// use trim() so empty spaces don't count
+// use === to avoid false positives
+// empty() would consider "0" to be empty
+function has_presence($value) {
+	return isset($value) && $value !== "";
+}
+
+function validate_presences($required_fields) {
+	global $errors;
+	foreach($required_fields as $field) {
+		$value = trim($_POST[$field]);
+		if (!has_presence($value)) {
+			$errors[$field] = fieldname_as_text($field) . " can't be blank";
+		}
+	}
+}
+
+// * string length
+// max length
+function has_max_length($value, $max) {
+	return strlen($value) <= $max;
+}
+
+// function validate_max_lengths($fields_with_max_lengths) {
+// 	global $errors;
+// 	// Expects an assoc. array
+// 	foreach($fields_with_max_lengths as $field => $max) {
+// 		$value = trim($_POST[$field]);
+// 	  if (!has_max_length($value, $max)) {
+// 	    $errors[$field] = fieldname_as_text($field) . " is too long.";
+// 	  }
+// 	}
+// }
+
+
+function validate_max_lengths($fields_with_max_lengths) {
+	global $errors;
+	// Expects an assoc. array
+	foreach($fields_with_max_lengths as $field => $max) {
+		if (	($field === 'owner1_cell') 		|| 
+				($field === 'owner2_cell') 		|| 
+				($field === 'owner_home_phone') || 
+				($field === 'tenant1_cell') 	|| 
+				($field === 'tenant2_cell') 	|| 
+				($field === 'tenant_home_phone')) {
+			$value = preg_replace('/\D/', '', ($_POST[$field])); // if it's a phone number, strip everything but numbers then check length	
+		} else {
+			$value = trim($_POST[$field]);	
+		}
+	  if (!has_max_length($value, $max)) {
+	    $errors[$field] = fieldname_as_text($field) . " is too long.";
+	  }
+	}
+}
+
+
+// function clean_phones($phones_to_clean) {
+// 	global $errors;
+
+// 	foreach($phones_to_clean as $field => $max) {
+// 		$value = preg_replace('/\D/', '', ($_POST[$field]));
+// 		if(!has_max_length($value, $max)) {
+// 			$errors[$field] = fieldname_as_text($field) . " is too long.";
+// 		}
+// 	}
+// }
+
+// * inclusion in a set
+function has_inclusion_in($value, $set) {
+	return in_array($value, $set);
+}
+
+?>

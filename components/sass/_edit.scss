@@ -1,0 +1,171 @@
+.contact-edit-section {
+	width: 100%;
+	border: 1px solid #757575;
+	color: #fff;
+	border-radius: 5px;
+	padding: 20px 10px;
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 15px;
+	background-color: #404c62;
+	line-height: 1em;
+	&:first-of-type {
+		margin-bottom: 10px;
+		background-color: #ebebeb;
+		color: #333;
+	}
+	input {
+		width: 100%;
+		max-width: 160px;
+	}
+	div.ef { // entire block
+		display: block;
+		width: 90%;
+		margin-bottom: 15px;
+	}
+	div.el { // edit labels
+		width: 54%;
+		display: inline-block;
+		text-align: right;
+		padding-right: 8px; 
+	}
+	div.ei { // edit input
+		width: 46%;
+		display: inline-block;
+	}
+	div.note-area {
+		margin-top: 20px;
+	}
+	span.note-label {
+		display: inline-block;
+		margin-bottom: 4px;
+	}	
+}
+hr.hr-edit1{
+	width: 80%;
+	color: #333;
+	margin: 20px auto;
+}
+hr.hr-edit2{
+	width: 80%;
+	color: #fff;
+	margin: 20px auto;
+}
+div.buttons {
+	// width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	input[type=submit]#edit-submit {
+		-webkit-appearance: none;
+		border-radius: 0px;
+		text-align: left;
+		font-size: 100%;
+		display: inline-block;
+		padding: 20px;
+		background-color: #008D00;
+		color: #fff;
+		border: 1px solid #fff;
+		cursor: pointer;
+		line-height: 1em;
+		text-decoration: none;
+		margin: 0 10px;
+		transition: background-color .2s ease;
+		&:hover {
+			background-color: #00CC00;
+			text-decoration: none;
+			// box-shadow: 0px 0px 6px 4px rgba(0,0,0,0.42);
+		}
+	}
+	a#edit-submit {
+		text-align: left;
+		font-size: 100%;
+		display: inline-block;
+		padding: 40px;
+		background-color: #008D00;
+		color: #fff;
+		border: 1px solid #fff;
+		cursor: pointer;
+		line-height: 1em;
+		text-decoration: none;
+		margin: 0 10px;
+		transition: background-color .2s ease;
+		&:hover {
+			background-color: #00CC00;
+			text-decoration: none;
+		}
+	}
+	a.cancel-button {
+		text-align: right;
+		display: inline-block;
+		padding: 20px;
+		background-color: #E50000;
+		color: #fff;
+		border: 1px solid #fff;
+		text-decoration: none;
+		line-height: 16px;
+		margin: 0 10px;
+		transition: background-color .2s ease;
+		&:hover {
+			background-color: #7F0000;
+			text-decoration: none;
+			// box-shadow: 0px 0px 6px 4px rgba(0,0,0,0.42);
+		}
+	}	
+}
+@media screen and (max-width: 865px) {
+	div.button-footer {
+		display: block;
+		position: fixed;
+		width: 100%;
+		text-align: center;
+		bottom: 0;
+		right: 0;
+		overflow: hidden;
+		padding: 20px 0px; 
+		background-color: #e7e1c8;
+		border-top: 1px solid #999;
+		box-shadow: 0px -6px 10px -2px rgba(0,0,0,0.39);
+	}
+
+	input[type=text],
+	input[type=tel] {
+		width: 100%;
+		max-width: 160px;
+	}
+}
+	
+
+textarea {
+	width: 100%;
+	height: 60px;
+}
+
+@media screen and (max-width: 460px) {
+	.contact-edit-section {
+		padding: 20px 5px 20px 20px;
+		div.ef {
+			margin-bottom: 12px;
+		}
+		div.el {
+			display: block;
+			width: 100%;
+			max-width: 400px;
+			text-align: left;
+		}
+		div.ei {
+			display: block;
+			width: 100%;
+			max-width: 400px;
+			input[type=text],
+			input[type=tel],
+			input[type=email] {
+				box-sizing: border-box;
+				width: 100%;
+				max-width: 400px;
+				height: 2em;
+				font-size: 1.2em;
+			}
+		}
+	}
+}
