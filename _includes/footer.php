@@ -1,13 +1,13 @@
 <?php
-    function ewd_copyright($startYear) {
-        $currentYear = date('Y');
-        if ($startYear < $currentYear) {
-            $currentYear = date('y');
-            return "&copy; $startYear&ndash;$currentYear";
-        } else {
-            return "&copy; $startYear";
-        }
+  function ewd_copyright($startYear) {
+    $currentYear = date('Y');
+    if ($startYear < $currentYear) {
+      $currentYear = date('y');
+      return "&copy; $startYear&ndash;$currentYear";
+    } else {
+        return "&copy; $startYear";
     }
+  }
 ?>
 
 <footer>
@@ -42,13 +42,14 @@
 
   </div>
 
-
 	<p class="copyright"><?= ewd_copyright(2016); ?> Neighborly neighborhood neighbor Bob</p> 
 </footer>
 <!-- </div> --><!-- #body-wrap -->
 <script src="js/scripts.js?<?php echo time(); ?>"></script>
 
+<?php if (WWW_ROOT == 'http://localhost/browsergadget') { ?>
 <script src="http://localhost:35729/livereload.js"></script>
+<?php } ?>
 
 </body>
 </html>
