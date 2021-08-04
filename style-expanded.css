@@ -257,6 +257,8 @@ header a.home-link {
 .contact-edit-section input {
   width: 100%;
   max-width: 160px;
+  padding: 0.25em;
+  outline: none;
 }
 .contact-edit-section div.ef {
   display: block;

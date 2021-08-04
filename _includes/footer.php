@@ -47,7 +47,7 @@
 <!-- </div> --><!-- #body-wrap -->
 <script src="js/scripts.js?<?php echo time(); ?>"></script>
 
-<?php if (WWW_ROOT == 'http://localhost/browsergadget') { ?>
+<?php if (WWW_ROOT == 'http://localhost/suncreekdrive') { ?>
 <script src="http://localhost:35729/livereload.js"></script>
 <?php } ?>
 

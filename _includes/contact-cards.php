@@ -191,6 +191,8 @@
 	// Names & emails
 	// different last names, both have email addresses
 	// 08.03.21 - updated
+	// NOTE: Add '11', '22', etc. to prefix of $id_count
+	// to avoid duplicates from Owners info
 	if (($t1ln !== $t2ln) && ($t1em !== "" && $t2em !== "")) { ?>
 		<div class="pad">
 			<span id="<?= '11' . $id_count ?>" style="display:none;"><?= $t1em ?></span>
