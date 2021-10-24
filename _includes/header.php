@@ -44,25 +44,27 @@
 <div class="header-nav"><?php 
 
 	switch ($layout_context) {
-		case 'admin-logged-in' 	:	echo "<span class=\"greetings\">Logged in as: &nbsp;" . htmlentities($_SESSION["username"]) . "</span>";
+		case 'admin-logged-in' 	:	echo "<span class=\"greetings\">Logged in as: &nbsp;" . $_SESSION["username"] . "</span>";
 									echo "<a class=\"header-link\" href=\"homepage.php\">Home</a>";
 									echo "<a class=\"header-link\" href=\"manage-contacts.php\">Edit</a>";
 									echo "<a class=\"header-link\" href=\"logout.php\">Logout</a>"; 	break;
 
-		case 'manage-admins'	:	echo "<span class=\"greetings\">Logged in as: &nbsp;" . htmlentities($_SESSION["username"]) . "</span>";
+		case 'manage-admins'	:	echo "<span class=\"greetings\">Logged in as: &nbsp;" . $_SESSION["username"] . "</span>";
 									echo "<a class=\"header-link\" href=\"homepage.php\">Home</a>";
 									echo "<a class=\"header-link\" href=\"manage-contacts.php\">Edit</a>";
 									echo "<a class=\"header-link\" href=\"logout.php\">Logout</a>"; 	break;
 
-		case 'homepage'			:	echo "<span class=\"greetings\">Logged in as: &nbsp;" . htmlentities($_SESSION["username"]) . "</span>";
+		case 'homepage'			:	echo "<span class=\"greetings\">Logged in as: &nbsp;" . $_SESSION["username"] . "</span>";
+
+							if ($_SESSION["admin_id"] == 1) { echo "<a class=\"header-link\" href=\"new-admin.php\">Add Admin</a>"; }
 									echo "<a class=\"header-link\" href=\"manage-contacts.php\">Edit</a>";
 									echo "<a class=\"header-link\" href=\"logout.php\">Logout</a>"; 	break;
 
-		case 'manage-contacts'	:	echo "<span class=\"greetings\">Logged in as: &nbsp;" . htmlentities($_SESSION["username"]) . "</span>";
+		case 'manage-contacts'	:	echo "<span class=\"greetings\">Logged in as: &nbsp;" . $_SESSION["username"] . "</span>";
 									echo "<a class=\"header-link\" href=\"homepage.php\">Home</a>";
 									echo "<a class=\"header-link\" href=\"logout.php\">Logout</a>"; 	break;
 
-		case 'edit-contacts'	: 	echo "<span class=\"greetings\">Logged in as: &nbsp;" . htmlentities($_SESSION["username"]) . "</span>";
+		case 'edit-contacts'	: 	echo "<span class=\"greetings\">Logged in as: &nbsp;" . $_SESSION["username"] . "</span>";
 									echo "<a class=\"header-link\" href=\"manage-contacts.php\">Cancel</a>"; break;
 
 		case 'admin'			:	echo "<a class=\"header-link\" href=\"index.php\">Cancel</a>";			break;

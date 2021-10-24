@@ -43,6 +43,7 @@ if (isset($_POST['submit'])) {
 <?php include("_includes/header.php"); ?>
   <div id="page">
 
+<div class="login-wrap">
 <div class="login-box">
     <h2>Admin Login</h2>
 
@@ -63,6 +64,6 @@ if (isset($_POST['submit'])) {
     </form>
   </div>
 </div>
-
+</div>
 
 <?php include("_includes/footer.php"); ?>

@@ -5,7 +5,9 @@
 <?php // confirm_logged_in(); ?>
 
 <?php
-  // $admin = find_admin_by_id($_GET["id"]);
+
+$admin_id = $_GET["id"];
+  $admin = find_admin_by_id($admin_id);
   
   // if ($admin) {
     // admin ID was missing or invalid or 
@@ -63,39 +65,34 @@ if (isset($_POST['submit'])) {
 
   <div id="page">
 
+<div class="login-wrap">
   <div class="login-box">
     
-    <h2>Edit Admin: <?php echo htmlentities($admin["username"]); ?></h2>
+    <h2>Edit Admin: <?= $admin["username"]; ?></h2>
 
     <?php echo message(); ?>
     <?php echo form_errors($errors); ?>
     
-    <form action="edit-admin.php?id=<?php echo urlencode($admin["id"]); ?>" method="post">
+    <form action="edit-admin.php?id=<?php echo $admin["id"]; ?>" method="post">
       <div class="login-text">Username:</div>
       <div class="login-input-fields">
-        <input type="text" name="username" value="<?php echo htmlentities($admin["username"]); ?>" autofocus />
+        <input type="text" name="username" value="<?php echo $admin["username"]; ?>" autofocus />
       </div>
        <div class="login-text">Old Password:</div>
       <div class="login-input-fields">
         <input type="password" name="old-password" value="" />
       </div>
 
-
-
-
       <div class="login-text">New Password:</div>
       <div class="login-input-fields">
         <input type="password" name="password" value="" />
       </div>
-
-
-
 
       <div class="login-input"><input type="submit" name="submit" value="Edit" /></div>
       <a class="edit-admin-cancel" href="manage-admins.php">Cancel</a>
     </form>
   </div>
  </div> 
-
+</div>
 
 <?php include("_includes/footer.php"); ?>

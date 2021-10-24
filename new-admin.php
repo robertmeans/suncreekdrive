@@ -2,7 +2,7 @@
 <?php require '_db/connect.php'; ?>
 <?php require_once("_includes/functions.php"); ?>
 <?php require_once("_includes/validation-functions.php"); ?>
-<?php // confirm_logged_in(); ?>
+<?php confirm_logged_in(); ?>
 
 <?php
 if (isset($_POST['submit'])) {
@@ -51,7 +51,7 @@ if (isset($_POST['submit'])) {
 <?php $admin = mysqli_fetch_assoc($admin_set) ?>
 <?php include("_includes/header.php"); ?>
 
-
+<div class="login-wrap">
   <div class="login-box">
     <h2>Create Admin</h2>
 
@@ -71,6 +71,6 @@ if (isset($_POST['submit'])) {
        <a class="cancel-admins" href="manage-admins.php">Cancel</a>
     </form>
   </div>
-
+</div>
 
 <?php include("_includes/footer.php"); ?>

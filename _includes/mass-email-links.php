@@ -9,25 +9,34 @@
 <?php
 	// ############################### Email Links at Top #################################
 	//
-	// ############################################# Email Just the Owners
-?><form class="emlinks"><input type="hidden" id="sr_01" value="<?php 
- 	
+
+	// ############################################# Email All Current Residents
+?><form class="emlinks"><input type="hidden" id="sr_03" value="<?php 
+
  	$result = return_all_content();
-	while 	($contact_info = mysqli_fetch_assoc($result)) {
+	while($contact_info = mysqli_fetch_assoc($result)) {
 
 	$o1em = $contact_info["owner1_email"];
 	$o2em = $contact_info["owner2_email"];
+	$t1em = $contact_info["tenant1_email"];
+	$t2em = $contact_info["tenant2_email"];
 
-		if 	($o1em !== "") {
-			echo $o1em . ";";
+		if (($o1em !== "") && ($t1em === ""))  {
+			echo $o1em . "; ";
 		}
-		if 	($o2em !== "") {
-			echo $o2em . ";";
+		if (($o2em !== "") && ($t1em === "")) {
+			echo $o2em . "; ";
+		}
+		if ($t1em !== "") {
+			echo $t1em . "; ";
+		}
+		if ($t2em !== "") {
+			echo $t2em . "; ";
 		}
 	}
 	?>">
 
-<a data-role="srcb" data-id="sr_01" class="email-links">Email Just the Owners <i class="far fa-copy fa-fw"></i></a>
+<a data-role="srcb" data-id="sr_03" class="email-links">Email Current Neighbors <i class="far fa-copy fa-fw"></i></a>
 </form>
 	<?php
 
@@ -41,48 +50,40 @@
 	$t2em = $contact_info["tenant2_email"];
 
 		if ($t1em !== "") {
-			echo $t1em . ";";
+			echo $t1em . "; ";
 		}
 		if ($t2em !== "") {
-			echo $t2em . ";";
+			echo $t2em . "; ";
 		}
 	}
 	?>">
 
-<a data-role="srcb" data-id="sr_02" class="email-links">Email Just the Tenants <i class="far fa-copy fa-fw"></i></a>
+<a data-role="srcb" data-id="sr_02" class="email-links">Email Just the Renters <i class="far fa-copy fa-fw"></i></a>
 </form>
 	<?php
 
-	// ############################################# Email All Current Residents
-?><form class="emlinks"><input type="hidden" id="sr_03" value="<?php 
-
+	// ############################################# Email Just the Owners
+?><form class="emlinks"><input type="hidden" id="sr_01" value="<?php 
+ 	
  	mysqli_data_seek($result,0);
-	while($contact_info = mysqli_fetch_assoc($result)) {
+	while 	($contact_info = mysqli_fetch_assoc($result)) {
 
 	$o1em = $contact_info["owner1_email"];
 	$o2em = $contact_info["owner2_email"];
-	$t1em = $contact_info["tenant1_email"];
-	$t2em = $contact_info["tenant2_email"];
 
-		if (($o1em !== "") && ($t1em === ""))  {
-			echo $o1em . ";";
+		if 	($o1em !== "") {
+			echo $o1em . "; ";
 		}
-		if (($o2em !== "") && ($t1em === "")) {
-			echo $o2em . ";";
-		}
-		if ($t1em !== "") {
-			echo $t1em . ";";
-		}
-		if ($t2em !== "") {
-			echo $t2em . ";";
+		if 	($o2em !== "") {
+			echo $o2em . "; ";
 		}
 	}
 	?>">
 
-<a data-role="srcb" data-id="sr_03" class="email-links">Email Current Residents <i class="far fa-copy fa-fw"></i></a>
+<a data-role="srcb" data-id="sr_01" class="email-links">Email Just the Owners <i class="far fa-copy fa-fw"></i></a>
 </form>
 	<?php
-
+	
 	// ############################################# Email Everyone
 ?><form class="emlinks"><input type="hidden" id="sr_04" value="<?php 
 
@@ -95,20 +96,20 @@
 	$t2em = $contact_info["tenant2_email"];
 
 		if ($o1em !== "") {
-			echo $o1em . ";";
+			echo $o1em . "; ";
 		}
 		if ($o2em !== "") {
-			echo $o2em . ";";
+			echo $o2em . "; ";
 		}
 		if ($t1em !== "") {
-			echo $t1em . ";";
+			echo $t1em . "; ";
 		}
 		if ($t2em !== "") {
-			echo $t2em . ";";
+			echo $t2em . "; ";
 		}
 	}
 	?>">
 
-<a data-role="srcb" data-id="sr_04" class="email-links">Email Everyone <i class="far fa-copy fa-fw"></i></a>
+<a data-role="srcb" data-id="sr_04" class="email-links">Email Owners + Renters <i class="far fa-copy fa-fw"></i></a>
 </form>
 </div>
