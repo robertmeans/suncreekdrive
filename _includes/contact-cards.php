@@ -229,7 +229,7 @@
 
 	// only 1 tenant (tenant1)
 	// 08.03.21 - this is me!
-	} elseif (($t1em !== "") && ($t2em === "")) { ?>
+	} elseif (($t1em !== "") && (($t2fn === "") && ($t2em === ""))) { ?>
 		<div class="pad">
 			<span id="<?= '11' . $id_count ?>" style="display:none;"><?= $t1em ?></span>
 			<a href="mailto:<?= $t1em ?>" target="_blank"><?= $t1fn . ' ' . $t1ln ?></a><a data-role="emcc" data-id="<?= '11' . $id_count ?>"><i class="far fa-copy fa-fw"></i></a>
